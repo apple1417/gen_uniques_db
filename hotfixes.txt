@@ -1,0 +1,125 @@
+Line 521
+/Game/Enemies/Punk_Female/_Unique/Bounty01/_Design/Character/b/BPChar_Punk_Bounty01b.BPChar_Punk_Bounty01b
+    DropOnDeathItemPools.ItemPools removeall
+
+Line 522
+/Game/Enemies/Punk_Female/_Unique/Bounty01/_Design/Character/b/BPChar_Punk_Bounty01c.BPChar_Punk_Bounty01c
+    DropOnDeathItemPools.ItemPools removeall
+
+Line 523
+/Game/Enemies/Punk_Female/_Unique/Bounty01/_Design/Character/b/BPChar_Punk_Bounty01d.BPChar_Punk_Bounty01d
+    DropOnDeathItemPools.ItemPools removeall
+
+Line 535
+/Game/Enemies/Spiderant/_Unique/Hunt01/_Design/Character/BPChar_Spiderant_Hunt01.BPChar_Spiderant_Hunt01
+    DropOnDeathItemPools.ItemPools removeall
+
+Line 1455
+/Game/GameData/Loot/ItemPools/ItemPoolList_Boss_Terror.ItemPoolList_Boss_Terror
+    ItemPools add
+    /Game/GameData/Loot/ItemPools/Unique/ItemPool_Agonizer1500_Terror.ItemPool_Agonizer1500_Terror
+
+Line 1600
+/Game/NonPlayerCharacters/_Promethea/AtlasSoldier/_Design/Character/BPChar_AtlasSoldier_Bounty01.BPChar_AtlasSoldier_Bounty01
+    PlayThroughs.PlayThroughs[0].bOverrideDropOnDeathItemPools = False
+
+Line 1981
+/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Hunt_Hampton.ItemPool_Hibiscus_Hunt_Hampton
+    BalancedItems add
+    /Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Anarchy/Balance/Balance_SG_TED_Anarchy.Balance_SG_TED_Anarchy
+
+Line 2261
+/Game/PatchDLC/Hibiscus/GameData/Loot/EnemyPools/ItemPoolList_Eista.ItemPoolList_Eista
+    ItemPools add
+    /Game/PatchDLC/Hibiscus/GameData/Loot/Legendary/ItemPool_Hib_SnipeRifles_Legendary.ItemPool_Hib_SnipeRifles_Legendary
+
+Line 2398
+/Game/GameData/Loot/ItemPools/Unique/ItemPool_Piss_ThunkandSloth.ItemPool_Piss_ThunkandSloth
+    BalancedItems add
+    /Game/Gear/Weapons/HeavyWeapons/Vladof/_Shared/_Design/_Unique/Mongol/Balance/Balance_HW_VLA_Mongol.Balance_HW_VLA_Mongol
+
+Line 2413
+/Game/PatchDLC/Raid1/GameData/Loot/ItemPool_RaidBoss_Pool.ItemPool_RaidBoss_Pool
+    BalancedItems remove
+    /Game/PatchDLC/Raid1/Gear/Shields/VersionOmNom/Balance/InvBalD_Shield_Legendary_VersionOmNom.InvBalD_Shield_Legendary_VersionOmNom
+    /Game/PatchDLC/Raid1/Gear/Shields/_HybridLegendary/SlideKickHybrid/SlideKick_Recharger/InvBalD_Shield_SlideKickRecharger.InvBalD_Shield_SlideKickRecharger
+    /Game/PatchDLC/Raid1/Gear/Shields/_HybridLegendary/SlideKickHybrid/SlideKick_FrozenHeart/Balance/InvBalD_Shield_SlideKickFrozenHeart.InvBalD_Shield_SlideKickFrozenHeart
+    /Game/PatchDLC/Raid1/Gear/Shields/_HybridLegendary/SlideKickHybrid/ReCharger_Berner/InvBalD_Shield_LGD_ReCharger_Berner.InvBalD_Shield_LGD_ReCharger_Berner
+    /Game/PatchDLC/Raid1/Customizations/ItemPool_Raid1_Customization.ItemPool_Raid1_Customization
+
+Line 3005
+/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Miniboss.ItemPool_TD2_Miniboss
+    BalancedItems[3] remove
+    /Game/PatchDLC/Raid1/Re-Engagement/ItemPool/ItemPool_Mayhem4_Legendaries.ItemPool_Mayhem4_Legendaries
+    BalancedItems[3] add
+    /Game/PatchDLC/Mayhem2/Gear/ItemPoolExpansion_Mayhem2/ItemPool_Mayhem2_Legendaries.ItemPool_Mayhem2_Legendaries
+
+Line 3006
+/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Boss.ItemPool_TD2_Boss
+    BalancedItems[4] remove
+    /Game/PatchDLC/Raid1/Re-Engagement/ItemPool/ItemPool_Mayhem4_Legendaries.ItemPool_Mayhem4_Legendaries
+    BalancedItems[4] add
+    /Game/PatchDLC/Mayhem2/Gear/ItemPoolExpansion_Mayhem2/ItemPool_Mayhem2_Legendaries.ItemPool_Mayhem2_Legendaries
+
+Line 3654
+/Game/PatchDLC/Raid1/GameData/Loot/ItemPools/ItemPool_AureliaBoss.ItemPool_AureliaBoss
+    BalancedItems remove
+    /Game/PatchDLC/Raid1/Re-Engagement/Weapons/Juliet/Balance/Balance_AR_TOR_Juliet_WorldDrop.Balance_AR_TOR_Juliet_WorldDrop
+    BalancedItems add
+    /Game/Gear/GrenadeMods/_Design/_Unique/FireStorm/Balance/InvBalD_GM_VLA_FireStorm.InvBalD_GM_VLA_FireStorm
+
+Line 3655
+/Game/PatchDLC/Raid1/GameData/Loot/ItemPools/ItemPool_Loot_Enemies.ItemPool_Loot_Enemies
+    BalancedItems add
+    /Game/Gear/Weapons/HeavyWeapons/Torgue/_Shared/_Design/_Unique/RYNO/Balance/Balance_HW_TOR_RYNO.Balance_HW_TOR_RYNO
+
+Line 3827
+/Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_SMGs_Mayhem.ItemPool_SMGs_Mayhem
+    BalancedItems.BalancedItems[3].Weight.BaseValueScale = 0
+
+Line 3828
+/Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_Shields_AllAndDLC.ItemPool_Shields_AllAndDLC
+    BalancedItems[7] remove
+    /Game/PatchDLC/Raid1/GameData/Loot/ItemPool_RaidMiniBosses_Pool.ItemPool_RaidMiniBosses_Pool
+    BalancedItems[7] add
+    /Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_Shields_MaliwanTD.ItemPool_Shields_MaliwanTD
+
+Line 3928
+/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_SparkyBoom.ItemPool_Hibiscus_SparkyBoom
+    BalancedItems add
+    /Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Omen/Balance/Balance_SG_TED_Omen.Balance_SG_TED_Omen
+
+Line 3933
+/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_VoidRift.ItemPool_Hibiscus_VoidRift
+    BalancedItems add
+    /Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Oldridian/Balance/Balance_SM_HYP_Oldridian.Balance_SM_HYP_Oldridian
+
+Line 3995
+/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_UnseenThreat.ItemPool_Hibiscus_UnseenThreat
+    BalancedItems add
+    /Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Homicidal/Balance/Balance_AR_COV_Homicidal.Balance_AR_COV_Homicidal
+
+Line 3937
+/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Hunt_GMork.ItemPool_Hibiscus_Hunt_Gmork
+    BalancedItems add
+    /Game/PatchDLC/Hibiscus/Gear/Shields/_Unique/Torch/Balance/InvBalD_Shield_Legendary_Torch.InvBalD_Shield_Legendary_Torch
+
+Line 3939
+/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_LoveDrill.ItemPool_Hibiscus_LoveDrill
+    BalancedItems add
+    /Game/PatchDLC/Hibiscus/Gear/Shields/_Unique/OldGod/Balance/InvBalD_Shield_OldGod.InvBalD_Shield_OldGod
+
+Line 3941
+/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Mutant.ItemPool_Hibiscus_Mutant
+    BalancedItems add
+    /Game/PatchDLC/Hibiscus/Gear/ClassMods/_Design/SRN/InvBalD_CM_Siren_Hib.InvBalD_CM_Siren_Hib
+
+Line 3945
+/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Shocker.ItemPool_Hibiscus_Shocker
+    BalancedItems add
+    /Game/PatchDLC/Hibiscus/Gear/ClassMods/_Design/OPE/InvBalD_CM_Operative_Hib.InvBalD_CM_Operative_Hib
+
+Line 3947
+/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Hydrafrost.ItemPool_Hibiscus_Hydrafrost
+    BalancedItems add
+    /Game/PatchDLC/Hibiscus/Gear/ClassMods/_Design/BSM/InvBalD_CM_Beastmaster_Hib.InvBalD_CM_Beastmaster_Hib
