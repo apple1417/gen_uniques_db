@@ -37,13 +37,19 @@ EXTRA_MISSION_REWARDS: dict[str, set[str]] = {
     "/Game/Missions/Side/Zone_1/Athenas/Mission_InvasionOfPrivacy.Default__Mission_InvasionOfPrivacy_C": {
         "/Game/Gear/Weapons/SMGs/Tediore/_Shared/_Design/_Unique/Beans/Balance/Balance_SM_TED_Beans.Balance_SM_TED_Beans",
     },
+    "/Game/Missions/Side/Zone_3/Desert/Mission_BirthdaySurprise.Default__Mission_BirthdaySurprise_C": {
+        "/Game/Gear/GrenadeMods/_Design/_Unique/BirthdaySuprise/Balance/InvBalD_GM_BirthdaySuprise.InvBalD_GM_BirthdaySuprise",
+    },
     "/Game/PatchDLC/Dandelion/Missions/Plot/Mission_DLC1_Ep01_MeetTimothy.Default__Mission_DLC1_Ep01_MeetTimothy_C": {
         "/Game/PatchDLC/Dandelion/Gear/Weapon/_Unique/JustCaustic/Balance/Balance_SM_HYP_JustCaustic.Balance_SM_HYP_JustCaustic",
+    },
+    "/Game/PatchDLC/Hibiscus/Missions/Plot/EP06_DLC2.Default__EP06_DLC2_C": {
+        "/Game/PatchDLC/Hibiscus/Gear/Artifacts/_Design/_Unique/PUK/Balance/InvBalD_Artifact_PUK.InvBalD_Artifact_PUK",
     },
     "/Game/PatchDLC/Geranium/Missions/Side/Mission_MoneyBackGuarantee.Default__Mission_MoneyBackGuarantee_C": {
         "/Game/PatchDLC/Geranium/Gear/Weapon/_Unique/Fakobs/Balance/Balance_SG_JAK_Fakobs.Balance_SG_JAK_Fakobs",
     },
-    "/Game/PatchDLC/Hibiscus/Missions/Plot/EP06_DLC2.Default__EP06_DLC2_C": {
-        "/Game/PatchDLC/Hibiscus/Gear/Artifacts/_Design/_Unique/PUK/Balance/InvBalD_Artifact_PUK.InvBalD_Artifact_PUK",
-    }
+    "/Game/PatchDLC/Geranium/Missions/Plot/Mission_Ep05_Crater.Default__Mission_Ep05_Crater_C": {
+        "/Game/PatchDLC/Geranium/Gear/Weapon/_Unique/Dakota/Balance/Balance_SG_JAK_Dakota.Balance_SG_JAK_Dakota",
+    },
 }

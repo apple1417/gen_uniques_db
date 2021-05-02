@@ -52,17 +52,8 @@ MISC_NOTABLE_POOLS: dict[MiscSource, set[str]] = {
         "/Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_GrenadeMods_DiamondKeyWall.ItemPool_GrenadeMods_DiamondKeyWall",
         "/Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_Shields_DiamondKeyWall.ItemPool_Shields_DiamondKeyWall",
     },
-    MiscSource("Maliwan Depot Chest", "Meridian Metroplex"): {
-        "/Game/Gear/Weapons/_Shared/NPC_Weapons/Zero/ZeroForPlayer/ItemPool_ZerosGun.ItemPool_ZerosGun",
-    },
-    MiscSource("Dalton's Chest", "Floodmoor Basin"): {
-        "/Game/Missions/Plot/EP13_JacobsRebellion/ItemPool_JakobsRebellion_HandOfGlory.ItemPool_JakobsRebellion_HandOfGlory",
-    },
     MiscSource("Use Suicide Machine 20x", "Ambermire"): {
         "/Game/GameData/Challenges/Missions/Unique/ItemPool_SuckerPunch_BurningSummit.ItemPool_SuckerPunch_BurningSummit",
-    },
-    MiscSource("Life of the Party Pinata", "Devil's Razor"): {
-        "/Game/Missions/Side/Zone_3/Desert/BirthdaySurprise/ItemPool_BirthdaySurprise_Pinata.ItemPool_BirthdaySurprise_Pinata",
     },
     MiscSource("Break 50 hearts"): {
         "/Game/PatchDLC/EventVDay/GameData/Challenges/ChallengeRewards/ItemPool_VDay_Weapon_PolyAim.ItemPool_VDay_Weapon_PolyAim",
@@ -78,9 +69,6 @@ MISC_NOTABLE_POOLS: dict[MiscSource, set[str]] = {
     },
     MiscSource("Pet Mancubite 50x", "Lodge"): {
         "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Kaleidoscope.ItemPool_Hibiscus_Kaleidoscope",
-    },
-    MiscSource("Bank of Vestige", "Vestige"): {
-        "/Game/PatchDLC/Geranium/Missions/Plot/CraterBoss/ItemPool_Ep05Crater_DakotasPistol.ItemPool_Ep05Crater_DakotasPistol",
     },
 }
 

@@ -21,13 +21,9 @@ where
     and s.SourceType != "World Drop"
     and s.SourceType != "Mission"
 
-    and s.Description != "Bank of Vestige"
-    and s.Description != "Dalton's Chest"
     and s.Description != "Diamond Chest"
     and s.Description != "Earl's Vendor"
     and s.Description != "Eridian Fabricator"
-    and s.Description != "Life of the Party Pinata"
-    and s.Description != "Maliwan Depot Chest"
     and s.Description != "Vincent"
 order by
     s.Map,
