@@ -28,6 +28,7 @@ where
     and s.Description != "Eridian Fabricator"
     and s.Description != "Life of the Party Pinata"
     and s.Description != "Maliwan Depot Chest"
+    and s.Description != "Vincent"
 order by
     s.Map,
     s.Description,
