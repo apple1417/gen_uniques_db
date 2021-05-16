@@ -24,7 +24,7 @@ MISC_NOTABLE_POOLS: dict[MiscSource, set[str]] = {
     MiscSource("All Hammerlock Hunts"): {
         "/Game/GameData/Challenges/CrewChallenges/Hunt/ItemPool_Hammerlock_HuntDone.ItemPool_Hammerlock_HuntDone",
     },
-    MiscSource("All Radio Towers"): {
+    MiscSource("Random Chance from Radio Towers"): {
         "/Game/GameData/Challenges/CrewChallenges/Sabotage/ChallengeSabotageRewardStat/ItemPool_Crew_Challenge_Sabotage_GunReward.ItemPool_Crew_Challenge_Sabotage_GunReward",
     },
     MiscSource("Eridian Fabricator", include_world_drops=True): {
@@ -72,7 +72,7 @@ MISC_NOTABLE_POOLS: dict[MiscSource, set[str]] = {
     },
 }
 
-# Only use this where it's not posisble to assign an itempool
+# Only use this where it's not possible to assign an itempool
 MISC_NOTABLE_BALANCES: dict[MiscSource, set[str]] = {
     MiscSource("Booster Pack"): {
         "/Game/Gear/GrenadeMods/_Design/_Unique/CashMoneyPreorder/Balance/InvBalD_GM_CashMoneyPreorder.InvBalD_GM_CashMoneyPreorder",
