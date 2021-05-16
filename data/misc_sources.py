@@ -62,12 +62,12 @@ MISC_NOTABLE_POOLS: dict[MiscSource, set[str]] = {
         "/Game/PatchDLC/EventVDay/GameData/Challenges/ChallengeRewards/ItemPool_VDay_Weapon_WeddingInvitation.ItemPool_VDay_Weapon_WeddingInvitation",
     },
     MiscSource("All Ember Bombs"): {
-        "/Game/PatchDLC/Dandelion/Missions/ItemPool_Reward/ItemPool_Mission_Crew_EmbersPurge",
+        "/Game/PatchDLC/Dandelion/Missions/ItemPool_Reward/ItemPool_Mission_Crew_EmbersPurge.ItemPool_Mission_Crew_EmbersPurge",
     },
     MiscSource("All Torgue Hot Sauce"): {
-        "/Game/PatchDLC/Dandelion/Missions/ItemPool_Reward/ItemPool_Mission_Crew_TorguesMarketingMistake",
+        "/Game/PatchDLC/Dandelion/Missions/ItemPool_Reward/ItemPool_Mission_Crew_TorguesMarketingMistake.ItemPool_Mission_Crew_TorguesMarketingMistake",
     },
-    MiscSource("Pet Mancubite 50x", "Lodge"): {
+    MiscSource("Petting Mancubite 50+ times", "Lodge"): {
         "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Kaleidoscope.ItemPool_Hibiscus_Kaleidoscope",
     },
 }
