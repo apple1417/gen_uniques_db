@@ -127,7 +127,7 @@ NAME_OVERRIDES: dict[str, set[str]] = {
     "/Game/PatchDLC/Raid1/Gear/Artifacts/Safegaurd/InvBalD_Artifact_Safegaurd.InvBalD_Artifact_Safegaurd": {"Safeguard"},
     "/Game/PatchDLC/Raid1/Gear/Artifacts/Salvo/InvBalD_Artifact_Salvo.InvBalD_Artifact_Salvo": {"Launch Pad"},
     "/Game/PatchDLC/Raid1/Gear/Artifacts/SplatterGun/InvBalD_Artifact_SplatterGun.InvBalD_Artifact_SplatterGun": {"Splatter Gun"},
-    "/Game/PatchDLC/Raid1/Gear/Artifacts/StaticTouch/InvBalD_Artifact_StaticTouch.InvBalD_Artifact_StaticTouch": {"Static Touch"},
+    "/Game/PatchDLC/Raid1/Gear/Artifacts/StaticTouch/InvBalD_Artifact_StaticTouch.InvBalD_Artifact_StaticTouch": {"Static Charge"},
     "/Game/PatchDLC/Raid1/Gear/Artifacts/VictoryRush/InvBalD_Artifact_VictoryRush.InvBalD_Artifact_VictoryRush": {"Victory Rush"},
     "/Game/PatchDLC/Raid1/Gear/Artifacts/WhiteElephant/InvBalD_Artifact_WhiteElephant.InvBalD_Artifact_WhiteElephant": {"White Elephant"},
     "/Game/PatchDLC/Raid1/Gear/Weapons/Fork2/Balance/Balance_SM_HYP_Fork2.Balance_SM_HYP_Fork2": {"Redistributor (Legendary)"},
