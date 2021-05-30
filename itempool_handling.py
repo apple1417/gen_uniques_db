@@ -110,9 +110,10 @@ def _get_balanced_items(
             and isinstance((nested_pool := item["ItemPoolData"]), list)
             and len(nested_pool) == 2
         ):
-            if nested_pool[1] in remove_data.pools:
+            nested_name = fix_dotted_object_name(nested_pool[1])
+            if nested_name in remove_data.pools:
                 continue
-            all_balances.update(load_itempool_contents(nested_pool[1], world_drop_blacklist))
+            all_balances.update(load_itempool_contents(nested_name, world_drop_blacklist))
 
         if (
             "InventoryBalanceData" in item

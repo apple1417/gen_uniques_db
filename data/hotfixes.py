@@ -25,10 +25,10 @@ HOTFIX_BALANCEDITEMS_REMOVE: dict[str, BalancedItemsEntry] = {
     }, {
         "/Game/PatchDLC/Raid1/Customizations/ItemPool_Raid1_Customization.ItemPool_Raid1_Customization",
     }),
-    "/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Miniboss.ItemPool_TD2_Miniboss": BalancedItemsEntry({
+    "/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Miniboss.ItemPool_TD2_Miniboss": BalancedItemsEntry(pools={
         "/Game/PatchDLC/Raid1/Re-Engagement/ItemPool/ItemPool_Mayhem4_Legendaries.ItemPool_Mayhem4_Legendaries"
     }),
-    "/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Boss.ItemPool_TD2_Boss": BalancedItemsEntry({
+    "/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Boss.ItemPool_TD2_Boss": BalancedItemsEntry(pools={
         "/Game/PatchDLC/Raid1/Re-Engagement/ItemPool/ItemPool_Mayhem4_Legendaries.ItemPool_Mayhem4_Legendaries",
     }),
     "/Game/PatchDLC/Raid1/GameData/Loot/ItemPools/ItemPool_AureliaBoss.ItemPool_AureliaBoss": BalancedItemsEntry({
@@ -37,7 +37,7 @@ HOTFIX_BALANCEDITEMS_REMOVE: dict[str, BalancedItemsEntry] = {
     "/Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_SMGs_Mayhem.ItemPool_SMGs_Mayhem": BalancedItemsEntry({
         "/Game/PatchDLC/Raid1/Gear/Weapons/Link/Balance/Balance_SM_MAL_Link.Balance_SM_MAL_Link",
     }),
-    "/Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_Shields_AllAndDLC.ItemPool_Shields_AllAndDLC": BalancedItemsEntry({
+    "/Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_Shields_AllAndDLC.ItemPool_Shields_AllAndDLC": BalancedItemsEntry(pools={
         "/Game/PatchDLC/Raid1/GameData/Loot/ItemPool_RaidMiniBosses_Pool.ItemPool_RaidMiniBosses_Pool",
     }),
 }
@@ -49,10 +49,10 @@ HOTFIX_BALANCEDITEMS_ADD: dict[str, BalancedItemsEntry] = {
     "/Game/GameData/Loot/ItemPools/Unique/ItemPool_Piss_ThunkandSloth.ItemPool_Piss_ThunkandSloth": BalancedItemsEntry({
         "/Game/Gear/Weapons/HeavyWeapons/Vladof/_Shared/_Design/_Unique/Mongol/Balance/Balance_HW_VLA_Mongol.Balance_HW_VLA_Mongol",
     }),
-    "/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Miniboss.ItemPool_TD2_Miniboss": BalancedItemsEntry({
+    "/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Miniboss.ItemPool_TD2_Miniboss": BalancedItemsEntry(pools={
         "/Game/PatchDLC/Mayhem2/Gear/ItemPoolExpansion_Mayhem2/ItemPool_Mayhem2_Legendaries.ItemPool_Mayhem2_Legendaries",
     }),
-    "/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Boss.ItemPool_TD2_Boss": BalancedItemsEntry({
+    "/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Boss.ItemPool_TD2_Boss": BalancedItemsEntry(pools={
         "/Game/PatchDLC/Mayhem2/Gear/ItemPoolExpansion_Mayhem2/ItemPool_Mayhem2_Legendaries.ItemPool_Mayhem2_Legendaries",
     }),
     "/Game/PatchDLC/Raid1/GameData/Loot/ItemPools/ItemPool_AureliaBoss.ItemPool_AureliaBoss": BalancedItemsEntry({
@@ -61,7 +61,7 @@ HOTFIX_BALANCEDITEMS_ADD: dict[str, BalancedItemsEntry] = {
     "/Game/PatchDLC/Raid1/GameData/Loot/ItemPools/ItemPool_Loot_Enemies.ItemPool_Loot_Enemies": BalancedItemsEntry({
         "/Game/Gear/Weapons/HeavyWeapons/Torgue/_Shared/_Design/_Unique/RYNO/Balance/Balance_HW_TOR_RYNO.Balance_HW_TOR_RYNO",
     }),
-    "/Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_Shields_AllAndDLC.ItemPool_Shields_AllAndDLC": BalancedItemsEntry({
+    "/Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_Shields_AllAndDLC.ItemPool_Shields_AllAndDLC": BalancedItemsEntry(pools={
         "/Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_Shields_MaliwanTD.ItemPool_Shields_MaliwanTD",
     }),
     "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_SparkyBoom.ItemPool_Hibiscus_SparkyBoom": BalancedItemsEntry({
