@@ -1,3 +1,4 @@
+import csv
 import logging
 import sqlite3
 from collections.abc import Iterator
@@ -6,8 +7,8 @@ from typing import Optional
 
 import bl3dump
 from data.constants import MAPS
-from data.enemies import (ALL_UNIQUE_ENEMIES, BPCHAR_OVERRIDES, DROP_OVERRIDES,
-                          ENEMY_DROP_EXPANSIONS, MAP_OVERRIDES)
+from data.enemies import (BPCHAR_INHERITANCE_OVERRIDES, BPCHAR_NAME_OVERRIDES, DROP_OVERRIDES,
+                          ENEMY_DROP_EXPANSIONS, IGNORED_BPCHARS, MAP_OVERRIDES)
 from data.hotfixes import (HOTFIX_DOD_POOLS_REMOVE_ALL, HOTFIX_ITEMPOOLLISTS_ADD,
                            HOTFIX_JUDGE_HIGHTOWER_PT_OVERRIDE)
 from itempool_handling import load_itempool_contents
@@ -94,6 +95,39 @@ def iter_enemy_drop_expansions() -> Iterator[bl3dump.JSON]:
             yield from expansion_list["CharacterExpansions"]
 
 
+def iter_all_enemies() -> Iterator[tuple[str, str, bl3dump.AssetFile]]:
+    name_data = {}
+    with open("bpchars/expanded.csv") as file:
+        reader = csv.reader(file)
+        next(reader)  # Skip the header
+        for row in reader:
+            # Arbitrarily only using the first value as the name
+            bpchar, name = row[0:2]
+            if bpchar in IGNORED_BPCHARS:
+                continue
+            if bpchar in BPCHAR_NAME_OVERRIDES:
+                name = BPCHAR_NAME_OVERRIDES[bpchar]
+            if name == "(unknown)":
+                continue
+            name_data[row[0]] = name
+
+    all_names = list(name_data.values())
+    for bpchar, name in name_data.items():
+        # Make duplicate names different
+        # In practice, anything that makes it into the database should have it's name overwritten to
+        #  something unique anyway, this is more to help when setting up the overrides
+        if all_names.count(name) > 0:
+            name = f"{name} ({bpchar})"
+
+        asset: bl3dump.AssetFile
+        if bpchar in BPCHAR_INHERITANCE_OVERRIDES:
+            asset = bl3dump.AssetFile(BPCHAR_INHERITANCE_OVERRIDES[bpchar])
+        else:
+            asset = bl3dump.AssetFile(bpchar)
+
+        yield name, bpchar, asset
+
+
 def iter_enemy_data() -> Iterator[EnemyData]:
     all_expansions: dict[str, set[str]] = {}
     for expansion_data in iter_enemy_drop_expansions():
@@ -108,13 +142,7 @@ def iter_enemy_data() -> Iterator[EnemyData]:
 
         all_expansions[expansion_data["key"]] = expansion_drops
 
-    for enemy_name, obj_name in ALL_UNIQUE_ENEMIES:
-        bp_char: bl3dump.AssetFile
-        if obj_name in BPCHAR_OVERRIDES:
-            bp_char = bl3dump.AssetFile(BPCHAR_OVERRIDES[obj_name])
-        else:
-            bp_char = bl3dump.AssetFile(obj_name)
-
+    for enemy_name, obj_name, bpchar in iter_all_enemies():
         drops: set[str]
         if obj_name in DROP_OVERRIDES:
             override = DROP_OVERRIDES[obj_name]
@@ -129,7 +157,11 @@ def iter_enemy_data() -> Iterator[EnemyData]:
                 ]
             })
         else:
-            balance = bp_char.get_single_export("AIBalanceStateComponent")
+            try:
+                balance = bpchar.get_single_export("AIBalanceStateComponent")
+            except ValueError:
+                logging.info(f"Couldn't extract bpchar: {obj_name}")
+                continue
             drops = expand_drop_on_death(balance.get("DropOnDeathItemPools", {}), obj_name)
 
             bad_drops = False
@@ -152,7 +184,7 @@ def iter_enemy_data() -> Iterator[EnemyData]:
             if bad_drops:
                 continue
 
-        if (cls_name := bp_char.name.split(".")[-1] + "_C") in all_expansions:
+        if (cls_name := bpchar.name.split(".")[-1] + "_C") in all_expansions:
             drops.update(all_expansions[cls_name])
 
         if len(drops) > 0:
