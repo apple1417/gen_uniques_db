@@ -1,4 +1,3 @@
-import csv
 import logging
 import sqlite3
 from collections.abc import Iterator
@@ -7,12 +6,12 @@ from typing import Optional
 
 import bl3dump
 from data.constants import MAPS
-from data.enemies import (BPCHAR_INHERITANCE_OVERRIDES, BPCHAR_NAME_OVERRIDES, DROP_OVERRIDES,
-                          ENEMY_DROP_EXPANSIONS, IGNORED_BPCHARS, MAP_OVERRIDES)
+from data.enemies import (BPCHAR_GLOBS, BPCHAR_NAMES, DROP_OVERRIDES, ENEMY_DROP_EXPANSIONS, IGNORED_BPCHARS,
+                          MAP_OVERRIDES)
 from data.hotfixes import (HOTFIX_DOD_POOLS_REMOVE_ALL, HOTFIX_ITEMPOOLLISTS_ADD,
                            HOTFIX_JUDGE_HIGHTOWER_PT_OVERRIDE)
 from itempool_handling import load_itempool_contents
-from util import iter_object_refs
+from util import fix_dotted_object_name, iter_object_refs
 
 MAP_PREFIX_TO_NAME: dict[str, str] = {
     v.removesuffix("_P"): k for k, v in MAPS
@@ -95,37 +94,23 @@ def iter_enemy_drop_expansions() -> Iterator[bl3dump.JSON]:
             yield from expansion_list["CharacterExpansions"]
 
 
-def iter_all_enemies() -> Iterator[tuple[str, str, bl3dump.AssetFile]]:
-    name_data = {}
-    with open("bpchars/expanded.csv") as file:
-        reader = csv.reader(file)
-        next(reader)  # Skip the header
-        for row in reader:
-            # Arbitrarily only using the first value as the name
-            bpchar, name = row[0:2]
-            if bpchar in IGNORED_BPCHARS:
+def iter_all_enemies() -> Iterator[tuple[str, bl3dump.AssetFile]]:
+    for pattern in BPCHAR_GLOBS:
+        for asset in bl3dump.glob(pattern):
+            if not isinstance(asset, bl3dump.AssetFile):
                 continue
-            if bpchar in BPCHAR_NAME_OVERRIDES:
-                name = BPCHAR_NAME_OVERRIDES[bpchar]
-            if name == "(unknown)":
+            if asset.name in IGNORED_BPCHARS:
                 continue
-            name_data[row[0]] = name
 
-    all_names = list(name_data.values())
-    for bpchar, name in name_data.items():
-        # Make duplicate names different
-        # In practice, anything that makes it into the database should have it's name overwritten to
-        #  something unique anyway, this is more to help when setting up the overrides
-        if all_names.count(name) > 0:
-            name = f"{name} ({bpchar})"
+            obj_name = fix_dotted_object_name(asset.path)
 
-        asset: bl3dump.AssetFile
-        if bpchar in BPCHAR_INHERITANCE_OVERRIDES:
-            asset = bl3dump.AssetFile(BPCHAR_INHERITANCE_OVERRIDES[bpchar])
-        else:
-            asset = bl3dump.AssetFile(bpchar)
-
-        yield name, bpchar, asset
+            try:
+                asset.get_single_export("AIBalanceStateComponent")
+                yield obj_name, asset
+            except ValueError:
+                # TODO: inheritance
+                logging.info(f"Couldn't extract bpchar: {obj_name}")
+                continue
 
 
 def iter_enemy_data() -> Iterator[EnemyData]:
@@ -142,7 +127,7 @@ def iter_enemy_data() -> Iterator[EnemyData]:
 
         all_expansions[expansion_data["key"]] = expansion_drops
 
-    for enemy_name, obj_name, bpchar in iter_all_enemies():
+    for obj_name, asset in iter_all_enemies():
         drops: set[str]
         if obj_name in DROP_OVERRIDES:
             override = DROP_OVERRIDES[obj_name]
@@ -157,11 +142,7 @@ def iter_enemy_data() -> Iterator[EnemyData]:
                 ]
             })
         else:
-            try:
-                balance = bpchar.get_single_export("AIBalanceStateComponent")
-            except ValueError:
-                logging.info(f"Couldn't extract bpchar: {obj_name}")
-                continue
+            balance = asset.get_single_export("AIBalanceStateComponent")
             drops = expand_drop_on_death(balance.get("DropOnDeathItemPools", {}), obj_name)
 
             bad_drops = False
@@ -184,10 +165,18 @@ def iter_enemy_data() -> Iterator[EnemyData]:
             if bad_drops:
                 continue
 
-        if (cls_name := bpchar.name.split(".")[-1] + "_C") in all_expansions:
+        if (cls_name := asset.name.split(".")[-1] + "_C") in all_expansions:
             drops.update(all_expansions[cls_name])
 
+        # TODO: spawn options
+
         if len(drops) > 0:
+            enemy_name: str
+            if (bpchar := obj_name.split(".")[-1]) not in BPCHAR_NAMES:
+                logging.info(f"BPChar needs name: {bpchar}")
+                enemy_name = bpchar
+            else:
+                enemy_name = BPCHAR_NAMES[bpchar]
             yield EnemyData(obj_name, get_enemy_map(obj_name), enemy_name, drops)
 
 

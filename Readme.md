@@ -35,9 +35,8 @@ Script | Usage
 1. Extract the raw game data files - follow [this tutorial](https://github.com/BLCM/BLCMods/wiki/Accessing-Borderlands-3-Data#extracting-raw-datafiles) on the wiki
 2. Download `bl3dump` from my [dataprocessing repo](https://github.com/apple1417/bl3-data-processing/tree/master/bl3dump) and put it in the base repo dir. Make sure to set it up to point to your extracted files.
 3. Download the [bl3refs db](https://apocalyptech.com/games/bl3-refs/index.php), extract it, and put it in the base repo dir (or edit `util.py` to point to it's new location)
-4. Download the [`Character Names` sheet from this doc](https://docs.google.com/spreadsheets/d/1mJEohWGAvhdVxq55wACFZI0eqtsoUaTAZKMVj0AlgIk/edit#gid=1041069062) as a csv to `bpchars/base.csv`, then run `bpchars/expand.py`.
-5. Install the [BL3 PythonSDK](https://github.com/bl-sdk/PythonSDK/tree/bl3) (note that it doesn't have a public release yet)
-6. Copy `sdk/gen_dumps.py` into `<bl3>/OakGame/Binaries/Win64/Mods`
+4. Install the [BL3 PythonSDK](https://github.com/bl-sdk/PythonSDK/tree/bl3) (note that it doesn't have a public release yet)
+5. Copy `sdk/gen_dumps.py` into `<bl3>/OakGame/Binaries/Win64/Mods`
 
 #### Generation
 6. Launch the game without hotfixes
