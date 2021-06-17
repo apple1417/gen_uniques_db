@@ -79,6 +79,9 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/PatchDLC/Raid1/GameData/Loot/ItemPoolExpansions/ItemPoolExpansion_Freeman_Warden.ItemPoolExpansion_Freeman_Warden",
 
     # Mission Pickups
+    "/Game/Missions/Plot/EP11_Watership/ItemPool_Watership_GoodAIBossRoom.ItemPool_Watership_GoodAIBossRoom",
+    "/Game/Missions/Side/Zone_4/Desolate/Homeopathological/ItemPool_Homeopathological_MemoryCore.ItemPool_Homeopathological_MemoryCore",
+    "/Game/Missions/Side/Zone_4/Desolate/Homeopathological/ItemPool_Homeopathological_MemoryCore",
     "/Hibiscus/InteractiveObjects/MissionSpecific/Plot/EP04/Pickups/ItemPool_EP04DLC2_WendigoTrophy.ItemPool_EP04DLC2_WendigoTrophy",
 
     # Copies of non-uniques, typically just with custom materials
@@ -92,7 +95,9 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/Gear/Weapons/HeavyWeapons/Eridian/_Shared/_Design/Balance/ItemPool_Eridian_Fabricator.ItemPool_Eridian_Fabricator",
 
     # Money
+    "/Dandelion/Enemies/Mimic/_Shared/_Design/Balance/ItemPool_Mimic_LOOTCash.ItemPool_Mimic_LOOTCash",
     "/Game/Enemies/Rakk/Queen/_Design/Character/ItemPool_RakkQueen_CashExplosion.ItemPool_RakkQueen_CashExplosion",
+    "/Game/Enemies/ServiceBot/LOOT/_Design/ItemPool/ItemPool_ServiceBot_LOOTCashBurst.ItemPool_ServiceBot_LOOTCashBurst",
     "/Game/GameData/Loot/ItemPools/Currency/ItemPool_Mission_Money_Rich.ItemPool_Mission_Money_Rich",
     "/Game/GameData/Loot/ItemPools/Currency/ItemPool_Money_Normal.ItemPool_Money_Normal",
     "/Game/GameData/Loot/ItemPools/Currency/ItemPool_Money_Rich.ItemPool_Money_Rich",
@@ -112,6 +117,7 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/GameData/Loot/ItemPools/VendingMachines/DA_ItemPool_VendingMachine_Health.DA_ItemPool_VendingMachine_Health",
 
     # Ammo
+    "/Game/Enemies/Goliath/_Unique/CageArena/_Design/ItemPools/ItemPool_WardenAddsBonusSupplies.ItemPool_WardenAddsBonusSupplies",
     "/Game/GameData/Loot/ItemPools/Ammo/ItemPool_Ammo_AssaulRifle.ItemPool_Ammo_AssaulRifle",
     "/Game/GameData/Loot/ItemPools/Ammo/ItemPool_Ammo_Emergency.ItemPool_Ammo_Emergency",
     "/Game/GameData/Loot/ItemPools/Ammo/ItemPool_Ammo_Grenades.ItemPool_Ammo_Grenades",
@@ -125,6 +131,8 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/GameData/Loot/ItemPools/Ammo/ItemPool_FullAmmo.ItemPool_FullAmmo",
     "/Game/GameData/Loot/ItemPools/Ammo/ItemPool_Need.ItemPool_Need",
     "/Game/GameData/Loot/ItemPools/Ammo/ItemPool_PistolAmmo.ItemPool_PistolAmmo",
+    "/Game/GameData/Loot/ItemPools/ItemPool_AmmoCrate.ItemPool_AmmoCrate",
+    "/Game/GameData/Loot/ItemPools/ItemPool_SmallItemChest.ItemPool_SmallItemChest",
     "/Game/GameData/Loot/ItemPools/Overspheres/ItemPool_OSHarbinger_Need.ItemPool_OSHarbinger_Need",
     "/Game/GameData/Loot/ItemPools/VendingMachines/DA_ItemPool_VendingMachine_Ammo_AssaultRifle.DA_ItemPool_VendingMachine_Ammo_AssaultRifle",
     "/Game/GameData/Loot/ItemPools/VendingMachines/DA_ItemPool_VendingMachine_Ammo_Grenade.DA_ItemPool_VendingMachine_Ammo_Grenade",
@@ -151,6 +159,7 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/PatchDLC/Event2/Gear/Shield/_Unique/MEAT/ItemPool_MEAT_Booster.ItemPool_MEAT_Booster",
 
     # Pet/NPC Items
+    "/Game/PatchDLC/Dandelion/Enemies/HyperionTurret/_Shared/_Design/Weapon/ItemPool_HyperionTurret_Basic.ItemPool_HyperionTurret_Basic",
     "/Game/Gear/Weapons/_Shared/NPC_Weapons/Typhon/ItemPool_SG_JAK_Typhon.ItemPool_SG_JAK_Typhon",
     "/Game/PlayerCharacters/Beastmaster/_DLC/Ixora/ActionSkill/Defs/ItemPool_Beastmaster_Mod5.ItemPool_Beastmaster_Mod5",
     "/Game/PlayerCharacters/Beastmaster/_DLC/Ixora/Pet/Loader/_Design/Weapons/ItemPool_PetLoader_BUL.ItemPool_PetLoader_BUL",
@@ -166,6 +175,7 @@ KNOWN_EMPTY_POOLS: set[str] = {
 
     # Customizations
     "/Game/GameData/Challenges/CrewChallenges/Sabotage/ChallengeSabotageRewardStat/ItemPool_Customizations_WeaponSkins_Sabotage.ItemPool_Customizations_WeaponSkins_Sabotage",
+    "/Game/GameData/Loot/ItemPools/ItemPool_Shields_Skins_Artifacts_GrenadeMods_ClassMods_Deco.ItemPool_Shields_Skins_Artifacts_GrenadeMods_ClassMods_Deco",
     "/Game/GameData/Loot/ItemPools/ItemPool_SkinsAndMisc.ItemPool_SkinsAndMisc",
     "/Game/Gear/WeaponSkins/_Design/ItemPools/ItemPool_Customizations_WeaponSkins_Loot.ItemPool_Customizations_WeaponSkins_Loot",
     "/Game/Gear/WeaponSkins/_Design/ItemPools/ItemPool_Customizations_WeaponSkins_SlotMachine.ItemPool_Customizations_WeaponSkins_SlotMachine",
@@ -192,8 +202,12 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/PatchDLC/Dandelion/GameData/Loot/Challenge_Reward/ItemPool_Customizations_Skins_Loot_Gunner44.ItemPool_Customizations_Skins_Loot_Gunner44",
     "/Game/PatchDLC/Dandelion/GameData/Loot/Challenge_Reward/ItemPool_Customizations_Skins_Loot_Operative44.ItemPool_Customizations_Skins_Loot_Operative44",
     "/Game/PatchDLC/Dandelion/GameData/Loot/Challenge_Reward/ItemPool_Customizations_Skins_Loot_Siren44.ItemPool_Customizations_Skins_Loot_Siren44",
+    "/Game/PatchDLC/Dandelion/GameData/Loot/Customization_Pool/ItemPool_Decoration_DLC1_1.ItemPool_Decoration_DLC1_1",
+    "/Game/PatchDLC/Dandelion/GameData/Loot/Customization_Pool/ItemPool_Decoration_DLC1_3.ItemPool_Decoration_DLC1_3",
+    "/Game/PatchDLC/Dandelion/GameData/Loot/Customization_Pool/ItemPool_Decoration_DLC1_4.ItemPool_Decoration_DLC1_4",
     "/Game/PatchDLC/Dandelion/GameData/Loot/Customization_Pool/ItemPool_Decoration_DLC1_5.ItemPool_Decoration_DLC1_5",
     "/Game/PatchDLC/Dandelion/GameData/Loot/Customization_Pool/ItemPool_EchoTheme_36.ItemPool_EchoTheme_36",
+    "/Game/PatchDLC/Dandelion/GameData/Loot/UniqueEnemyDrops/ItemPool_Mimic_trinket.ItemPool_Mimic_trinket",
     "/Game/PatchDLC/Dandelion/Missions/ItemPool_Reward/Customizations_Pool/ItemPool_CustoHead_Beastmaster.ItemPool_CustoHead_Beastmaster",
     "/Game/PatchDLC/Dandelion/Missions/ItemPool_Reward/Customizations_Pool/ItemPool_CustoHead_Gunner.ItemPool_CustoHead_Gunner",
     "/Game/PatchDLC/Dandelion/Missions/ItemPool_Reward/Customizations_Pool/ItemPool_CustoHead_Operative_30.ItemPool_CustoHead_Operative_30",
@@ -247,6 +261,8 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Emotes_MarryMe_All.ItemPool_Hibiscus_Emotes_MarryMe_All",
     "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Emotes_Portal_All.ItemPool_Hibiscus_Emotes_Portal_All",
     "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Hunt_Queen.ItemPool_Hibiscus_Hunt_Queen",
+    "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Trinket_01_Squidly.ItemPool_Hibiscus_Trinket_01_Squidly",
+    "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Trinket_02_Necrocookmicon.ItemPool_Hibiscus_Trinket_02_Necrocookmicon",
     "/Game/PatchDLC/Hibiscus/PlayerCharacters/_Customizations/_Shared/ItemPool_Customizations_Head_Hibiscus.ItemPool_Customizations_Head_Hibiscus",
     "/Game/PatchDLC/Hibiscus/PlayerCharacters/_Customizations/_Shared/ItemPool_Customizations_Skin_Hibiscus.ItemPool_Customizations_Skin_Hibiscus",
     "/Game/PatchDLC/Raid1/Customizations/ItemPool_Raid1_Customization.ItemPool_Raid1_Customization",
@@ -486,6 +502,8 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/Gear/ClassMods/_Design/ItemPools/ItemPool_ClassMods_Siren_04_VeryRare.ItemPool_ClassMods_Siren_04_VeryRare",
     "/Game/Gear/ClassMods/_Design/ItemPools/ItemPool_ClassMods.ItemPool_ClassMods",
     "/Game/Missions/Plot/EP01_ChildrenOfTheVault/ItemPool_EP01ChildrenOfTheVault_MissionReward.ItemPool_EP01ChildrenOfTheVault_MissionReward",
+    "/Game/Missions/Plot/EP01_ChildrenOfTheVault/ItemPool_Humans_Prologue.ItemPool_Humans_Prologue",
+    "/Game/PatchDLC/Dandelion/Enemies/Claptrap/_Shared/_Design/ItemPools/ItemPool_Claptrap.ItemPool_Claptrap",
     "/Game/PatchDLC/Dandelion/GameData/Loot/ItemPool_Guns_All_Dandelion_Boss.ItemPool_Guns_All_Dandelion_Boss",
     "/Game/PatchDLC/Dandelion/GameData/Loot/ItemPool_Guns_All_Dandelion.ItemPool_Guns_All_Dandelion",
     "/Game/PatchDLC/Event2/Missions/Side/Seasonal/ItemPool_Event2_MissionReward.ItemPool_Event2_MissionReward",

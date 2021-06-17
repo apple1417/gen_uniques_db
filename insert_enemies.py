@@ -6,12 +6,12 @@ from typing import Optional
 
 import bl3dump
 from data.constants import MAPS
-from data.enemies import (BPCHAR_GLOBS, BPCHAR_NAMES, DROP_OVERRIDES, ENEMY_DROP_EXPANSIONS, IGNORED_BPCHARS,
-                          MAP_OVERRIDES)
+from data.enemies import (BPCHAR_GLOBS, BPCHAR_INHERITANCE_OVERRIDES, BPCHAR_NAMES, DROP_OVERRIDES,
+                          ENEMY_DROP_EXPANSIONS, IGNORED_BPCHARS, MAP_OVERRIDES)
 from data.hotfixes import (HOTFIX_DOD_POOLS_REMOVE_ALL, HOTFIX_ITEMPOOLLISTS_ADD,
                            HOTFIX_JUDGE_HIGHTOWER_PT_OVERRIDE)
 from itempool_handling import load_itempool_contents
-from util import fix_dotted_object_name, iter_object_refs
+from util import fix_dotted_object_name, iter_refs_from, iter_refs_to
 
 MAP_PREFIX_TO_NAME: dict[str, str] = {
     v.removesuffix("_P"): k for k, v in MAPS
@@ -32,11 +32,11 @@ def get_enemy_map(bpchar: str) -> Optional[str]:
 
     output_map_name: Optional[str] = None
 
-    for obj in iter_object_refs(bpchar):
+    for obj in iter_refs_to(bpchar):
         if not obj.split(".")[-1].startswith("SpawnOptions"):
             continue
 
-        for obj2 in iter_object_refs(obj):
+        for obj2 in iter_refs_to(obj):
             name = obj2.split(".")[-1]
 
             for prefix, map_name in MAP_PREFIX_TO_NAME.items():
@@ -104,13 +104,34 @@ def iter_all_enemies() -> Iterator[tuple[str, bl3dump.AssetFile]]:
 
             obj_name = fix_dotted_object_name(asset.path)
 
+            if asset.name in BPCHAR_INHERITANCE_OVERRIDES:
+                asset = bl3dump.AssetFile(BPCHAR_INHERITANCE_OVERRIDES[asset.name])
+
             try:
                 asset.get_single_export("AIBalanceStateComponent")
-                yield obj_name, asset
             except ValueError:
-                # TODO: inheritance
-                logging.info(f"Couldn't extract bpchar: {obj_name}")
-                continue
+                possible_inherited = set()
+                # Using asset path incase we got overwritten earlier
+                for ref in iter_refs_from(fix_dotted_object_name(asset.path)):
+                    name = ref.split(".")[-1]
+                    if name.startswith("BPChar_") and name not in IGNORED_BPCHARS:
+                        possible_inherited.add(ref)
+
+                if len(possible_inherited) == 0:
+                    logging.info(f"Couldn't find inherited bpchar for: {obj_name}")
+                    continue
+                elif len(possible_inherited) > 1:
+                    logging.info(f"Multiple possible inherited bpchars for: {obj_name}")
+                    continue
+
+                asset = bl3dump.AssetFile(possible_inherited.pop())
+                try:
+                    asset.get_single_export("AIBalanceStateComponent")
+                except (FileNotFoundError, ValueError):
+                    logging.info(f"Inherited bpchar is also empty for: {obj_name}")
+                    continue
+
+            yield obj_name, asset
 
 
 def iter_enemy_data() -> Iterator[EnemyData]:
