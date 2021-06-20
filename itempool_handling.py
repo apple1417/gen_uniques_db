@@ -3,7 +3,8 @@ import sqlite3
 from collections.abc import Collection
 
 import bl3dump
-from data.hotfixes import HOTFIX_BALANCEDITEMS_ADD, HOTFIX_BALANCEDITEMS_REMOVE, BalancedItemsEntry
+from data.hotfixes import (HOTFIX_BALANCEDITEMS_ADD, HOTFIX_BALANCEDITEMS_REMOVE,
+                           HOTFIX_ITEMPOOLLISTS_ADD, BalancedItemsEntry)
 from data.itempools import (ITEMPOOL_EXPANSIONS, ITEMPOOL_OVERRIDES, KNOWN_EMPTY_POOLS,
                             WORLD_DROP_POOLS)
 from data.items import EXPANDABLE_BALANCES
@@ -57,6 +58,21 @@ def load_itempool_contents(
 
     _known_itempools[pool_name] = all_balances
     return all_balances
+
+
+def load_itempool_list(
+    item_pool_list: str,
+    world_drop_blacklist: Collection[str] = _ALL_DLCS
+) -> set[str]:
+    output = set()
+    export = bl3dump.AssetFile(item_pool_list).get_single_export("ItemPoolListData")
+    for pool in export.get("ItemPools", []):
+        output.update(load_itempool_contents(pool["ItemPool"][1], world_drop_blacklist))
+
+    for pool in HOTFIX_ITEMPOOLLISTS_ADD.get(item_pool_list, []):
+        output.update(load_itempool_contents(pool, world_drop_blacklist))
+
+    return output
 
 
 # Need to be here to avoid circular references

@@ -6,12 +6,11 @@ from typing import Optional
 
 import bl3dump
 from data.constants import MAPS
-from data.enemies import (ALL_UNIQUE_ENEMIES, BPCHAR_OVERRIDES, DROP_OVERRIDES,
-                          ENEMY_DROP_EXPANSIONS, MAP_OVERRIDES)
-from data.hotfixes import (HOTFIX_DOD_POOLS_REMOVE_ALL, HOTFIX_ITEMPOOLLISTS_ADD,
-                           HOTFIX_JUDGE_HIGHTOWER_PT_OVERRIDE)
-from itempool_handling import load_itempool_contents
-from util import iter_object_refs
+from data.enemies import (BPCHAR_GLOBS, BPCHAR_INHERITANCE_OVERRIDES, BPCHAR_NAMES, DROP_OVERRIDES,
+                          ENEMY_DROP_EXPANSIONS, IGNORED_BPCHARS, MAP_OVERRIDES)
+from data.hotfixes import HOTFIX_DOD_POOLS_REMOVE_ALL, HOTFIX_JUDGE_HIGHTOWER_PT_OVERRIDE
+from itempool_handling import load_itempool_contents, load_itempool_list
+from util import fix_dotted_object_name, iter_refs_from, iter_refs_to
 
 MAP_PREFIX_TO_NAME: dict[str, str] = {
     v.removesuffix("_P"): k for k, v in MAPS
@@ -27,16 +26,16 @@ class EnemyData:
 
 
 def get_enemy_map(bpchar: str) -> Optional[str]:
-    if bpchar in MAP_OVERRIDES:
-        return MAP_OVERRIDES[bpchar]
+    if (name := bpchar.split(".")[-1]) in MAP_OVERRIDES:
+        return MAP_OVERRIDES[name]
 
     output_map_name: Optional[str] = None
 
-    for obj in iter_object_refs(bpchar):
+    for obj in iter_refs_to(bpchar):
         if not obj.split(".")[-1].startswith("SpawnOptions"):
             continue
 
-        for obj2 in iter_object_refs(obj):
+        for obj2 in iter_refs_to(obj):
             name = obj2.split(".")[-1]
 
             for prefix, map_name in MAP_PREFIX_TO_NAME.items():
@@ -51,18 +50,6 @@ def get_enemy_map(bpchar: str) -> Optional[str]:
     if output_map_name is None:
         logging.error(f"Couldn't find map for enemy: {bpchar}")
     return output_map_name
-
-
-def load_itempool_list(item_pool_list: str) -> set[str]:
-    output = set()
-    export = bl3dump.AssetFile(item_pool_list).get_single_export("ItemPoolListData")
-    for pool in export.get("ItemPools", []):
-        output.update(load_itempool_contents(pool["ItemPool"][1]))
-
-    for pool in HOTFIX_ITEMPOOLLISTS_ADD.get(item_pool_list, []):
-        output.update(load_itempool_contents(pool))
-
-    return output
 
 
 def expand_drop_on_death(dod_data: bl3dump.JSON, obj_name: Optional[str] = None) -> set[str]:
@@ -94,6 +81,46 @@ def iter_enemy_drop_expansions() -> Iterator[bl3dump.JSON]:
             yield from expansion_list["CharacterExpansions"]
 
 
+def iter_all_enemies() -> Iterator[tuple[str, bl3dump.AssetFile]]:
+    for pattern in BPCHAR_GLOBS:
+        for asset in bl3dump.glob(pattern):
+            if not isinstance(asset, bl3dump.AssetFile):
+                continue
+            if asset.name in IGNORED_BPCHARS:
+                continue
+
+            obj_name = fix_dotted_object_name(asset.path)
+
+            if asset.name in BPCHAR_INHERITANCE_OVERRIDES:
+                asset = bl3dump.AssetFile(BPCHAR_INHERITANCE_OVERRIDES[asset.name])
+
+            try:
+                asset.get_single_export("AIBalanceStateComponent")
+            except ValueError:
+                possible_inherited = set()
+                # Using asset path incase we got overwritten earlier
+                for ref in iter_refs_from(fix_dotted_object_name(asset.path)):
+                    name = ref.split(".")[-1]
+                    if name.startswith("BPChar_") and name not in IGNORED_BPCHARS:
+                        possible_inherited.add(ref)
+
+                if len(possible_inherited) == 0:
+                    logging.info(f"Couldn't find inherited bpchar for: {obj_name}")
+                    continue
+                elif len(possible_inherited) > 1:
+                    logging.info(f"Multiple possible inherited bpchars for: {obj_name}")
+                    continue
+
+                asset = bl3dump.AssetFile(possible_inherited.pop())
+                try:
+                    asset.get_single_export("AIBalanceStateComponent")
+                except (FileNotFoundError, ValueError):
+                    logging.info(f"Inherited bpchar is also empty for: {obj_name}")
+                    continue
+
+            yield obj_name, asset
+
+
 def iter_enemy_data() -> Iterator[EnemyData]:
     all_expansions: dict[str, set[str]] = {}
     for expansion_data in iter_enemy_drop_expansions():
@@ -108,16 +135,12 @@ def iter_enemy_data() -> Iterator[EnemyData]:
 
         all_expansions[expansion_data["key"]] = expansion_drops
 
-    for enemy_name, obj_name in ALL_UNIQUE_ENEMIES:
-        bp_char: bl3dump.AssetFile
-        if obj_name in BPCHAR_OVERRIDES:
-            bp_char = bl3dump.AssetFile(BPCHAR_OVERRIDES[obj_name])
-        else:
-            bp_char = bl3dump.AssetFile(obj_name)
+    for obj_name, asset in iter_all_enemies():
+        bpchar_name = obj_name.split(".")[-1]
 
         drops: set[str]
-        if obj_name in DROP_OVERRIDES:
-            override = DROP_OVERRIDES[obj_name]
+        if bpchar_name in DROP_OVERRIDES:
+            override = DROP_OVERRIDES[bpchar_name]
             drops = expand_drop_on_death({
                 "ItemPools": [
                     {"ItemPool": ["", pool]}
@@ -129,7 +152,7 @@ def iter_enemy_data() -> Iterator[EnemyData]:
                 ]
             })
         else:
-            balance = bp_char.get_single_export("AIBalanceStateComponent")
+            balance = asset.get_single_export("AIBalanceStateComponent")
             drops = expand_drop_on_death(balance.get("DropOnDeathItemPools", {}), obj_name)
 
             bad_drops = False
@@ -152,10 +175,47 @@ def iter_enemy_data() -> Iterator[EnemyData]:
             if bad_drops:
                 continue
 
-        if (cls_name := bp_char.name.split(".")[-1] + "_C") in all_expansions:
+        # Using asset name to pickup x3
+        if (cls_name := asset.name.split(".")[-1] + "_C") in all_expansions:
             drops.update(all_expansions[cls_name])
 
+        found_spawnoptions_pools: set[str] = set()
+        for obj in iter_refs_to(obj_name):
+            if not obj.split(".")[-1].startswith("SpawnOption"):
+                continue
+
+            for factory in bl3dump.AssetFile(obj).iter_exports_of_class("SpawnFactory_OakAI"):
+                if "AIActorClass" not in factory or "ItemPoolToDropOnDeath" not in factory:
+                    continue
+                if factory["AIActorClass"]["asset_path_name"].split(".")[-1] != bpchar_name + "_C":
+                    continue
+
+                pool = fix_dotted_object_name(factory["ItemPoolToDropOnDeath"][1])
+                if pool in found_spawnoptions_pools:
+                    continue
+
+                pool_contents: set[str]
+                if pool.split(".")[-1].startswith("ItemPoolList_"):
+                    pool_contents = load_itempool_list(pool)
+                else:
+                    pool_contents = load_itempool_contents(pool)
+
+                if not pool_contents:
+                    continue
+
+                if found_spawnoptions_pools:
+                    logging.info(f"Found multiple drop adding spawnoptions for bpchar: {obj_name}")
+                found_spawnoptions_pools.add(pool)
+
+                drops.update(pool_contents)
+
         if len(drops) > 0:
+            enemy_name: str
+            if bpchar_name in BPCHAR_NAMES:
+                enemy_name = BPCHAR_NAMES[bpchar_name]
+            else:
+                logging.info(f"BPChar needs name: {bpchar_name}")
+                enemy_name = bpchar_name
             yield EnemyData(obj_name, get_enemy_map(obj_name), enemy_name, drops)
 
 
