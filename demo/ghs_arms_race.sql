@@ -14,9 +14,7 @@ where
     i.ID = o.ItemID
     and o.SourceID = s.ID
 
-    and s.SourceType = "Enemy"
-
-    and s.Description != "Vincent"
+    and s.Description = "Arms Race Chest Room"
 order by
     s.Map,
     s.Description,

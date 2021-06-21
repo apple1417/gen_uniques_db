@@ -3,7 +3,9 @@ select
     i.ID,
     i.Rarity,
     i.GearCategory,
-    s.Description
+    i.RequiredClass,
+    s.Description,
+    null
 from
     Items as i,
     Sources as s,
@@ -12,7 +14,7 @@ where
     i.ID = o.ItemID
     and o.SourceID = s.ID
 
-    and s.SourceType == "World Drop"
+    and s.SourceType = "World Drop"
 
     and (
         select

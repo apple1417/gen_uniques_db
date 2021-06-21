@@ -51,7 +51,7 @@ def insert_arms_race_chests(con: sqlite3.Connection) -> None:
         INSERT INTO Sources (SourceType, Map, Description, ObjectName) VALUES (
             "Misc",
             "Stormblind Complex",
-            "Arms Race Chest Rooms",
+            "Arms Race Chest Room",
             NULL
         )
         """

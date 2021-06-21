@@ -5,8 +5,12 @@ from typing import Optional
 
 DB_PATH = "_uniques.sqlite3"
 OUTPUT_SHEET = "hunt.csv"
-MAIN_DROPS_SCRIPT = "demo/ghs_main_drops.sql"
-WORLD_DROPS_SCROPT = "demo/ghs_world_drops.sql"
+
+DROP_SCRIPTS: tuple[str, ...] = (
+    "demo/ghs_arms_race.sql",
+    "demo/ghs_main_drops.sql",
+    "demo/ghs_world_drops.sql",
+)
 
 MAP_ORDER: tuple[Optional[str], ...] = (
     None,
@@ -99,6 +103,29 @@ MAP_ORDER: tuple[Optional[str], ...] = (
     "Villa Ultraviolet",
 )
 
+ROW_MARKER_OVERRIDES: dict[str, str] = {
+    "Antifreeze": "M4",
+    "Crader's EM-P5": "M4",
+    "Good Juju": "M4",
+    "Juliet's Dazzle": "M4",
+    "R4kk P4k": "M4",
+    "Raging Bear": "M4",
+    "S3RV-80S-EXECUTE": "M4",
+    "Spiritual Driver": "M4",
+    "Tankman's Shield": "M4",
+    "Vosk's Deathgrip": "M4",
+    "Zheitsev's Eruption": "M4",
+
+    "Backburner": "M6",
+    "D.N.A.": "M6",
+    "Kaoson": "M6",
+    "Multi-tap": "M6",
+    "Plaguebearer": "M6",
+    "Reflux": "M6",
+    "Sand Hawk": "M6",
+    "The Monarch": "M6",
+}
+
 
 @dataclass
 class RowData:
@@ -129,7 +156,12 @@ def get_all_item_names(item_id: int) -> str:
     return " / ".join(all_names)
 
 
-def get_item_description(item_id: int, rarity: str, gear_category: str) -> str:
+def get_item_description(
+    item_id: int,
+    rarity: str,
+    gear_category: str,
+    req_class: Optional[str]
+) -> str:
     cur = con.cursor()
     cur.execute(
         "select Manufacturer from ManufacturedBy where ItemID = ?",
@@ -138,10 +170,14 @@ def get_item_description(item_id: int, rarity: str, gear_category: str) -> str:
     all_manus = [x[0] for x in cur.fetchall() if x[0] != "COM"]
     all_manus.sort()
 
+    class_str = ""
+    if req_class is not None:
+        class_str = f"{req_class} "
+
     if len(all_manus) == 0:
-        return f"{rarity} {gear_category}"
+        return f"{rarity} {class_str}{gear_category}"
     else:
-        return f"{rarity} {'/'.join(all_manus)} {gear_category}"
+        return f"{rarity} {'/'.join(all_manus)} {class_str}{gear_category}"
 
 
 def can_item_world_drop(item_id: int) -> bool:
@@ -161,41 +197,28 @@ def can_item_world_drop(item_id: int) -> bool:
     return bool(cur.fetchone()[0] > 0)
 
 
-drops_by_map: dict[Optional[str], list[RowData]] = {
-    None: []
-}
+drops_by_map: dict[Optional[str], list[RowData]] = {}
 
 main_cursor = con.cursor()
-main_cursor.execute(open(MAIN_DROPS_SCRIPT).read())  # noqa: SIM115
-for (
-    item_id,
-    rarity,
-    gear_category,
-    source,
-    map_name,
-) in main_cursor.fetchall():
-    if map_name not in drops_by_map:
-        drops_by_map[map_name] = []
-    drops_by_map[map_name].append(RowData(
-        get_all_item_names(item_id),
-        get_item_description(item_id, rarity, gear_category),
+for script in DROP_SCRIPTS:
+    with open(script) as file:
+        main_cursor.execute(file.read())
+    for (
+        item_id,
+        rarity,
+        gear_category,
+        req_class,
         source,
-        can_item_world_drop(item_id)
-    ))
-
-main_cursor.execute(open(WORLD_DROPS_SCROPT).read())  # noqa: SIM115
-for (
-    item_id,
-    rarity,
-    gear_category,
-    source,
-) in main_cursor.fetchall():
-    drops_by_map[None].append(RowData(
-        get_all_item_names(item_id),
-        get_item_description(item_id, rarity, gear_category),
-        source,
-        can_item_world_drop(item_id)
-    ))
+        map_name,
+    ) in main_cursor.fetchall():
+        if map_name not in drops_by_map:
+            drops_by_map[map_name] = []
+        drops_by_map[map_name].append(RowData(
+            get_all_item_names(item_id),
+            get_item_description(item_id, rarity, gear_category, req_class),
+            source,
+            can_item_world_drop(item_id)
+        ))
 
 
 for map_drops in drops_by_map.values():
@@ -212,22 +235,37 @@ for map_drops in drops_by_map.values():
 
 with open(OUTPUT_SHEET, "w", newline="", encoding="utf8") as file:
     writer = csv.writer(file)
-    writer.writerow(["Item(s)", "Description", "Source", "", "Points"])
+    writer.writerow(["Item(s)", "Description", "Source", "", "Value"])
 
     for map_name in MAP_ORDER:
         if map_name not in drops_by_map:
             continue
 
         writer.writerow([
-            "- Any Map / Misc -"
-            if map_name is None else
-            f"- {map_name} -"
+            map_name or "Misc",
+            "----------------",
+            "----------------",
+            "----------------",
+            "----------------",
         ])
-        for row in drops_by_map[map_name]:
+
+        drops = drops_by_map[map_name]
+
+        # We want the final list to be sorted by enemy first and item name second
+        drops.sort(key=lambda x: x.item_names)
+        drops.sort(key=lambda x: x.source)
+
+        for row in drops:
+            marker = ""
+            if row.item_names in ROW_MARKER_OVERRIDES:
+                marker = ROW_MARKER_OVERRIDES[row.item_names]
+            elif row.world_drops:
+                marker = "WD"
+
             writer.writerow([
                 row.item_names,
                 row.description,
                 row.source,
-                "WD" if row.world_drops else "",
-                10
+                marker,
+                5
             ])
