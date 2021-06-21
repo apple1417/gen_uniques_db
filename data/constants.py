@@ -134,3 +134,10 @@ ITEM_GROUPS: tuple[str, ...] = (
     "Arms Race",
     "Director's Cut",
 )
+
+PLAYER_CLASSES: tuple[tuple[str, str], ...] = (
+    ("Amara", "/Game/PlayerCharacters/SirenBrawler/PlayerClassId_Siren.PlayerClassId_Siren"),
+    ("Fl4k", "/Game/PlayerCharacters/Beastmaster/PlayerClassId_Beastmaster.PlayerClassId_Beastmaster"),
+    ("Moze", "/Game/PlayerCharacters/Gunner/PlayerClassId_Gunner.PlayerClassId_Gunner"),
+    ("Zane", "/Game/PlayerCharacters/Operative/PlayerClassId_Operative.PlayerClassId_Operative"),
+)

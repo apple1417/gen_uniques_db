@@ -1,7 +1,8 @@
 import sqlite3
 from datetime import datetime
 
-from data.constants import GEAR_CATEGORIES, ITEM_GROUPS, MANUFACTURERS, MAPS, RARITIES
+from data.constants import (GEAR_CATEGORIES, ITEM_GROUPS, MANUFACTURERS, MAPS, PLAYER_CLASSES,
+                            RARITIES)
 
 
 def create_tables(con: sqlite3.Connection) -> None:
@@ -122,17 +123,35 @@ def create_tables(con: sqlite3.Connection) -> None:
 
     cur.execute(
         """
+        CREATE TABLE PlayerClass (
+            Name       TEXT NOT NULL UNIQUE,
+            ObjectName TEXT NOT NULL UNIQUE,
+            PRIMARY KEY(Name),
+            UNIQUE(Name, ObjectName)
+        );
+        """
+    )
+    for name, obj_name in PLAYER_CLASSES:
+        cur.execute(
+            "INSERT INTO PlayerClass (Name, ObjectName) VALUES (?, ?);",
+            (name, obj_name)
+        )
+
+    cur.execute(
+        """
         CREATE TABLE Items (
-            ID           INTEGER NOT NULL UNIQUE,
-            Rarity       TEXT NOT NULL,
-            GearCategory TEXT NOT NULL,
-            ItemGroup    TEXT NOT NULL,
-            Name         TEXT NOT NULL UNIQUE,
-            ObjectName   TEXT NOT NULL UNIQUE,
+            ID            INTEGER NOT NULL UNIQUE,
+            Rarity        TEXT NOT NULL,
+            GearCategory  TEXT NOT NULL,
+            ItemGroup     TEXT NOT NULL,
+            RequiredClass TEXT,
+            Name          TEXT NOT NULL UNIQUE,
+            ObjectName    TEXT NOT NULL UNIQUE,
             PRIMARY KEY(ID AUTOINCREMENT),
-            FOREIGN KEY(Rarity)       REFERENCES Rarities(Name),
-            FOREIGN KEY(GearCategory) REFERENCES GearCategories(Name),
-            FOREIGN KEY(ItemGroup)    REFERENCES ItemGroups(Name)
+            FOREIGN KEY(Rarity)        REFERENCES Rarities(Name),
+            FOREIGN KEY(GearCategory)  REFERENCES GearCategories(Name),
+            FOREIGN KEY(ItemGroup)     REFERENCES ItemGroups(Name),
+            FOREIGN KEY(RequiredClass) REFERENCES PlayerClass(Name)
         );
         """
     )

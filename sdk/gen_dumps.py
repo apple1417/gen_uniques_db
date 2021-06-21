@@ -62,12 +62,17 @@ for obj in unrealsdk.FindAll("InventoryBalanceData"):
                 if title.PartName is not None:
                     all_names.add(title.PartName)
 
+    req_class = None
+    if obj.InventoryData:
+        req_class = name(obj.InventoryData.RequiredPlayerClass)
+
     all_items[obj_name] = {
         "RarityData": name(obj.RarityData),
         "GearBuilderCategory": name(obj.GearBuilderCategory),
         "DlcInventorySetData": name(obj.DlcInventorySetData),
         "Manufacturers": [name(m.ManufacturerData) for m in obj.Manufacturers],
-        "Names": list(all_names)
+        "Names": list(all_names),
+        "RequiredClass": req_class
     }
 
 
@@ -81,7 +86,8 @@ all_items["/Game/PatchDLC/Steam/Gear/Weapons/SteamGun/Balance/Balance_SM_HYP_Sho
     ],
     "Names": [
         "Short Stick (Legendary)"
-    ]
+    ],
+    "RequiredClass": None
 }
 all_items["/Game/PatchDLC/Steam/Gear/Weapons/SteamGun/Balance/Balance_SM_HYP_ShortStick.Balance_SM_HYP_ShortStick"] = {
     "RarityData": "/Game/GameData/Loot/RarityData/RarityData_04_VeryRare.RarityData_04_VeryRare",
@@ -92,7 +98,8 @@ all_items["/Game/PatchDLC/Steam/Gear/Weapons/SteamGun/Balance/Balance_SM_HYP_Sho
     ],
     "Names": [
         "Short Stick (Purple)"
-    ]
+    ],
+    "RequiredClass": None
 }
 
 with open("item_dump.json", "w") as file:

@@ -4,6 +4,7 @@ import re
 import sqlite3
 from collections.abc import Iterator
 from dataclasses import dataclass
+from typing import Optional
 
 from data.constants import GEAR_CATEGORIES, MANUFACTURERS, RARITIES
 from data.items import (BALANCE_BLACKLIST, GEAR_CATEGORY_OVERRIDES, INVENTORY_SET_ITEM_GROUP,
@@ -26,6 +27,7 @@ class BalanceData:
     rarity: str
     category: str
     item_group: str
+    req_class: Optional[str]
     names: set[str]
     obj_name: str
     manufacturers: set[str]
@@ -83,7 +85,15 @@ def iter_balances() -> Iterator[BalanceData]:
                 logging.info(f"Skipping due to no manufacturers: {obj_name}")
                 continue
 
-            yield BalanceData(rarity, category, item_group, names, obj_name, all_manus)
+            yield BalanceData(
+                rarity,
+                category,
+                item_group,
+                data["RequiredClass"],
+                names,
+                obj_name,
+                all_manus
+            )
 
 
 def insert_items(con: sqlite3.Connection) -> None:
@@ -94,15 +104,22 @@ def insert_items(con: sqlite3.Connection) -> None:
 
         cur.execute(
             """
-            INSERT INTO Items (Rarity, GearCategory, ItemGroup, Name, ObjectName) VALUES (
+            INSERT INTO Items (Rarity, GearCategory, ItemGroup, RequiredClass, Name, ObjectName) VALUES (
                 (SELECT Name FROM Rarities WHERE ObjectName = ?),
                 (SELECT Name FROM GearCategories WHERE ObjectName = ?),
                 ?,
+                (SELECT Name FROM PlayerClass WHERE ObjectName = ?),
                 ?,
                 ?
             )
-            """,
-            (balance.rarity, balance.category, balance.item_group, base_name, balance.obj_name)
+            """, (
+                balance.rarity,
+                balance.category,
+                balance.item_group,
+                balance.req_class,
+                base_name,
+                balance.obj_name
+            )
         )
         row_id = cur.lastrowid
 

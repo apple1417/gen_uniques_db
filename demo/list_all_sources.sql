@@ -2,6 +2,7 @@ select
     i.Name,
     i.Rarity,
     m.Manufacturer,
+    i.RequiredClass,
     i.GearCategory,
     i.ItemGroup,
     s.SourceType,
