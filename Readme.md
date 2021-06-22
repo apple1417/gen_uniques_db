@@ -13,7 +13,7 @@ Each item entry corosponds to exactly one `InventoryBalanceData`. Some balances 
 
 Some items (grenades) can have multiple manufacturers, hence the seperate `ManufacturedBy` table.
 
-In a few rare cases an enemy can spawn on multiple maps (e.g. Brood Mother / Vanda). The map value for these enemy's sources is arbitrarily hardcoded.
+Some enemies have their source's map field set to null, if they can spawn on multiple maps.
 
 ## Examples
 
@@ -22,7 +22,7 @@ The `demo` folder contains a bunch of examples of how to use this database.
 Script | Usage
 :---|:---
 `enemy_maps.sql` | Lists the map each enemy is associated with.
-`gen_hunt_sheet.py` (and `ghs_*.sql)`) | Generates a csv used as basis to create a sheet for the hunt containing all drop sources. See the [final sheet here](https://docs.google.com/spreadsheets/d/1bCdFreDzg213wKBg-KmcpRaqNXc6SGvR8EwD_D8_LWM/edit?usp=sharing).
+`gen_hunt_sheet.py` (and `ghs_*.sql)`) | Generates a csv used as basis to create a sheet for the hunt containing all drop sources. See the [final sheet here](https://docs.google.com/spreadsheets/d/1wwxGn2XY14qtANYcWDdREvZQzHU5c7_EGNXUQTjgW_o/edit?usp=sharing).
 `list_all_sources.sql` | Lists all items and the sources you can get them from.
 `list_variants.sql` | Lists all items names alongside their variant names.
 `no_sources.sql` | Lists all items which don't have any sources.
