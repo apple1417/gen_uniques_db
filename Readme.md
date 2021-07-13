@@ -26,6 +26,7 @@ Script | Usage
 `list_all_sources.sql` | Lists all items and the sources you can get them from.
 `list_variants.sql` | Lists all items names alongside their variant names.
 `no_sources.sql` | Lists all items which don't have any sources.
+`not_diamond_chest.sql` | Lists all items which cannot be obtained from the diamond chest.
 `world_drops_only.sql` | Lists all items which can only be obtained from world drops.
 
 
