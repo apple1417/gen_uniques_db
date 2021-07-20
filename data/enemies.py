@@ -461,6 +461,11 @@ BPCHAR_NAMES: dict[str, str] = {
     "BPChar_PsychoBadass": "Mincemeat",
 }
 
+PROJ_NAMES: dict[str, str] = {
+    "Proj_Drone_VDayHeart_Loot": "Loot Heart",
+    "Projectile_BloodyHarvest_LootGhost": "Loot Ghost",
+}
+
 MAP_OVERRIDES: dict[str, Optional[str]] = {
     "BPChar_Agonizer_9k": "Guts of Carnivora",
     "BPChar_AliEnforcer_TheBlackRook": "Sapphire's Run",

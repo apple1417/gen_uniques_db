@@ -124,6 +124,9 @@ ROW_MARKER_OVERRIDES: dict[str, str] = {
     "Reflux": "M6",
     "Sand Hawk": "M6",
     "The Monarch": "M6",
+
+    "Polyaimourous": "L53",
+    "Wedding Invitation": "L53",
 }
 
 

@@ -7,7 +7,7 @@ from typing import Optional
 import bl3dump
 from data.constants import MAPS
 from data.enemies import (BPCHAR_GLOBS, BPCHAR_INHERITANCE_OVERRIDES, BPCHAR_NAMES, DROP_OVERRIDES,
-                          ENEMY_DROP_EXPANSIONS, IGNORED_BPCHARS, MAP_OVERRIDES)
+                          ENEMY_DROP_EXPANSIONS, IGNORED_BPCHARS, MAP_OVERRIDES, PROJ_NAMES)
 from data.hotfixes import HOTFIX_DOD_POOLS_REMOVE_ALL, HOTFIX_JUDGE_HIGHTOWER_PT_OVERRIDE
 from itempool_handling import load_itempool_contents, load_itempool_list
 from util import fix_dotted_object_name, iter_refs_from, iter_refs_to
@@ -237,6 +237,60 @@ def insert_enemies(con: sqlite3.Connection) -> None:
         row_id = cur.lastrowid
 
         for balance in enemy_data.drops:
+            cur.execute(
+                """
+                INSERT INTO ObtainedFrom (ItemID, SourceID) VALUES (
+                    (SELECT ID FROM Items WHERE ObjectName = ?),
+                    ?
+                )
+                """,
+                (balance, row_id)
+            )
+
+    con.commit()
+
+
+def insert_projectile_enemies(con: sqlite3.Connection) -> None:
+    cur = con.cursor()
+
+    for asset in bl3dump.glob("**/Proj*"):
+        if not isinstance(asset, bl3dump.AssetFile):
+            continue
+
+        obj_name = fix_dotted_object_name(asset.path)
+
+        drops = set()
+        for ref in iter_refs_from(obj_name):
+            ref_name = ref.split(".")[-1]
+            if ref_name.startswith("ItemPoolList"):
+                drops.update(load_itempool_list(fix_dotted_object_name(ref)))
+            elif ref_name.startswith("ItemPool"):
+                drops.update(load_itempool_contents(fix_dotted_object_name(ref)))
+
+        if len(drops) == 0:
+            continue
+
+        proj_name: str
+        if asset.name in PROJ_NAMES:
+            proj_name = PROJ_NAMES[asset.name]
+        else:
+            logging.info(f"Projectile needs name: {asset.name}")
+            proj_name = asset.name
+
+        cur.execute(
+            """
+            INSERT INTO Sources (SourceType, Map, Description, ObjectName) VALUES (
+                "Enemy",
+                null,
+                ?,
+                ?
+            )
+            """,
+            (proj_name, obj_name)
+        )
+        row_id = cur.lastrowid
+
+        for balance in drops:
             cur.execute(
                 """
                 INSERT INTO ObtainedFrom (ItemID, SourceID) VALUES (

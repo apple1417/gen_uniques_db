@@ -79,13 +79,13 @@ def insert_misc_notable_pools(con: sqlite3.Connection) -> None:
         cur.execute(
             """
             INSERT INTO Sources (SourceType, Map, Description, ObjectName) VALUES (
-                ?,
+                "Misc",
                 ?,
                 ?,
                 NULL
             )
             """,
-            (source.source_type, source.map_name, source.description)
+            (source.map_name, source.description)
         )
         row_id = cur.lastrowid
 

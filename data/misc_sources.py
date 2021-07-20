@@ -7,7 +7,6 @@ class MiscSource:
     description: str
     map_name: Optional[str] = None
     include_world_drops: bool = False
-    source_type: str = "Misc"
 
 
 WORLD_DROP_MAP_OVERRIDE: dict[str, str] = {
@@ -61,9 +60,6 @@ MISC_NOTABLE_POOLS: dict[MiscSource, set[str]] = {
     },
     MiscSource("Break 100 hearts"): {
         "/Game/PatchDLC/EventVDay/GameData/Challenges/ChallengeRewards/ItemPool_VDay_Weapon_WeddingInvitation.ItemPool_VDay_Weapon_WeddingInvitation",
-    },
-    MiscSource("Loot Heart", source_type="Enemy"): {
-        "/Game/PatchDLC/EventVDay/Enemies/Hearts/_Shared/LootPool/ItemPool_VDay_LootHeart.ItemPool_VDay_LootHeart",
     },
     MiscSource("All Ember Bombs"): {
         "/Game/PatchDLC/Dandelion/Missions/ItemPool_Reward/ItemPool_Mission_Crew_EmbersPurge.ItemPool_Mission_Crew_EmbersPurge",

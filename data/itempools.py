@@ -209,8 +209,10 @@ KNOWN_EMPTY_POOLS: set[str] = {
     # Health
     "/Game/GameData/Loot/ItemPools/Health/ItemPool_Health.ItemPool_Health",
     "/Game/GameData/Loot/ItemPools/VendingMachines/DA_ItemPool_VendingMachine_Health.DA_ItemPool_VendingMachine_Health",
+    "/Game/PatchDLC/Mayhem2/Abilities/Enemy/HealNo/ItemPool_Mayhem2_HealNo.ItemPool_Mayhem2_HealNo",
 
     # Ammo
+    "/Game/Enemies/FinalBoss/_Shared/_Design/LootPools/ItemPool_FinalBoss_RockPileBig.ItemPool_FinalBoss_RockPileBig",
     "/Game/Enemies/Goliath/_Unique/CageArena/_Design/ItemPools/ItemPool_WardenAddsBonusSupplies.ItemPool_WardenAddsBonusSupplies",
     "/Game/GameData/Loot/ItemPools/Ammo/ItemPool_Ammo_AssaulRifle.ItemPool_Ammo_AssaulRifle",
     "/Game/GameData/Loot/ItemPools/Ammo/ItemPool_Ammo_Emergency.ItemPool_Ammo_Emergency",
@@ -238,8 +240,13 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/GameData/Loot/ItemPools/VendingMachines/DA_ItemPool_VendingMachine_Ammo.DA_ItemPool_VendingMachine_Ammo",
     "/Game/Missions/Plot/EP01_ChildrenOfTheVault/ItemPool_Need_Prologue.ItemPool_Need_Prologue",
     "/Game/Missions/Plot/EP01_ChildrenOfTheVault/ItemPool_Prologue_Ammo.ItemPool_Prologue_Ammo",
+    "/Game/NonPlayerCharacters/Troy/_Design/ItemPools/ItemPool_TroyBoss_WavePiles.ItemPool_TroyBoss_WavePiles",
+    "/Game/PatchDLC/BloodyHarvest/Enemies/Ghost/_Shared/LootPool/ItemPool_BH_GhostLoot_Badass.ItemPool_BH_GhostLoot_Badass",
+    "/Game/PatchDLC/BloodyHarvest/Enemies/Ghost/_Shared/LootPool/ItemPool_BH_GhostLoot_Loot.ItemPool_BH_GhostLoot_Loot",
+    "/Game/PatchDLC/BloodyHarvest/Enemies/Ghost/_Shared/LootPool/ItemPool_BH_GhostLoot_Normal.ItemPool_BH_GhostLoot_Normal",
     "/Ixora/Enemies/GearUpBoss/_Shared/Balance/ItemPool_GearUpBossAdds_AmmoAndHealth.ItemPool_GearUpBossAdds_AmmoAndHealth",
     "/Ixora2/Enemies/Varkid/_Unique/RaidBoss/_Design/Balance/ItemPool_VarkidRaidAdds_AmmoAndHealth.ItemPool_VarkidRaidAdds_AmmoAndHealth",
+    "/Ixora2/Enemies/Varkid/_Unique/RaidBoss/_Design/Balance/ItemPool_VarkidRaidAdds_AmmoOnly.ItemPool_VarkidRaidAdds_AmmoOnly",
 
     # Boosters
     "/Game/Gear/Shields/_Design/_Uniques/BigBoomBlaster/BigBoomBlaster_Pickup/ItemPool_BigBoomBlaster.ItemPool_BigBoomBlaster",

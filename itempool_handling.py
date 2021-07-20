@@ -76,7 +76,8 @@ def load_itempool_list(
 
 
 # Need to be here to avoid circular references
-from insert_enemies import insert_enemies, iter_enemy_drop_expansions  # noqa: E402
+from insert_enemies import (insert_enemies, insert_projectile_enemies,  # noqa: E402
+                            iter_enemy_drop_expansions)
 from insert_misc_sources import (insert_arms_race_chests, insert_misc_notable_pools,  # noqa: E402
                                  insert_world_drops)
 from insert_missions import insert_missions  # noqa: E402
@@ -164,6 +165,7 @@ def insert_all_sources(con: sqlite3.Connection) -> None:
     _init_itempool_expansions()
 
     insert_enemies(con)
+    insert_projectile_enemies(con)
 
     insert_misc_notable_pools(con)
     insert_arms_race_chests(con)
