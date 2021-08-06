@@ -1,5 +1,5 @@
 select
-    distinct i.Name,
+    i.Name,
     i.Rarity,
     m.Manufacturer,
     i.RequiredClass,
@@ -7,7 +7,14 @@ select
     i.ItemGroup
 from
     Items as i,
-    ManufacturedBy as m
+    (
+        select
+            *
+        from
+            ManufacturedBy
+        group by
+            ItemID
+    ) as m
 where
     i.ID = m.ItemID
 order by
