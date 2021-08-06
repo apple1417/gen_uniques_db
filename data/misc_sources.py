@@ -38,6 +38,12 @@ MISC_NOTABLE_POOLS: dict[MiscSource, set[str]] = {
         "/Game/PatchDLC/VaultCard/Gear/Weapons/Unique/Guardian/Balance/ItemPool_VaultCard1_Guardian.ItemPool_VaultCard1_Guardian",
         "/Game/PatchDLC/VaultCard/Gear/Weapons/Unique/Mechanic/Balance/ItemPool_VaultCard1_Mechanic.ItemPool_VaultCard1_Mechanic",
     },
+    MiscSource("Vault Card 2"): {
+        "/Game/PatchDLC/VaultCard2/Gear/Artifacts/Unique/Shlooter/Balance/ItemPool_VaultCard2_Shlooter",
+        "/Game/PatchDLC/VaultCard2/Gear/GrenadeMods/Unique/Pyroburst/Balance/ItemPool_VaultCard2_Pyroburst",
+        "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/GoldRush/Balance/ItemPool_VaultCard2_GoldRush",
+        "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/Troubleshooter/Balance/ItemPool_VaultCard2_Troubleshooter",
+    },
     MiscSource("Tipping Moxxi", "Sanctuary"): {
         "/Game/InteractiveObjects/TipJar/ItemPool_MoxxiTip_GunRewards.ItemPool_MoxxiTip_GunRewards",
     },
