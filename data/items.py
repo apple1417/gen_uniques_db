@@ -75,36 +75,46 @@ NON_UNIQUE_NAMES: set[str] = {
 }
 
 NAME_OVERRIDES: dict[str, set[str]] = {
-    "/Game/Gear/GrenadeMods/_Design/_Unique/FireStorm/Balance/InvBalD_GM_VLA_FireStorm.InvBalD_GM_VLA_FireStorm": {"Firestorm (Grenade)"},
+    # Partial names, where a guarenteed prefix/suffix fills the rest
     "/Game/Gear/Shields/_Design/_Uniques/_XPLootBooster/Balance/InvBalD_Shield_XPLootBooster.InvBalD_Shield_XPLootBooster": {"Deluxe Badass Combustor"},
-    "/Game/Gear/Weapons/AssaultRifles/ChildrenOfTheVault/_Shared/_Design/_Unique/KriegAR/Balance/Balance_AR_COV_KriegAR.Balance_AR_COV_KriegAR": {"Embrace the Pain", "Pain is Power"},
-    "/Game/Gear/Weapons/AssaultRifles/Vladof/_Shared/_Design/_Unique/Shredifier/Balance/Balance_AR_VLA_Sherdifier.Balance_AR_VLA_Sherdifier": {"Super Shredifier", "Shredifier"},
-    "/Game/Gear/Weapons/AssaultRifles/Vladof/_Shared/_Design/_Unique/Sickle/Balance/Balance_AR_VLA_Sickle.Balance_AR_VLA_Sickle": {"Boom Sickle", "Sickle"},
-    "/Game/Gear/Weapons/Pistols/Jakobs/_Shared/_Design/_Unique/GodMother/Balance/Balance_PS_JAK_GodMother.Balance_PS_JAK_GodMother": {"King's Call", "Queen's Call"},
+    "/Game/Gear/Shields/_Design/_Uniques/BuriedAlive/Balance/InvBalD_Shield_BuriedAlive.InvBalD_Shield_BuriedAlive": {"Mendel's Multivitamin Shield"},
+    "/Game/PatchDLC/Ixora/Gear/ClassMods/_Design/BSM/L01/InvBalD_CM_Ixora_BSM_L01.InvBalD_CM_Ixora_BSM_L01": {"3RR0R Cmdl3t"},
+    "/Game/Gear/Shields/_Design/_Uniques/MrCaffeine/Balance/InvBalD_Shield_PAN_MrCaffeine.InvBalD_Shield_PAN_MrCaffeine": {"Mr Caffeine Shield"},
+    "/Game/Gear/Weapons/SMGs/Hyperion/_Shared/_Design/_Unique/XZ/Balance/Balance_SM_HYP_XZ.Balance_SM_HYP_XZ": {"Hyperfocus XZ41"},
+
+    # Items which have duplicate names show up in the dump, but don't actually spawn with multiple
     "/Game/Gear/Weapons/Pistols/Jakobs/_Shared/_Design/_Unique/Unforgiven/Balance/Balance_PS_JAK_Unforgiven.Balance_PS_JAK_Unforgiven": {"Unforgiven"},
     "/Game/Gear/Weapons/Pistols/Tediore/Shared/_Design/_Unique/_Bangarang/Balance/Balance_PS_TED_Bangerang.Balance_PS_TED_Bangerang": {"Bangarang"},
     "/Game/Gear/Weapons/Pistols/Tediore/Shared/_Design/_Unique/Gunerang/Balance/Balance_PS_TED_Gunerang.Balance_PS_TED_Gunerang": {"Gunerang"},
-    "/Game/Gear/Weapons/Pistols/Torgue/_Shared/_Design/_Unique/Echo/Balance/Balance_PS_TOR_Echo.Balance_PS_TOR_Echo": {"Echo", "Breeder"},
-    "/Game/Gear/Weapons/Shotguns/Jakobs/_Shared/_Design/_Unique/_Legendary/Sledge/Balance/Balance_SG_JAK_LGD_Sledge.Balance_SG_JAK_LGD_Sledge": {"Sledge's Shotgun", "Sledge's Super Shotgun"},
-    "/Game/Gear/Weapons/Shotguns/Jakobs/_Shared/_Design/_Unique/TheWave/Balance/Balance_SG_JAK_Unique_Wave.Balance_SG_JAK_Unique_Wave": {"T.K's Shockwave", "T.K's Heatwave", "T.K's Wave", "The Tidal Wave"},
-    "/Game/Gear/Weapons/SMGs/Hyperion/_Shared/_Design/_Unique/Fork/Balance/Balance_SM_HYP_Fork.Balance_SM_HYP_Fork": {"Redistributor (Blue)"},
     "/Game/Gear/Weapons/SMGs/Maliwan/_Shared/_Design/_Unique/Kevins/Balance/Balance_SM_MAL_Kevins.Balance_SM_MAL_Kevins": {"Kevin's Chilly"},
-    "/Game/Gear/Weapons/SniperRifles/Maliwan/Shared/_Design/_Unique/_Legendary/Storm/Balance/Balance_MAL_SR_LGD_Storm.Balance_MAL_SR_LGD_Storm": {"Storm", "Firestorm (Sniper)"},
+    "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Shocker/Balance/Balance_SG_Torgue_ETech_Shocker.Balance_SG_Torgue_ETech_Shocker": {"Shocker"},
+
+    # Relics
+    "/Game/PatchDLC/Raid1/Gear/Artifacts/CommanderPlanetoid/InvBalD_Artifact_CommanderPlanetoid.InvBalD_Artifact_CommanderPlanetoid": {"Commander Planetoid"},
+    "/Game/PatchDLC/Raid1/Gear/Artifacts/CosmicCrater/InvBalD_Artifact_CosmicCrater.InvBalD_Artifact_CosmicCrater": {"Cosmic Crater"},
+    "/Game/PatchDLC/Raid1/Gear/Artifacts/Deathless/InvBalD_Artifact_Deathless.InvBalD_Artifact_Deathless": {"Deathless"},
+    "/Game/PatchDLC/Raid1/Gear/Artifacts/LoadedDice/InvBalD_Artifact_LoadedDice.InvBalD_Artifact_LoadedDice": {"Loaded Dice"},
+    "/Game/PatchDLC/Raid1/Gear/Artifacts/MoxxisEndowment/InvBalD_Artifact_MoxxisEndowment.InvBalD_Artifact_MoxxisEndowment": {"Moxxi's Endowment"},
+    "/Game/PatchDLC/Raid1/Gear/Artifacts/OttoIdol/InvBalD_Artifact_OttoIdol.InvBalD_Artifact_OttoIdol": {"Otto Idol"},
+    "/Game/PatchDLC/Raid1/Gear/Artifacts/PullOutMethod/InvBalD_Artifact_PullOutMethod.InvBalD_Artifact_PullOutMethod": {"Pull Out Method"},
+    "/Game/PatchDLC/Raid1/Gear/Artifacts/RocketBoots/InvBalD_Artifact_RocketBoots.InvBalD_Artifact_RocketBoots": {"Rocket Boots"},
+    "/Game/PatchDLC/Raid1/Gear/Artifacts/Safegaurd/InvBalD_Artifact_Safegaurd.InvBalD_Artifact_Safegaurd": {"Safeguard"},
+    "/Game/PatchDLC/Raid1/Gear/Artifacts/Salvo/InvBalD_Artifact_Salvo.InvBalD_Artifact_Salvo": {"Launch Pad"},
+    "/Game/PatchDLC/Raid1/Gear/Artifacts/SplatterGun/InvBalD_Artifact_SplatterGun.InvBalD_Artifact_SplatterGun": {"Splatter Gun"},
+    "/Game/PatchDLC/Raid1/Gear/Artifacts/StaticTouch/InvBalD_Artifact_StaticTouch.InvBalD_Artifact_StaticTouch": {"Static Charge"},
+    "/Game/PatchDLC/Raid1/Gear/Artifacts/VictoryRush/InvBalD_Artifact_VictoryRush.InvBalD_Artifact_VictoryRush": {"Victory Rush"},
+    "/Game/PatchDLC/Raid1/Gear/Artifacts/WhiteElephant/InvBalD_Artifact_WhiteElephant.InvBalD_Artifact_WhiteElephant": {"White Elephant"},
+
+    # Clarifications, where two different items otherwise have the same name
+    "/Game/Gear/GrenadeMods/_Design/_Unique/FireStorm/Balance/InvBalD_GM_VLA_FireStorm.InvBalD_GM_VLA_FireStorm": {"Firestorm (Grenade)"},
+    "/Game/Gear/Weapons/SMGs/Hyperion/_Shared/_Design/_Unique/Fork/Balance/Balance_SM_HYP_Fork.Balance_SM_HYP_Fork": {"Redistributor (Blue)"},
     "/Game/PatchDLC/Alisma/Gear/Weapon/_Unique/Voice/Balance/Balance_PS_TOR_Voice_Epic.Balance_PS_TOR_Voice_Epic": {"Critical Mass (Pistol)"},
     "/Game/PatchDLC/Geranium/Gear/Weapon/_Unique/BioBetsy/Balance/Balance_AR_COV_BioBetsy_Rad.Balance_AR_COV_BioBetsy_Rad": {"The Beast (Rad)"},
     "/Game/PatchDLC/Geranium/Gear/Weapon/_Unique/BioBetsy/Balance/Balance_AR_COV_BioBetsy_Shock.Balance_AR_COV_BioBetsy_Shock": {"The Beast (Shock)"},
     "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/LoveDrill/Balance/Balance_PS_JAK_LoveDrill_Legendary.Balance_PS_JAK_LoveDrill_Legendary": {"Love Drill (Legendary)"},
     "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/LoveDrill/Balance/Balance_PS_JAK_LoveDrill.Balance_PS_JAK_LoveDrill": {"Love Drill (Purple)"},
-    "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Shocker/Balance/Balance_SG_Torgue_ETech_Shocker.Balance_SG_Torgue_ETech_Shocker": {"Shocker"},
     "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/TheSeventhSense/Balance/Balance_PS_JAK_TheSeventhSense_MissionWeapon.Balance_PS_JAK_TheSeventhSense_MissionWeapon": {"Seventh Sense (Purple)"},
     "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/TheSeventhSense/Balance/Balance_PS_JAK_TheSeventhSense.Balance_PS_JAK_TheSeventhSense": {"Seventh Sense (Legendary)"},
-    "/Game/PatchDLC/Ixora/Gear/Artifacts/_Design/_Unique/HolyGrail/Balance/InvBalD_Artifact_HolyGrail.InvBalD_Artifact_HolyGrail": {"King Arthur's Holy Grail", "Holy Grail", "Perceval's Holy Grail"},
-    "/Game/PatchDLC/Ixora/Gear/ClassMods/_Design/BSM/L01/InvBalD_CM_Ixora_BSM_L01.InvBalD_CM_Ixora_BSM_L01": {"3RR0R Cmdl3t"},
-    "/Game/PatchDLC/Ixora/Gear/GrenadeMods/HOTSpring/Balance/InvBalD_GM_HOTSpring.InvBalD_GM_HOTSpring": {"Thermal HOT Spring", "Soothing HOT Spring", "HOT Spring"},
-    "/Game/PatchDLC/Ixora/Gear/Weapons/_Unique/CriticalThug/Balance/Balance_SG_Torgue_CriticalThug.Balance_SG_Torgue_CriticalThug": {"Critical Thug x2", "Critical Thug"},
-    "/Game/PatchDLC/Ixora/Gear/Weapons/_Unique/DarkArmy/Balance/Balance_SM_TED_DarkArmy.Balance_SM_TED_DarkArmy": {"Exceptional Dark Army", "Exceptional Dark Army +", "Dark Army"},
-    "/Game/PatchDLC/Ixora/Gear/Weapons/_Unique/Tizzy/Balance/Balance_PS_COV_Tizzy.Balance_PS_COV_Tizzy": {"Fasterfied Tizzy", "Moar Fasterfied Tizzy"},
-    "/Game/PatchDLC/Ixora/Gear/Weapons/_Unique/Trickshot/Balance/Balance_PS_JAK_Trickshot.Balance_PS_JAK_Trickshot": {"Bloodstained Trickshot", "Snide Trickshot"},
     "/Game/PatchDLC/Ixora2/Gear/Artifacts/_Unique/CompanyMan/Atlas/Balance/InvBalD_Artifact_CompanyMan_Atlas.InvBalD_Artifact_CompanyMan_Atlas": {"Company Man (Atlas)"},
     "/Game/PatchDLC/Ixora2/Gear/Artifacts/_Unique/CompanyMan/CoV/Balance/InvBalD_Artifact_CompanyMan_CoV.InvBalD_Artifact_CompanyMan_CoV": {"Company Man (CoV)"},
     "/Game/PatchDLC/Ixora2/Gear/Artifacts/_Unique/CompanyMan/Dahl/Balance/InvBalD_Artifact_CompanyMan_Dahl.InvBalD_Artifact_CompanyMan_Dahl": {"Company Man (Dahl)"},
@@ -115,23 +125,27 @@ NAME_OVERRIDES: dict[str, set[str]] = {
     "/Game/PatchDLC/Ixora2/Gear/Artifacts/_Unique/CompanyMan/Torgue/Balance/InvBalD_Artifact_CompanyMan_Torgue.InvBalD_Artifact_CompanyMan_Torgue": {"Company Man (Torgue)"},
     "/Game/PatchDLC/Ixora2/Gear/Artifacts/_Unique/CompanyMan/Vladof/Balance/InvBalD_Artifact_CompanyMan_Vladof.InvBalD_Artifact_CompanyMan_Vladof": {"Company Man (Vladof)"},
     "/Game/PatchDLC/Ixora2/Gear/ClassMods/_Design/OPE/L01/InvBalD_CM_Ixora2_OPE_L01.InvBalD_CM_Ixora2_OPE_L01": {"Critical Mass (COM)"},
-    "/Game/PatchDLC/Ixora2/Gear/GrenadeMods/_Unique/Ringer/Balance/InvBalD_GM_Ringer.InvBalD_GM_Ringer": {"Ringer", "The Big Ringer", "Dead Ringer"},
-    "/Game/PatchDLC/Raid1/Gear/Artifacts/CommanderPlanetoid/InvBalD_Artifact_CommanderPlanetoid.InvBalD_Artifact_CommanderPlanetoid": {"Commander Planetoid"},
-    "/Game/PatchDLC/Raid1/Gear/Artifacts/CosmicCrater/InvBalD_Artifact_CosmicCrater.InvBalD_Artifact_CosmicCrater": {"Cosmic Crater"},
-    "/Game/PatchDLC/Raid1/Gear/Artifacts/Deathless/InvBalD_Artifact_Deathless.InvBalD_Artifact_Deathless": {"Deathless"},
-    "/Game/PatchDLC/Raid1/Gear/Artifacts/LoadedDice/InvBalD_Artifact_LoadedDice.InvBalD_Artifact_LoadedDice": {"Loaded Dice"},
-    "/Game/PatchDLC/Raid1/Gear/Artifacts/MoxxisEndowment/InvBalD_Artifact_MoxxisEndowment.InvBalD_Artifact_MoxxisEndowment": {"Moxxis Endowment"},
-    "/Game/PatchDLC/Raid1/Gear/Artifacts/OttoIdol/InvBalD_Artifact_OttoIdol.InvBalD_Artifact_OttoIdol": {"Otto Idol"},
-    "/Game/PatchDLC/Raid1/Gear/Artifacts/PullOutMethod/InvBalD_Artifact_PullOutMethod.InvBalD_Artifact_PullOutMethod": {"Pull Out Method"},
-    "/Game/PatchDLC/Raid1/Gear/Artifacts/RocketBoots/InvBalD_Artifact_RocketBoots.InvBalD_Artifact_RocketBoots": {"Rocket Boots"},
-    "/Game/PatchDLC/Raid1/Gear/Artifacts/Safegaurd/InvBalD_Artifact_Safegaurd.InvBalD_Artifact_Safegaurd": {"Safeguard"},
-    "/Game/PatchDLC/Raid1/Gear/Artifacts/Salvo/InvBalD_Artifact_Salvo.InvBalD_Artifact_Salvo": {"Launch Pad"},
-    "/Game/PatchDLC/Raid1/Gear/Artifacts/SplatterGun/InvBalD_Artifact_SplatterGun.InvBalD_Artifact_SplatterGun": {"Splatter Gun"},
-    "/Game/PatchDLC/Raid1/Gear/Artifacts/StaticTouch/InvBalD_Artifact_StaticTouch.InvBalD_Artifact_StaticTouch": {"Static Charge"},
-    "/Game/PatchDLC/Raid1/Gear/Artifacts/VictoryRush/InvBalD_Artifact_VictoryRush.InvBalD_Artifact_VictoryRush": {"Victory Rush"},
-    "/Game/PatchDLC/Raid1/Gear/Artifacts/WhiteElephant/InvBalD_Artifact_WhiteElephant.InvBalD_Artifact_WhiteElephant": {"White Elephant"},
     "/Game/PatchDLC/Raid1/Gear/Weapons/Fork2/Balance/Balance_SM_HYP_Fork2.Balance_SM_HYP_Fork2": {"Redistributor (Legendary)"},
+
+    # Items with multiple names - we error anything with multiple by default incase the script isn't
+    #  picking names right, then hardcode the valid ones here
+    "/Game/Gear/Weapons/AssaultRifles/ChildrenOfTheVault/_Shared/_Design/_Unique/KriegAR/Balance/Balance_AR_COV_KriegAR.Balance_AR_COV_KriegAR": {"Embrace the Pain", "Pain is Power"},
+    "/Game/Gear/Weapons/AssaultRifles/Vladof/_Shared/_Design/_Unique/Shredifier/Balance/Balance_AR_VLA_Sherdifier.Balance_AR_VLA_Sherdifier": {"Super Shredifier", "Shredifier"},
+    "/Game/Gear/Weapons/AssaultRifles/Vladof/_Shared/_Design/_Unique/Sickle/Balance/Balance_AR_VLA_Sickle.Balance_AR_VLA_Sickle": {"Boom Sickle", "Sickle"},
+    "/Game/Gear/Weapons/Pistols/Jakobs/_Shared/_Design/_Unique/GodMother/Balance/Balance_PS_JAK_GodMother.Balance_PS_JAK_GodMother": {"King's Call", "Queen's Call"},
+    "/Game/Gear/Weapons/Pistols/Torgue/_Shared/_Design/_Unique/Echo/Balance/Balance_PS_TOR_Echo.Balance_PS_TOR_Echo": {"Echo", "Breeder"},
+    "/Game/Gear/Weapons/Shotguns/Jakobs/_Shared/_Design/_Unique/_Legendary/Sledge/Balance/Balance_SG_JAK_LGD_Sledge.Balance_SG_JAK_LGD_Sledge": {"Sledge's Shotgun", "Sledge's Super Shotgun"},
+    "/Game/Gear/Weapons/Shotguns/Jakobs/_Shared/_Design/_Unique/TheWave/Balance/Balance_SG_JAK_Unique_Wave.Balance_SG_JAK_Unique_Wave": {"T.K's Shockwave", "T.K's Heatwave", "T.K's Wave", "The Tidal Wave"},
+    "/Game/Gear/Weapons/SniperRifles/Maliwan/Shared/_Design/_Unique/_Legendary/Storm/Balance/Balance_MAL_SR_LGD_Storm.Balance_MAL_SR_LGD_Storm": {"Storm", "Firestorm (Sniper)"},
+    "/Game/PatchDLC/Ixora/Gear/Artifacts/_Design/_Unique/HolyGrail/Balance/InvBalD_Artifact_HolyGrail.InvBalD_Artifact_HolyGrail": {"King Arthur's Holy Grail", "Holy Grail", "Perceval's Holy Grail"},
+    "/Game/PatchDLC/Ixora/Gear/GrenadeMods/HOTSpring/Balance/InvBalD_GM_HOTSpring.InvBalD_GM_HOTSpring": {"Thermal HOT Spring", "Soothing HOT Spring", "HOT Spring"},
+    "/Game/PatchDLC/Ixora/Gear/Weapons/_Unique/CriticalThug/Balance/Balance_SG_Torgue_CriticalThug.Balance_SG_Torgue_CriticalThug": {"Critical Thug x2", "Critical Thug"},
+    "/Game/PatchDLC/Ixora/Gear/Weapons/_Unique/DarkArmy/Balance/Balance_SM_TED_DarkArmy.Balance_SM_TED_DarkArmy": {"Exceptional Dark Army", "Exceptional Dark Army +", "Dark Army"},
+    "/Game/PatchDLC/Ixora/Gear/Weapons/_Unique/Tizzy/Balance/Balance_PS_COV_Tizzy.Balance_PS_COV_Tizzy": {"Fasterfied Tizzy", "Moar Fasterfied Tizzy"},
+    "/Game/PatchDLC/Ixora/Gear/Weapons/_Unique/Trickshot/Balance/Balance_PS_JAK_Trickshot.Balance_PS_JAK_Trickshot": {"Bloodstained Trickshot", "Snide Trickshot"},
+    "/Game/PatchDLC/Ixora2/Gear/GrenadeMods/_Unique/Ringer/Balance/InvBalD_GM_Ringer.InvBalD_GM_Ringer": {"Ringer", "The Big Ringer", "Dead Ringer"},
     "/Game/PatchDLC/VaultCard/Gear/Weapons/Unique/Mechanic/Balance/Balance_HW_COV_Mechanic.Balance_HW_COV_Mechanic": {"Mechanic", "Double-Axle Mechanic"},
+    "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/Troubleshooter/Balance/Balance_SM_HYP_ETech_Troubleshooter.Balance_SM_HYP_ETech_Troubleshooter": {"Troubleshooter", "Overclocked Troubleshooter"},
 }
 
 
@@ -207,20 +221,31 @@ PATCHDLC_ITEM_GROUP: dict[str, str] = {
     "BloodyHarvest": "Bloody Harvest",
     "Event2": "Cartels",
     "EventVDay": "Broken Hearts",
-    "Mayhem2": "Mayhem 2",
+    "Mayhem2": "Guardian Takedown",
     "Raid1": "Maliwan Takedown",
     "Steam": "Steam Release",
     "Takedown2": "Guardian Takedown",
     "VaultCard": "Vault Card",
+    "VaultCard2": "Vault Card 2",
 }
 
 ITEM_GROUP_OVERRIDES: dict[str, str] = {
+    # Added with cartels, but just from a base game quest
+    "/Game/PatchDLC/Event2/Gear/Weapon/_Unique/Pricker/Balance/Balance_SM_HYP_Pricker.Balance_SM_HYP_Pricker": "Base Game",
+    # Added with broken hearts, but seems to have been seperate? Unobtainable now
+    "/Game/PatchDLC/EventVDay/Gear/Weapon/_Unique/TwitchPrime/Balance/Balance_SG_TED_Twitch.Balance_SG_TED_Twitch": "Base Game",
+    # These all have the DLC6 inventory set (rightfully), but we want them to be under vault cards
     "/Game/PatchDLC/VaultCard/Gear/Shields/Unique/SuperSoldier/Balance/InvBalD_Shield_SuperSoldier.InvBalD_Shield_SuperSoldier": "Vault Card",
     "/Game/PatchDLC/VaultCard/Gear/Weapons/Unique/BirdofPrey/Balance/Balance_SR_JAK_BirdofPrey.Balance_SR_JAK_BirdofPrey": "Vault Card",
     "/Game/PatchDLC/VaultCard/Gear/Weapons/Unique/Guardian/Balance/Balance_SG_HYP_Guardian.Balance_SG_HYP_Guardian": "Vault Card",
     "/Game/PatchDLC/VaultCard/Gear/Weapons/Unique/Mechanic/Balance/Balance_HW_COV_Mechanic.Balance_HW_COV_Mechanic": "Vault Card",
+    "/Game/PatchDLC/VaultCard2/Gear/Artifacts/Unique/Shlooter/Balance/InvBalD_Artifact_Shlooter.InvBalD_Artifact_Shlooter": "Vault Card 2",
+    "/Game/PatchDLC/VaultCard2/Gear/GrenadeMods/Unique/Pyroburst/Balance/InvBalD_GM_Pyroburst.InvBalD_GM_Pyroburst": "Vault Card 2",
+    "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/GoldRush/Balance/Balance_SM_HYP_GoldRush.Balance_SM_HYP_GoldRush": "Vault Card 2",
+    "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/Troubleshooter/Balance/Balance_SM_HYP_ETech_Troubleshooter.Balance_SM_HYP_ETech_Troubleshooter": "Vault Card 2",
 }
 
+# These match raid1 since that's when they were expanded
 for expandable_balance_set in EXPANDABLE_BALANCES.values():
     for balance in expandable_balance_set:
         ITEM_GROUP_OVERRIDES[balance] = "Base Game"
@@ -272,6 +297,10 @@ BALANCE_BLACKLIST: set[str] = {
     "/Game/PatchDLC/VaultCard/Gear/Weapons/Unique/BirdofPrey/Balance/Balance_SR_JAK_BirdofPrey_FixedParts.Balance_SR_JAK_BirdofPrey_FixedParts",
     "/Game/PatchDLC/VaultCard/Gear/Weapons/Unique/Guardian/Balance/Balance_SG_HYP_Guardian_FixedParts.Balance_SG_HYP_Guardian_FixedParts",
     "/Game/PatchDLC/VaultCard/Gear/Weapons/Unique/Mechanic/Balance/Balance_HW_COV_Mechanic_FixedParts.Balance_HW_COV_Mechanic_FixedParts",
+    "/Game/PatchDLC/VaultCard2/Gear/Artifacts/Unique/Shlooter/Balance/InvBalD_Artifact_Shlooter_FixedParts.InvBalD_Artifact_Shlooter_FixedParts",
+    "/Game/PatchDLC/VaultCard2/Gear/GrenadeMods/Unique/Pyroburst/Balance/InvBalD_GM_Pyroburst_FixedParts.InvBalD_GM_Pyroburst_FixedParts",
+    "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/GoldRush/Balance/Balance_SM_HYP_GoldRush_FixedParts.Balance_SM_HYP_GoldRush_FixedParts",
+    "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/Troubleshooter/Balance/Balance_SM_HYP_ETech_Troubleshooter_FixedParts.Balance_SM_HYP_ETech_Troubleshooter_FixedParts",
 
     # Enemy weapon? We already use the other standard balances
     "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/SeventhSense/Balance/Balance_PS_JAK_SeventhSense.Balance_PS_JAK_SeventhSense",
@@ -353,6 +382,7 @@ BALANCE_BLACKLIST: set[str] = {
     # Non-Items
     # Money
     "/Game/Gear/GrenadeMods/_Design/PartSets/Part_Behavior/Money/InvBal_GrenadeBehavior_Money.InvBal_GrenadeBehavior_Money",
+    "/Game/PatchDLC/Ixora2/InteractiveObjects/DiscoveryIO/InventoryBalanceDef_Eridium500.InventoryBalanceDef_Eridium500",
     "/Game/PatchDLC/VaultCard/Data/Currency/InvBal_VaultCardChest_Eridium_Stack.InvBal_VaultCardChest_Eridium_Stack",
     "/Game/Pickups/Eridium/InvBal_Eridium_Ingot.InvBal_Eridium_Ingot",
     "/Game/Pickups/Eridium/InvBal_Eridium_Single.InvBal_Eridium_Single",
@@ -386,6 +416,7 @@ BALANCE_BLACKLIST: set[str] = {
     # Keys
     "/Game/PatchDLC/VaultCard/Data/Currency/InventoryBalance_DiamondKey.InventoryBalance_DiamondKey",
     "/Game/PatchDLC/VaultCard/Data/Currency/InventoryBalance_VaultCard01Key.InventoryBalance_VaultCard01Key",
+    "/Game/PatchDLC/VaultCard2/Data/Currency/InventoryBalance_VaultCard2Key.InventoryBalance_VaultCard2Key",
 
     # Ammo
     "/Game/Pickups/Ammo/DA_InventoryBalance_Ammo_AllAmmo.DA_InventoryBalance_Ammo_AllAmmo",
@@ -408,6 +439,16 @@ BALANCE_BLACKLIST: set[str] = {
     "/Game/PatchDLC/VaultCard/Data/VaultCardChest1/VCRBD_RoomDeco_VC1.VCRBD_RoomDeco_VC1",
     "/Game/PatchDLC/VaultCard/Data/VaultCardChest1/VCRBD_Trinket_VC1.VCRBD_Trinket_VC1",
     "/Game/PatchDLC/VaultCard/Data/VaultCardChest1/VCRBD_WeaponSkin_VC1.VCRBD_WeaponSkin_VC1",
+    "/Game/PatchDLC/VaultCard2/Data/VaultCardChest2/VCRBD_CustomHead_Beastmaster.VCRBD_CustomHead_Beastmaster",
+    "/Game/PatchDLC/VaultCard2/Data/VaultCardChest2/VCRBD_CustomHead_Gunner.VCRBD_CustomHead_Gunner",
+    "/Game/PatchDLC/VaultCard2/Data/VaultCardChest2/VCRBD_CustomHead_Operative.VCRBD_CustomHead_Operative",
+    "/Game/PatchDLC/VaultCard2/Data/VaultCardChest2/VCRBD_CustomHead_Siren.VCRBD_CustomHead_Siren",
+    "/Game/PatchDLC/VaultCard2/Data/VaultCardChest2/VCRBD_CustomSkin.VCRBD_CustomSkin",
+    "/Game/PatchDLC/VaultCard2/Data/VaultCardChest2/VCRBD_EchoTheme_VC2.VCRBD_EchoTheme_VC2",
+    "/Game/PatchDLC/VaultCard2/Data/VaultCardChest2/VCRBD_Emote_VC2.VCRBD_Emote_VC2",
+    "/Game/PatchDLC/VaultCard2/Data/VaultCardChest2/VCRBD_RoomDeco_VC2.VCRBD_RoomDeco_VC2",
+    "/Game/PatchDLC/VaultCard2/Data/VaultCardChest2/VCRBD_Trinket_VC2.VCRBD_Trinket_VC2",
+    "/Game/PatchDLC/VaultCard2/Data/VaultCardChest2/VCRBD_WeaponSkin_VC2.VCRBD_WeaponSkin_VC2",
 
     # Non-Uniques
     "/Game/Gear/Artifacts/_Design/BalanceDefs/InvBalD_Artifact_01_Common.InvBalD_Artifact_01_Common",
