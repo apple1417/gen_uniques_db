@@ -63,11 +63,6 @@ Line 3654
     BalancedItems add
     /Game/Gear/GrenadeMods/_Design/_Unique/FireStorm/Balance/InvBalD_GM_VLA_FireStorm.InvBalD_GM_VLA_FireStorm
 
-Line 3655 - Doesn't exist anymore, but is still applied ????
-/Game/PatchDLC/Raid1/GameData/Loot/ItemPools/ItemPool_Loot_Enemies.ItemPool_Loot_Enemies
-    BalancedItems add
-    /Game/Gear/Weapons/HeavyWeapons/Torgue/_Shared/_Design/_Unique/RYNO/Balance/Balance_HW_TOR_RYNO.Balance_HW_TOR_RYNO
-
 Line 3827
 /Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_SMGs_Mayhem.ItemPool_SMGs_Mayhem
     BalancedItems.BalancedItems[3].Weight.BaseValueScale = 0
@@ -135,3 +130,8 @@ Fixups Line 67
 /Game/PatchDLC/Hibiscus/GameData/Loot/EnemyPools/ItemPoolList_Eista.ItemPoolList_Eista
     ItemPools add
     /Game/PatchDLC/Hibiscus/GameData/Loot/Legendary/ItemPool_Hib_SnipeRifles_Legendary.ItemPool_Hib_SnipeRifles_Legendary
+
+Incorporated via code (used to be line 3655)
+/Game/PatchDLC/Raid1/GameData/Loot/ItemPools/ItemPool_Loot_Enemies.ItemPool_Loot_Enemies
+    BalancedItems add
+    /Game/Gear/Weapons/HeavyWeapons/Torgue/_Shared/_Design/_Unique/RYNO/Balance/Balance_HW_TOR_RYNO.Balance_HW_TOR_RYNO
