@@ -7,4 +7,6 @@ __pycache__
 _uniques.sqlite3
 bl3dump
 bl3refs.sqlite3
+
 hunt.csv
+uniques.json

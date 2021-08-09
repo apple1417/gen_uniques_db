@@ -3,7 +3,8 @@ import sqlite3
 from dataclasses import dataclass
 from typing import Optional
 
-DB_PATH = "_uniques.sqlite3"
+from util import DB_PATH, can_item_world_drop, get_all_item_names, get_item_description
+
 OUTPUT_SHEET = "hunt.csv"
 
 DROP_SCRIPTS: tuple[str, ...] = (
@@ -138,74 +139,13 @@ class RowData:
     world_drops: bool
 
 
-con = sqlite3.connect(DB_PATH)
-
-
-def get_all_item_names(item_id: int) -> str:
-    cur = con.cursor()
-    cur.execute(
-        "select Name from Items where ID = ?",
-        (item_id,)
-    )
-    all_names = [cur.fetchone()[0]]
-
-    cur.execute(
-        "select VariantName from Variants where ItemID = ?",
-        (item_id,)
-    )
-    all_names.extend(x[0] for x in cur.fetchall())
-    all_names.sort()
-
-    return " / ".join(all_names)
-
-
-def get_item_description(
-    item_id: int,
-    rarity: str,
-    gear_category: str,
-    req_class: Optional[str]
-) -> str:
-    cur = con.cursor()
-    cur.execute(
-        "select Manufacturer from ManufacturedBy where ItemID = ?",
-        (item_id,)
-    )
-    all_manus = [x[0] for x in cur.fetchall() if x[0] != "COM"]
-    all_manus.sort()
-
-    class_str = ""
-    if req_class is not None:
-        class_str = f"{req_class} "
-
-    if len(all_manus) == 0:
-        return f"{rarity} {class_str}{gear_category}"
-    else:
-        return f"{rarity} {'/'.join(all_manus)} {class_str}{gear_category}"
-
-
-def can_item_world_drop(item_id: int) -> bool:
-    cur = con.cursor()
-    cur.execute(
-        """
-        select count(*) from
-            ObtainedFrom as o,
-            Sources as s
-        where
-            o.ItemID = ?
-            and o.SourceID = s.ID
-            and s.SourceType = "World Drop"
-        """,
-        (item_id,)
-    )
-    return bool(cur.fetchone()[0] > 0)
-
-
 drops_by_map: dict[Optional[str], list[RowData]] = {}
 
-main_cursor = con.cursor()
+con = sqlite3.connect(DB_PATH)
+cur = con.cursor()
 for script in DROP_SCRIPTS:
     with open(script) as file:
-        main_cursor.execute(file.read())
+        cur.execute(file.read())
     for (
         item_id,
         rarity,
@@ -213,14 +153,14 @@ for script in DROP_SCRIPTS:
         req_class,
         source,
         map_name,
-    ) in main_cursor.fetchall():
+    ) in cur.fetchall():
         if map_name not in drops_by_map:
             drops_by_map[map_name] = []
         drops_by_map[map_name].append(RowData(
-            get_all_item_names(item_id),
-            get_item_description(item_id, rarity, gear_category, req_class),
+            get_all_item_names(con, item_id),
+            get_item_description(con, item_id, rarity, gear_category, req_class),
             source,
-            can_item_world_drop(item_id)
+            can_item_world_drop(con, item_id)
         ))
 
 

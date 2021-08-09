@@ -2,6 +2,8 @@
 
 This project generates a sqlite3 database holding information on all unique items in BL3, from the raw game data.
 
+### [See this site to easily browse through the data](https://apple1417.dev/bl3/uniques).
+
 ## Schema
 
 ![Schema Image](schema.png)
@@ -22,13 +24,15 @@ The `demo` folder contains a bunch of examples of how to use this database.
 Script | Usage
 :---|:---
 `enemy_maps.sql` | Lists the map each enemy is associated with.
-`gen_hunt_sheet.py` (and `ghs_*.sql)`) | Generates a csv used as basis to create a sheet for the hunt containing all drop sources. See the [final sheet here](https://docs.google.com/spreadsheets/d/1wwxGn2XY14qtANYcWDdREvZQzHU5c7_EGNXUQTjgW_o/edit?usp=sharing).
 `list_all_items.sql` | Lists all items in the database.
 `list_all_sources.sql` | Lists all items alongside the sources you can get them from.
 `list_variants.sql` | Lists all items names alongside their variant names.
 `no_sources.sql` | Lists all items which don't have any sources.
 `not_diamond_chest.sql` | Lists all items which cannot be obtained from the diamond chest.
 `world_drops_only.sql` | Lists all items which can only be obtained from world drops.
+`gen_hunt_sheet.py` (and `ghs_*.sql)`) | Generates a csv used as basis to create a sheet for the hunt. See the [final sheet here](https://docs.google.com/spreadsheets/d/1wwxGn2XY14qtANYcWDdREvZQzHU5c7_EGNXUQTjgW_o/edit?usp=sharing).
+`gen_website_json.py` | Generates a json file used to fill [the browser site](https://apple1417.dev/bl3/uniques).
+`util.py` | A few helpers for the other python scripts
 
 
 ## Generating the DB
