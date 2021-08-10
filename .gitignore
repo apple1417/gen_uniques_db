@@ -9,4 +9,5 @@ bl3dump
 bl3refs.sqlite3
 
 hunt.csv
-uniques.json
+items.json
+sources.json
