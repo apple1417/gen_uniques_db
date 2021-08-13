@@ -114,6 +114,16 @@ Line 3947
     BalancedItems add
     /Game/PatchDLC/Hibiscus/Gear/ClassMods/_Design/BSM/InvBalD_CM_Beastmaster_Hib.InvBalD_CM_Beastmaster_Hib
 
+Line ???? (SparkCharacterLoadedEntry1446)
+/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Soulrender.ItemPool_Hibiscus_Soulrender
+    BalancedItems add
+    /Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Soulrender/Balance/Balance_DAL_AR_Soulrender.Balance_DAL_AR_Soulrender
+
+Line ???? (SparkCharacterLoadedEntry1447)
+/Game/PatchDLC/Raid1/GameData/Loot/ItemPools/ItemPool_AureliaBoss.ItemPool_AureliaBoss
+    BalancedItems add
+    /Game/PatchDLC/Raid1/Re-Engagement/Weapons/Juliet/Balance/Balance_AR_TOR_Juliet_WorldDrop.Balance_AR_TOR_Juliet_WorldDrop
+
 Fixups Line 28
 /Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Soulrender.ItemPool_Hibiscus_Soulrender
     BalancedItems remove (missing ResolvedInventoryBalanceData)
