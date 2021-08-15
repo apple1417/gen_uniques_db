@@ -8,6 +8,7 @@ MISSION_NAME_OVERRIDES: dict[str, str] = {
     "/Game/PatchDLC/Dandelion/Missions/Plot/Mission_DLC1_Ep03_Impound.Default__Mission_DLC1_Ep03_Impound_C": "Winners and Losers",
     "/Game/PatchDLC/Dandelion/Missions/Plot/Mission_DLC1_Ep04_Trashtown.Default__Mission_DLC1_Ep04_Trashtown_C": "One Man’s Treasure",
     "/Game/PatchDLC/Dandelion/Missions/Plot/Mission_DLC1_Ep05_ThePlan.Default__Mission_DLC1_Ep05_ThePlan_C": "The Plan",
+    "/Game/PatchDLC/Dandelion/Missions/Plot/Mission_DLC1_Ep06_TheCore.Default__Mission_DLC1_Ep06_TheCore_C": "Jack's Wild",
     "/Game/PatchDLC/Dandelion/Missions/Plot/Mission_DLC1_Ep07_TheHeist.Default__Mission_DLC1_Ep07_TheHeist_C": "All Bets Off",
 }
 
@@ -29,6 +30,10 @@ MISSION_PATH_GLOBS: set[str] = {
     "/Game/PatchDLC/Takedown2/Missions/Side/Mission_*",
 }
 
+MISSION_WEAPON_BLACKLIST: set[str] = {
+    # The objective that gives you the mission weapon finishes the mission - easier to ignore it
+    "/Game/Missions/Side/Zone_2/Wetlands/Mission_DudeBro.Default__Mission_DudeBro_C",
+}
 
 EXTRA_MISSION_REWARDS: dict[str, set[str]] = {
     "/Game/Missions/Plot/Mission_Ep05_OvercomeHQBlockade.Default__Mission_Ep05_OvercomeHQBlockade_C": {
@@ -36,6 +41,9 @@ EXTRA_MISSION_REWARDS: dict[str, set[str]] = {
     },
     "/Game/Missions/Side/Zone_1/Athenas/Mission_InvasionOfPrivacy.Default__Mission_InvasionOfPrivacy_C": {
         "/Game/Gear/Weapons/SMGs/Tediore/_Shared/_Design/_Unique/Beans/Balance/Balance_SM_TED_Beans.Balance_SM_TED_Beans",
+    },
+    "/Game/Missions/Plot/Mission_Ep13_JakobsRebellion.Default__Mission_Ep13_JakobsRebellion_C": {
+        "/Game/Gear/Weapons/AssaultRifles/Jakobs/_Shared/_Design/_Unique/HandOfGlory/Balance/Balance_AR_JAK_HandOfGlory.Balance_AR_JAK_HandOfGlory",
     },
     "/Game/Missions/Side/Zone_3/Desert/Mission_BirthdaySurprise.Default__Mission_BirthdaySurprise_C": {
         "/Game/Gear/GrenadeMods/_Design/_Unique/BirthdaySuprise/Balance/InvBalD_GM_BirthdaySuprise.InvBalD_GM_BirthdaySuprise",

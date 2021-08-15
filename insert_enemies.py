@@ -279,9 +279,8 @@ def insert_projectile_enemies(con: sqlite3.Connection) -> None:
 
         cur.execute(
             """
-            INSERT INTO Sources (SourceType, Map, Description, ObjectName) VALUES (
+            INSERT INTO Sources (SourceType, Description, ObjectName) VALUES (
                 "Enemy",
-                null,
                 ?,
                 ?
             )

@@ -11,11 +11,10 @@ def insert_world_drops(con: sqlite3.Connection) -> None:
     for dlc in _ALL_DLCS:
         cur.execute(
             """
-            INSERT INTO Sources (SourceType, Map, Description, ObjectName) VALUES (
+            INSERT INTO Sources (SourceType, Map, Description) VALUES (
                 "World Drop",
                 ?,
-                ?,
-                NULL
+                ?
             )
             """,
             (WORLD_DROP_MAP_OVERRIDE.get(dlc, None), f"World Drop ({dlc})")
@@ -48,11 +47,10 @@ def insert_arms_race_chests(con: sqlite3.Connection) -> None:
     cur = con.cursor()
     cur.execute(
         """
-        INSERT INTO Sources (SourceType, Map, Description, ObjectName) VALUES (
+        INSERT INTO Sources (SourceType, Map, Description) VALUES (
             "Misc",
             "Stormblind Complex",
-            "Arms Race Chest Room",
-            NULL
+            "Arms Race Chest Room"
         )
         """
     )
@@ -78,11 +76,10 @@ def insert_misc_notable_pools(con: sqlite3.Connection) -> None:
     for source, all_pools in MISC_NOTABLE_POOLS.items():
         cur.execute(
             """
-            INSERT INTO Sources (SourceType, Map, Description, ObjectName) VALUES (
+            INSERT INTO Sources (SourceType, Map, Description) VALUES (
                 "Misc",
                 ?,
-                ?,
-                NULL
+                ?
             )
             """,
             (source.map_name, source.description)
@@ -109,11 +106,10 @@ def insert_misc_notable_pools(con: sqlite3.Connection) -> None:
     for source, all_balances in MISC_NOTABLE_BALANCES.items():
         cur.execute(
             """
-            INSERT INTO Sources (SourceType, Map, Description, ObjectName) VALUES (
+            INSERT INTO Sources (SourceType, Map, Description) VALUES (
                 "Misc",
                 ?,
-                ?,
-                NULL
+                ?
             )
             """,
             (source.map_name, source.description)

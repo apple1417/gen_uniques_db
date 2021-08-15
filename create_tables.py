@@ -19,7 +19,7 @@ def create_tables(con: sqlite3.Connection) -> None:
     cur.execute(
         """
         INSERT INTO MetaData (Key, Value) VALUES
-            ("Version", "7"),
+            ("Version", "8"),
             ("GeneratedTime", ?);
         """,
         (datetime.utcnow().strftime("%Y%m%d%H%M%S"),)
@@ -189,7 +189,7 @@ def create_tables(con: sqlite3.Connection) -> None:
             SourceType  TEXT NOT NULL,
             Map         TEXT,
             Description TEXT NOT NULL UNIQUE,
-            ObjectName  TEXT UNIQUE,
+            ObjectName  TEXT,
             PRIMARY KEY(ID AUTOINCREMENT),
             FOREIGN KEY(SourceType) REFERENCES SourceTypes(Name),
             FOREIGN KEY(Map)        REFERENCES Maps(Name)

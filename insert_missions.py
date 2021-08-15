@@ -1,10 +1,11 @@
 import logging
 import sqlite3
 from dataclasses import dataclass
-from typing import Iterator, Optional
+from typing import Iterator
 
 import bl3dump
-from data.missions import EXTRA_MISSION_REWARDS, MISSION_NAME_OVERRIDES, MISSION_PATH_GLOBS
+from data.missions import (EXTRA_MISSION_REWARDS, MISSION_NAME_OVERRIDES, MISSION_PATH_GLOBS,
+                           MISSION_WEAPON_BLACKLIST)
 from itempool_handling import load_itempool_contents
 
 
@@ -12,7 +13,6 @@ from itempool_handling import load_itempool_contents
 class MissionData:
     mission_name: str
     object_name: str
-    map_name: Optional[str]
     rewards: set[str]
 
 
@@ -34,15 +34,8 @@ def iter_missions() -> Iterator[MissionData]:
                     reward_pool = data["ItemPoolReward"]["asset_path_name"]
                     rewards.update(load_itempool_contents(reward_pool))
 
-            if "MissionWeaponBalanceData" in mission_data:
-                # Technically this isn't a reward per se, but it works well enough
-                rewards.add(mission_data["MissionWeaponBalanceData"]["asset_path_name"])
-
             if obj_name in EXTRA_MISSION_REWARDS:
                 rewards.update(EXTRA_MISSION_REWARDS[obj_name])
-
-            if len(rewards) <= 0:
-                continue
 
             if obj_name in MISSION_NAME_OVERRIDES:
                 name = MISSION_NAME_OVERRIDES[obj_name]
@@ -50,7 +43,18 @@ def iter_missions() -> Iterator[MissionData]:
                 logging.info(f"Ignoring mission with placeholder name: {obj_name}")
                 continue
 
-            yield MissionData(name, obj_name, None, rewards)
+            if len(rewards) > 0:
+                yield MissionData(name, obj_name, rewards)
+
+            if (
+                obj_name not in MISSION_WEAPON_BLACKLIST
+                and "MissionWeaponBalanceData" in mission_data
+            ):
+                yield MissionData(
+                    name + " (Mission Weapon)",
+                    obj_name,
+                    {mission_data["MissionWeaponBalanceData"]["asset_path_name"]}
+                )
 
 
 def insert_missions(con: sqlite3.Connection) -> None:
@@ -59,14 +63,13 @@ def insert_missions(con: sqlite3.Connection) -> None:
     for mission_data in iter_missions():
         cur.execute(
             """
-            INSERT INTO Sources (SourceType, Map, Description, ObjectName) VALUES (
+            INSERT INTO Sources (SourceType, Description, ObjectName) VALUES (
                 "Mission",
-                ?,
                 ?,
                 ?
             )
             """,
-            (mission_data.map_name, mission_data.mission_name, mission_data.object_name)
+            (mission_data.mission_name, mission_data.object_name)
         )
         row_id = cur.lastrowid
 
