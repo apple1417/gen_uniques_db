@@ -133,6 +133,8 @@ Fixups Line 28
 
 Fixups Line 32
 /Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Lunacy.ItemPool_Hibiscus_Lunacy
+    BalancedItems remove (missing ResolvedInventoryBalanceData)
+    /Game/PatchDLC/Hibiscus/Gear/Artifacts/_Design/_Unique/Lunacy/Balance/InvBalD_Artifact_Lunacy.InvBalD_Artifact_Lunacy
     BalancedItems add
     /Game/PatchDLC/Hibiscus/Gear/ClassMods/_Design/GUN/InvBalD_CM_Gunner_Hib.InvBalD_CM_Gunner_Hib
 

@@ -42,6 +42,9 @@ HOTFIX_BALANCEDITEMS_REMOVE: dict[str, BalancedItemsEntry] = {
     "/Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_Shields_AllAndDLC.ItemPool_Shields_AllAndDLC": BalancedItemsEntry(pools={
         "/Game/PatchDLC/Raid1/GameData/Loot/ItemPool_RaidMiniBosses_Pool.ItemPool_RaidMiniBosses_Pool",
     }),
+    "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Lunacy.ItemPool_Hibiscus_Lunacy": BalancedItemsEntry({
+        "/Game/PatchDLC/Hibiscus/Gear/Artifacts/_Design/_Unique/Lunacy/Balance/InvBalD_Artifact_Lunacy.InvBalD_Artifact_Lunacy",
+    }),
     # This is technically redundant for the same reason again
     "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Soulrender.ItemPool_Hibiscus_Soulrender": BalancedItemsEntry({
         "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Soulrender/Balance/Balance_DAL_AR_Soulrender.Balance_DAL_AR_Soulrender",
