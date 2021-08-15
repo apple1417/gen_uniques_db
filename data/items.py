@@ -113,7 +113,9 @@ NAME_OVERRIDES: dict[str, set[str]] = {
     "/Game/PatchDLC/Geranium/Gear/Weapon/_Unique/BioBetsy/Balance/Balance_AR_COV_BioBetsy_Shock.Balance_AR_COV_BioBetsy_Shock": {"The Beast (Shock)"},
     "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/LoveDrill/Balance/Balance_PS_JAK_LoveDrill_Legendary.Balance_PS_JAK_LoveDrill_Legendary": {"Love Drill (Legendary)"},
     "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/LoveDrill/Balance/Balance_PS_JAK_LoveDrill.Balance_PS_JAK_LoveDrill": {"Love Drill (Purple)"},
-    "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/TheSeventhSense/Balance/Balance_PS_JAK_TheSeventhSense_MissionWeapon.Balance_PS_JAK_TheSeventhSense_MissionWeapon": {"Seventh Sense (Purple)"},
+    "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/SeventhSense/Balance/Balance_PS_JAK_SeventhSense.Balance_PS_JAK_SeventhSense": {"Seventh Sense (Purple)"},
+    "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/SeventhSense/Balance/Balance_PS_JAK_SS_L.Balance_PS_JAK_SS_L": {"Seventh Sense (Burton Ghost)"},
+    "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/TheSeventhSense/Balance/Balance_PS_JAK_TheSeventhSense_MissionWeapon.Balance_PS_JAK_TheSeventhSense_MissionWeapon": {"Seventh Sense (Mission)"},
     "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/TheSeventhSense/Balance/Balance_PS_JAK_TheSeventhSense.Balance_PS_JAK_TheSeventhSense": {"Seventh Sense (Legendary)"},
     "/Game/PatchDLC/Ixora2/Gear/Artifacts/_Unique/CompanyMan/Atlas/Balance/InvBalD_Artifact_CompanyMan_Atlas.InvBalD_Artifact_CompanyMan_Atlas": {"Company Man (Atlas)"},
     "/Game/PatchDLC/Ixora2/Gear/Artifacts/_Unique/CompanyMan/CoV/Balance/InvBalD_Artifact_CompanyMan_CoV.InvBalD_Artifact_CompanyMan_CoV": {"Company Man (CoV)"},
@@ -302,13 +304,9 @@ BALANCE_BLACKLIST: set[str] = {
     "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/GoldRush/Balance/Balance_SM_HYP_GoldRush_FixedParts.Balance_SM_HYP_GoldRush_FixedParts",
     "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/Troubleshooter/Balance/Balance_SM_HYP_ETech_Troubleshooter_FixedParts.Balance_SM_HYP_ETech_Troubleshooter_FixedParts",
 
-    # Enemy weapon? We already use the other standard balances
-    "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/SeventhSense/Balance/Balance_PS_JAK_SeventhSense.Balance_PS_JAK_SeventhSense",
-
     # Unused
     "/Game/Gear/Weapons/SMGs/Dahl/_Shared/_Design/_Unique/RockNRoll_Intro/Balance_SM_DAL_PlayableIntroOnly.Balance_SM_DAL_PlayableIntroOnly",
     "/Game/Gear/Weapons/SMGs/Dahl/_Shared/_Design/BalanceState/EndGameTest/Balance_SM_DAHL_TEST_ENDGAME.Balance_SM_DAHL_TEST_ENDGAME",
-    "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/SeventhSense/Balance/Balance_PS_JAK_SS_L.Balance_PS_JAK_SS_L",
     "/Game/PatchDLC/Ixora/Gear/ClassMods/_Design/OPE/L02/InvBalD_CM_Ixora_OPE_L02.InvBalD_CM_Ixora_OPE_L02",
     "/Game/PatchDLC/Raid1/Re-Engagement/Weapons/Juliet/Balance/Balance_AR_TOR_Juliet.Balance_AR_TOR_Juliet",
     "/Game/PatchDLC/Raid1/Re-Engagement/Weapons/PurpleSMG/Balance_SM_DAHL_LowLvlReturningGift.Balance_SM_DAHL_LowLvlReturningGift",
@@ -332,6 +330,7 @@ BALANCE_BLACKLIST: set[str] = {
     "/Game/PatchDLC/Hibiscus/Gear/NPC_Weapons/Gaige/Balance_AR_VLA_Gaige_Hib.Balance_AR_VLA_Gaige_Hib",
     "/Game/PatchDLC/Hibiscus/Gear/NPC_Weapons/Hammerlock/Balance_AR_JAK_Hammerlock_Hib.Balance_AR_JAK_Hammerlock_Hib",
     "/Game/PatchDLC/Hibiscus/Gear/NPC_Weapons/Private_Eye/Balance_PS_JAK_Private_Eye.Balance_PS_JAK_Private_Eye",
+    "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/SeventhSense/Balance/Balance_PS_JAK_SS_L.Balance_PS_JAK_SS_L",
 
     # Pet Weapons
     "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/OperativeSkillSCreen/Balance_DAL_PS_OperativeSkillScreen.Balance_DAL_PS_OperativeSkillScreen",
