@@ -114,15 +114,20 @@ Line 3947
     BalancedItems add
     /Game/PatchDLC/Hibiscus/Gear/ClassMods/_Design/BSM/InvBalD_CM_Beastmaster_Hib.InvBalD_CM_Beastmaster_Hib
 
-Line ???? (SparkCharacterLoadedEntry1446)
+Line 4290
 /Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Soulrender.ItemPool_Hibiscus_Soulrender
     BalancedItems add
     /Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Soulrender/Balance/Balance_DAL_AR_Soulrender.Balance_DAL_AR_Soulrender
 
-Line ???? (SparkCharacterLoadedEntry1447)
+Line 4291
 /Game/PatchDLC/Raid1/GameData/Loot/ItemPools/ItemPool_AureliaBoss.ItemPool_AureliaBoss
     BalancedItems add
     /Game/PatchDLC/Raid1/Re-Engagement/Weapons/Juliet/Balance/Balance_AR_TOR_Juliet_WorldDrop.Balance_AR_TOR_Juliet_WorldDrop
+
+Line 4296
+/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Lunacy.ItemPool_Hibiscus_Lunacy
+    BalancedItems add
+    /Game/PatchDLC/Hibiscus/Gear/Artifacts/_Design/_Unique/Lunacy/Balance/InvBalD_Artifact_Lunacy.InvBalD_Artifact_Lunacy
 
 Fixups Line 28
 /Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Soulrender.ItemPool_Hibiscus_Soulrender
