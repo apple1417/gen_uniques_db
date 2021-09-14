@@ -61,6 +61,14 @@ MISC_NOTABLE_POOLS: dict[MiscSource, set[str]] = {
     MiscSource("Use Suicide Machine 20x", "Ambermire"): {
         "/Game/GameData/Challenges/Missions/Unique/ItemPool_SuckerPunch_BurningSummit.ItemPool_SuckerPunch_BurningSummit",
     },
+    MiscSource("Loot Tink Backpacks"): {
+        "/Game/Enemies/Tink/Loot/_Design/LootPools/ItemPool_LootTink_CashExplosion.ItemPool_LootTink_CashExplosion",
+        "/Game/Enemies/Tink/Loot/_Design/LootPools/ItemPool_LootTink_TinkLootPackOpened_2.ItemPool_LootTink_TinkLootPackOpened_2",
+        "/Game/Enemies/Tink/Loot/_Design/LootPools/ItemPool_LootTink_TinkLootPackOpened.ItemPool_LootTink_TinkLootPackOpened",
+    },
+    MiscSource("Loot Tink Damaged Drops"): {
+        "/Game/Enemies/Tink/Loot/_Design/LootPools/ItemPool_LootTink_DamagedGearDrops.ItemPool_LootTink_DamagedGearDrops",
+    },
     MiscSource("Break 50 hearts"): {
         "/Game/PatchDLC/EventVDay/GameData/Challenges/ChallengeRewards/ItemPool_VDay_Weapon_PolyAim.ItemPool_VDay_Weapon_PolyAim",
     },

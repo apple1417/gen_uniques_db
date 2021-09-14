@@ -1,7 +1,12 @@
 WORLD_DROP_POOLS: dict[str, set[str]] = {
     "Base Game": {
         "/Game/GameData/Loot/ItemPools/GrenadeMods/ItemPool_GrenadeMods_05_Legendary.ItemPool_GrenadeMods_05_Legendary",
-        "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Guns_Legendary.ItemPool_Guns_Legendary",
+        "/Game/GameData/Loot/ItemPools/Guns/AssaultRifles/ItemPool_AssaultRifles_Legendary.ItemPool_AssaultRifles_Legendary",
+        "/Game/GameData/Loot/ItemPools/Guns/Heavy/ItemPool_Heavy_Legendary.ItemPool_Heavy_Legendary",
+        "/Game/GameData/Loot/ItemPools/Guns/Pistols/ItemPool_Pistols_Legendary.ItemPool_Pistols_Legendary",
+        "/Game/GameData/Loot/ItemPools/Guns/Shotguns/ItemPool_Shotguns_Legendary.ItemPool_Shotguns_Legendary",
+        "/Game/GameData/Loot/ItemPools/Guns/SMG/ItemPool_SMGs_Legendary.ItemPool_SMGs_Legendary",
+        "/Game/GameData/Loot/ItemPools/Guns/SniperRifles/ItemPool_SnipeRifles_Legendary.ItemPool_SnipeRifles_Legendary",
         "/Game/GameData/Loot/ItemPools/Shields/ItemPool_Shields_05_Legendary.ItemPool_Shields_05_Legendary",
         "/Game/Gear/Artifacts/_Design/ItemPools/ItemPool_Artifacts_05_Legendary.ItemPool_Artifacts_05_Legendary",
         "/Game/Gear/ClassMods/_Design/ItemPools/ItemPool_ClassMods_05_Legendary.ItemPool_ClassMods_05_Legendary",
@@ -67,7 +72,12 @@ ITEMPOOL_OVERRIDES: dict[str, set[str]] = {
 
 
 KNOWN_EMPTY_POOLS: set[str] = {
-    # Empty world drop/unique pools
+    # region Empty world drop/dedicated pools
+    "/Game/Enemies/Tink/Loot/_Design/LootPools/ItemPool_LootTink_DamagedGearDrops.ItemPool_LootTink_DamagedGearDrops",
+    "/Game/Enemies/Tink/Loot/_Design/LootPools/ItemPool_LootTink_TinkLootPackOpened_2.ItemPool_LootTink_TinkLootPackOpened_2",
+    "/Game/Enemies/Tink/Loot/_Design/LootPools/ItemPool_LootTink_TinkLootPackOpened.ItemPool_LootTink_TinkLootPackOpened",
+    "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Guns_Legendary.ItemPool_Guns_Legendary",
+    "/Game/NonPlayerCharacters/Aurelia/_TheBoss/_Design/Character/ItemPool_AureliaBoss_AddsLoot.ItemPool_AureliaBoss_AddsLoot",
     "/Game/PatchDLC/Dandelion/GameData/Loot/Legendary/ItemPool_Dandelion_Shields_Legendary.ItemPool_Dandelion_Shields_Legendary",
     "/Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_AssaultRifles_Dandelion.ItemPool_AssaultRifles_Dandelion",
     "/Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_Heavy_Hibiscus.ItemPool_Heavy_Hibiscus",
@@ -75,12 +85,13 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/PatchDLC/Geranium/GameData/Loot/Legendary/ItemPool_Geranium_Shields_Legendary.ItemPool_Geranium_Shields_Legendary",
     "/Game/PatchDLC/Hibiscus/GameData/Loot/Legendary/ItemPool_Hibiscus_Grenades_Legendary.ItemPool_Hibiscus_Grenades_Legendary",
     "/Game/PatchDLC/Raid1/GameData/Loot/ItemPoolExpansions/ItemPoolExpansion_Freeman_Warden.ItemPoolExpansion_Freeman_Warden",
-    "/Game/NonPlayerCharacters/Aurelia/_TheBoss/_Design/Character/ItemPool_AureliaBoss_AddsLoot.ItemPool_AureliaBoss_AddsLoot",
+    # endregion
 
-    # Mission Rewards
+    # region Mission Rewards
     "/Game/PatchDLC/Hibiscus/Missions/ItemPool_Reward/ItemPool_Mission_EP05_The_Research_Station.ItemPool_Mission_EP05_The_Research_Station",
+    # endregion
 
-    # Mission Pickups
+    # region Mission Pickups
     "/Alisma/InteractiveObjects/MissionSpecific/Plot/ALI_EP02/Pickups/ItemPool_Ali_EP02_SkagMeat.ItemPool_Ali_EP02_SkagMeat",
     "/Alisma/InteractiveObjects/MissionSpecific/Plot/ALI_EP04/Pickups/ItemPool_ALI_EP04_LoaderArms.ItemPool_ALI_EP04_LoaderArms",
     "/Alisma/InteractiveObjects/MissionSpecific/Plot/ALI_EP04/Pickups/ItemPool_ALI_EP04_LoaderChest.ItemPool_ALI_EP04_LoaderChest",
@@ -177,21 +188,27 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Ixora2/Missions/03_Pandora/ItemPool_IXO_BodyPartA.ItemPool_IXO_BodyPartA",
     "/Ixora2/Missions/03_Pandora/ItemPool_IXO_BodyPartB.ItemPool_IXO_BodyPartB",
     "/Ixora2/Missions/03_Pandora/ItemPool_IXO_BodyPartC.ItemPool_IXO_BodyPartC",
+    # endregion
 
-    # Copies of non-uniques, typically just with custom materials
+    # region Copies of non-uniques
+    # Typically just with custom materials
     "/Game/Missions/Side/Zone_2/Wetlands/TortureTruck/ItemPool_TortureTruck_Reward.ItemPool_TortureTruck_Reward",
+    # endregion
 
-    # Vehicle parts
+    # region Vehicle parts
     # This actually comes from Get Quick Slick despite the name
     "/Game/Missions/Side/Zone_1/City/BitterPillToSwallow/ItemPool_BitterPillToSwallow_Medicine_CVehicle.ItemPool_BitterPillToSwallow_Medicine_CVehicle",
+    # endregion
 
-    # Fabricator
+    # region Fabricator
     "/Game/Gear/Weapons/HeavyWeapons/Eridian/_Shared/_Design/Balance/ItemPool_Eridian_Fabricator.ItemPool_Eridian_Fabricator",
+    # endregion
 
-    # Money
+    # region Money
     "/Dandelion/Enemies/Mimic/_Shared/_Design/Balance/ItemPool_Mimic_LOOTCash.ItemPool_Mimic_LOOTCash",
     "/Game/Enemies/Rakk/Queen/_Design/Character/ItemPool_RakkQueen_CashExplosion.ItemPool_RakkQueen_CashExplosion",
     "/Game/Enemies/ServiceBot/LOOT/_Design/ItemPool/ItemPool_ServiceBot_LOOTCashBurst.ItemPool_ServiceBot_LOOTCashBurst",
+    "/Game/Enemies/Tink/Loot/_Design/LootPools/ItemPool_LootTink_CashExplosion.ItemPool_LootTink_CashExplosion",
     "/Game/GameData/Loot/ItemPools/Currency/ItemPool_Mission_Money_Rich.ItemPool_Mission_Money_Rich",
     "/Game/GameData/Loot/ItemPools/Currency/ItemPool_Money_Normal.ItemPool_Money_Normal",
     "/Game/GameData/Loot/ItemPools/Currency/ItemPool_Money_Rich.ItemPool_Money_Rich",
@@ -205,13 +222,15 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/GameData/Loot/ItemPools/Eridium/ItemPool_EridiumCrystal_Large.ItemPool_EridiumCrystal_Large",
     "/Game/GameData/Loot/ItemPools/Eridium/ItemPool_EridiumCrystal.ItemPool_EridiumCrystal",
     "/Game/Gear/GrenadeMods/_Design/PartSets/Part_Behavior/Money/ItemPool_GrenadeMod_Money.ItemPool_GrenadeMod_Money",
+    # endregion
 
-    # Health
+    # region Health
     "/Game/GameData/Loot/ItemPools/Health/ItemPool_Health.ItemPool_Health",
     "/Game/GameData/Loot/ItemPools/VendingMachines/DA_ItemPool_VendingMachine_Health.DA_ItemPool_VendingMachine_Health",
     "/Game/PatchDLC/Mayhem2/Abilities/Enemy/HealNo/ItemPool_Mayhem2_HealNo.ItemPool_Mayhem2_HealNo",
+    # endregion
 
-    # Ammo
+    # region Ammo
     "/Game/Enemies/FinalBoss/_Shared/_Design/LootPools/ItemPool_FinalBoss_RockPileBig.ItemPool_FinalBoss_RockPileBig",
     "/Game/Enemies/Goliath/_Unique/CageArena/_Design/ItemPools/ItemPool_WardenAddsBonusSupplies.ItemPool_WardenAddsBonusSupplies",
     "/Game/GameData/Loot/ItemPools/Ammo/ItemPool_Ammo_AssaulRifle.ItemPool_Ammo_AssaulRifle",
@@ -247,8 +266,9 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Ixora/Enemies/GearUpBoss/_Shared/Balance/ItemPool_GearUpBossAdds_AmmoAndHealth.ItemPool_GearUpBossAdds_AmmoAndHealth",
     "/Ixora2/Enemies/Varkid/_Unique/RaidBoss/_Design/Balance/ItemPool_VarkidRaidAdds_AmmoAndHealth.ItemPool_VarkidRaidAdds_AmmoAndHealth",
     "/Ixora2/Enemies/Varkid/_Unique/RaidBoss/_Design/Balance/ItemPool_VarkidRaidAdds_AmmoOnly.ItemPool_VarkidRaidAdds_AmmoOnly",
+    # endregion
 
-    # Boosters
+    # region Boosters
     "/Game/Gear/Shields/_Design/_Uniques/BigBoomBlaster/BigBoomBlaster_Pickup/ItemPool_BigBoomBlaster.ItemPool_BigBoomBlaster",
     "/Game/Gear/Shields/_Design/_Uniques/Dispensary/Booster/Downer/ItemPool_Pills_Downer.ItemPool_Pills_Downer",
     "/Game/Gear/Shields/_Design/_Uniques/Dispensary/Booster/Upper/ItemPool_Pills_Upper.ItemPool_Pills_Upper",
@@ -260,10 +280,12 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/PatchDLC/Dandelion/Gear/Shield/Clover/Booster/Luck/ItemPool_Clover_Luck.ItemPool_Clover_Luck",
     "/Game/PatchDLC/Dandelion/Gear/Weapon/_Unique/CheapTips/ItemPool_CheapTips.ItemPool_CheapTips",
     "/Game/PatchDLC/Event2/Gear/Shield/_Unique/MEAT/ItemPool_MEAT_Booster.ItemPool_MEAT_Booster",
+    # endregion
 
-    # Pet/NPC Items
-    "/Game/PatchDLC/Dandelion/Enemies/HyperionTurret/_Shared/_Design/Weapon/ItemPool_HyperionTurret_Basic.ItemPool_HyperionTurret_Basic",
+    # region Pet/NPC Items
+    "/Game/Enemies/Punk_Female/_Unique/SkagLady/_Design/Weapon/ItemPools/ItemPool_SkagLady_HeavyWeapons.ItemPool_SkagLady_HeavyWeapons",
     "/Game/Gear/Weapons/_Shared/NPC_Weapons/Typhon/ItemPool_SG_JAK_Typhon.ItemPool_SG_JAK_Typhon",
+    "/Game/PatchDLC/Dandelion/Enemies/HyperionTurret/_Shared/_Design/Weapon/ItemPool_HyperionTurret_Basic.ItemPool_HyperionTurret_Basic",
     "/Game/PlayerCharacters/Beastmaster/_DLC/Ixora/ActionSkill/Defs/ItemPool_Beastmaster_Mod5.ItemPool_Beastmaster_Mod5",
     "/Game/PlayerCharacters/Beastmaster/_DLC/Ixora/Pet/Loader/_Design/Weapons/ItemPool_PetLoader_BUL.ItemPool_PetLoader_BUL",
     "/Game/PlayerCharacters/Beastmaster/_DLC/Ixora/Pet/Loader/_Design/Weapons/ItemPool_PetLoader_ION.ItemPool_PetLoader_ION",
@@ -275,8 +297,9 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/PlayerCharacters/Gunner/_DLC/Ixora/HardPoints/Weapon/ItemPool_IronCub_AssaultRifle.ItemPool_IronCub_AssaultRifle",
     "/Game/PlayerCharacters/Operative/DigiClone/_Design/Balance/ItemPool_DigiClone.ItemPool_DigiClone",
     "/Game/PlayerCharacters/Operative/DigiClone/_Design/Weapon/ItemPool_Operative_DigiClone_Level2Weapon.ItemPool_Operative_DigiClone_Level2Weapon",
+    # endregion
 
-    # Customizations
+    # region Customizations
     "/Game/GameData/Challenges/CrewChallenges/Sabotage/ChallengeSabotageRewardStat/ItemPool_Customizations_WeaponSkins_Sabotage.ItemPool_Customizations_WeaponSkins_Sabotage",
     "/Game/GameData/Loot/ItemPools/ItemPool_Shields_Skins_Artifacts_GrenadeMods_ClassMods_Deco.ItemPool_Shields_Skins_Artifacts_GrenadeMods_ClassMods_Deco",
     "/Game/GameData/Loot/ItemPools/ItemPool_SkinsAndMisc.ItemPool_SkinsAndMisc",
@@ -429,10 +452,10 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/Pickups/Customizations/_Design/ItemPools/Skins/ItemPool_Customizations_Skins_Mission_Ep20.ItemPool_Customizations_Skins_Mission_Ep20",
     "/Game/Pickups/Customizations/_Design/ItemPools/Skins/ItemPool_Customizations_Skins_Mission_Jakobs.ItemPool_Customizations_Skins_Mission_Jakobs",
     "/Game/PlayerCharacters/_Customizations/EchoDevice/ItemPools/ItemPool_Customizations_Echo_Loot.ItemPool_Customizations_Echo_Loot",
+    # endregion
 
-    # Non Uniques
+    # region Non Uniques
     "/Game/Automation/Weapons/Armory/ItemPools/Jacobs/AIP_Jacobs_Pistols_Common.AIP_Jacobs_Pistols_Common",
-    "/Game/Enemies/Punk_Female/_Unique/SkagLady/_Design/Weapon/ItemPools/ItemPool_SkagLady_HeavyWeapons.ItemPool_SkagLady_HeavyWeapons",
     "/Game/GameData/Balance/AutoBalance/ItemPool__AutoBalance_Guns.ItemPool__AutoBalance_Guns",
     "/Game/GameData/Loot/ItemPools/DA_ItemPool_Test.DA_ItemPool_Test",
     "/Game/GameData/Loot/ItemPools/Fabricator/ItemPool_FabricatorGuns.ItemPool_FabricatorGuns",
@@ -471,6 +494,8 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Guns_Rare.ItemPool_Guns_Rare",
     "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Guns_Uncommon.ItemPool_Guns_Uncommon",
     "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Guns_VeryRare.ItemPool_Guns_VeryRare",
+    "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Pistols_All.ItemPool_Pistols_All",
+    "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Pistols_Shields_GrenadeMods_ClassMods_Artifacts.ItemPool_Pistols_Shields_GrenadeMods_ClassMods_Artifact",
     "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Sniper_Heavy_Common.ItemPool_Sniper_Heavy_Common",
     "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Sniper_Heavy_Rare.ItemPool_Sniper_Heavy_Rare",
     "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Sniper_Heavy_Uncommon.ItemPool_Sniper_Heavy_Uncommon",
@@ -517,6 +542,7 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/GameData/Loot/ItemPools/ItemPool_EquippablesNotGuns_Golden.ItemPool_EquippablesNotGuns_Golden",
     "/Game/GameData/Loot/ItemPools/ItemPool_EquippablesNotGuns.ItemPool_EquippablesNotGuns",
     "/Game/GameData/Loot/ItemPools/ItemPool_GoldenKeyChest.ItemPool_GoldenKeyChest",
+    "/Game/GameData/Loot/ItemPools/ItemPool_RedChestFlaps.ItemPool_RedChestFlaps",
     "/Game/GameData/Loot/ItemPools/ItemPool_TrashPile.ItemPool_TrashPile",
     "/Game/GameData/Loot/ItemPools/LootGoliath/ItemPool_ARandSMG_All_Bonus1.ItemPool_ARandSMG_All_Bonus1",
     "/Game/GameData/Loot/ItemPools/LootGoliath/ItemPool_ARandSMG_All_Bonus2.ItemPool_ARandSMG_All_Bonus2",
@@ -690,4 +716,5 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/GameData/Loot/ItemPools/Guns/SniperRifles/ItemPool_SnipeRifles_VeryRare.ItemPool_SnipeRifles_VeryRare",
     "/GameData/Loot/ItemPools/Guns/SniperRifles/ItemPool_SniperRifles_ETech_VeryRare.ItemPool_SniperRifles_ETech_VeryRare",
     "/GameData/Loot/ItemPools/Shields/ItemPool_Shields_04_VeryRare.ItemPool_Shields_04_VeryRare",
+    # endregion
 }
