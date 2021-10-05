@@ -14,6 +14,9 @@ where
     and i.ID = o.ItemID
     and o.SourceID = s.ID
 
+    and i.GearCategory != "Artifact"
+    and i.GearCategory != "COM"
+
     and (
         select
             count(*)

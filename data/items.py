@@ -220,9 +220,15 @@ INVENTORY_SET_ITEM_GROUP: dict[str, str] = {
 }
 
 PATCHDLC_ITEM_GROUP: dict[str, str] = {
+    "Alisma": "Krieg",
     "BloodyHarvest": "Bloody Harvest",
+    "Dandelion": "Jackpot",
     "Event2": "Cartels",
     "EventVDay": "Broken Hearts",
+    "Geranium": "Bounty",
+    "Hibiscus": "Wedding",
+    "Ixora": "Arms Race",
+    "Ixora2": "Director's Cut",
     "Mayhem2": "Guardian Takedown",
     "Raid1": "Maliwan Takedown",
     "Steam": "Steam Release",

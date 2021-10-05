@@ -495,7 +495,7 @@ KNOWN_EMPTY_POOLS: set[str] = {
     "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Guns_Uncommon.ItemPool_Guns_Uncommon",
     "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Guns_VeryRare.ItemPool_Guns_VeryRare",
     "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Pistols_All.ItemPool_Pistols_All",
-    "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Pistols_Shields_GrenadeMods_ClassMods_Artifacts.ItemPool_Pistols_Shields_GrenadeMods_ClassMods_Artifact",
+    "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Pistols_Shields_GrenadeMods_ClassMods_Artifacts.ItemPool_Pistols_Shields_GrenadeMods_ClassMods_Artifacts",
     "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Sniper_Heavy_Common.ItemPool_Sniper_Heavy_Common",
     "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Sniper_Heavy_Rare.ItemPool_Sniper_Heavy_Rare",
     "/Game/GameData/Loot/ItemPools/Guns/ItemPool_Sniper_Heavy_Uncommon.ItemPool_Sniper_Heavy_Uncommon",
