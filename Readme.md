@@ -23,6 +23,7 @@ The `demo` folder contains a bunch of examples of how to use this database.
 
 Script | Usage
 :---|:---
+`count_source_drops.sql` | Counts how many items drop from each source.
 `enemy_maps.sql` | Lists the map each enemy is associated with.
 `list_all_items.sql` | Lists all items in the database.
 `list_all_sources.sql` | Lists all items alongside the sources you can get them from.
