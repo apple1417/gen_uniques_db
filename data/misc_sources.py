@@ -39,10 +39,16 @@ MISC_NOTABLE_POOLS: dict[MiscSource, set[str]] = {
         "/Game/PatchDLC/VaultCard/Gear/Weapons/Unique/Mechanic/Balance/ItemPool_VaultCard1_Mechanic.ItemPool_VaultCard1_Mechanic",
     },
     MiscSource("Vault Card 2"): {
-        "/Game/PatchDLC/VaultCard2/Gear/Artifacts/Unique/Shlooter/Balance/ItemPool_VaultCard2_Shlooter",
-        "/Game/PatchDLC/VaultCard2/Gear/GrenadeMods/Unique/Pyroburst/Balance/ItemPool_VaultCard2_Pyroburst",
-        "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/GoldRush/Balance/ItemPool_VaultCard2_GoldRush",
-        "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/Troubleshooter/Balance/ItemPool_VaultCard2_Troubleshooter",
+        "/Game/PatchDLC/VaultCard2/Gear/Artifacts/Unique/Shlooter/Balance/ItemPool_VaultCard2_Shlooter.ItemPool_VaultCard2_Shlooter",
+        "/Game/PatchDLC/VaultCard2/Gear/GrenadeMods/Unique/Pyroburst/Balance/ItemPool_VaultCard2_Pyroburst.ItemPool_VaultCard2_Pyroburst",
+        "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/GoldRush/Balance/ItemPool_VaultCard2_GoldRush.ItemPool_VaultCard2_GoldRush",
+        "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/Troubleshooter/Balance/ItemPool_VaultCard2_Troubleshooter.ItemPool_VaultCard2_Troubleshooter",
+    },
+    MiscSource("Vault Card 3"): {
+        "/Game/PatchDLC/VaultCard3/Gear/GrenadeMods/Unique/Sidewinder/Balance/ItemPool_VaultCard3_Sidewinder",
+        "/Game/PatchDLC/VaultCard3/Gear/Shields/Unique/Manawell/Balance/ItemPool_VaultCard3_Manawell",
+        "/Game/PatchDLC/VaultCard3/Gear/Weapons/Unique/BladeFury/Balance/Itempool_VaultCard3_BladeFury",
+        "/Game/PatchDLC/VaultCard3/Gear/Weapons/Unique/Corruption/Balance/Itempool_VaultCard3_Corruption",
     },
     MiscSource("Tipping Moxxi", "Sanctuary"): {
         "/Game/InteractiveObjects/TipJar/ItemPool_MoxxiTip_GunRewards.ItemPool_MoxxiTip_GunRewards",
@@ -99,5 +105,29 @@ MISC_NOTABLE_BALANCES: dict[MiscSource, set[str]] = {
         "/Game/Gear/GrenadeMods/_Design/_Unique/ToyGrenade/Balance/InvBalD_GM_ToyGrenade.InvBalD_GM_ToyGrenade",
         "/Game/Gear/Weapons/Pistols/Maliwan/_Shared/_Design/_Unique/HyperHydrator/Balance/Balance_PS_MAL_HyperHydrator.Balance_PS_MAL_HyperHydrator",
         "/Game/Gear/Weapons/Pistols/Torgue/_Shared/_Design/_Unique/Nurf/Balance/Balance_PS_TOR_Nurf.Balance_PS_TOR_Nurf",
+    },
+    MiscSource("Tink of Cunning (True Trial)"): {
+        "/Game/Gear/Weapons/AssaultRifles/Vladof/_Shared/_Design/_Unique/Sickle/Balance/Balance_AR_VLA_Sickle.Balance_AR_VLA_Sickle",
+        "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Skullmasher/Balance/Balance_SR_JAK_Skullmasher.Balance_SR_JAK_Skullmasher",
+    },
+    MiscSource("Skag of Survival (True Trial)"): {
+        "/Game/Gear/Weapons/Shotguns/Torgue/_Shared/_Design/_Unique/TheLob/Balance/Balance_SG_Torgue_ETech_TheLob.Balance_SG_Torgue_ETech_TheLob",
+        "/Game/PatchDLC/Dandelion/Gear/Weapon/_Unique/Lucky7/Balance/Balance_PS_JAK_Lucky7.Balance_PS_JAK_Lucky7",
+    },
+    MiscSource("Arbalest of Discipline (True Trial)"): {
+        "/Game/PatchDLC/Geranium/Gear/Weapon/_Unique/Flipper/Balance/Balance_SM_MAL_Flipper.Balance_SM_MAL_Flipper",
+        "/Game/PatchDLC/Mayhem2/Gear/Weapon/_Shared/_Unique/Kaoson/Balance/Balance_SM_DAHL_Kaoson.Balance_SM_DAHL_Kaoson",
+    },
+    MiscSource("Sera of Supremacy (True Trial)"): {
+        "/Game/PatchDLC/Ixora2/Gear/Weapons/_Unique/Replay/Balance/Balance_PS_ATL_Replay.Balance_PS_ATL_Replay",
+        "/Game/PatchDLC/Mayhem2/Gear/Weapon/_Shared/_Unique/Monarch/Balance/Balance_AR_VLA_Monarch.Balance_AR_VLA_Monarch",
+    },
+    MiscSource("Hag of Fervor (True Trial)"): {
+        "/Game/Gear/Weapons/Pistols/Jakobs/_Shared/_Design/_Unique/Maggie/Balance/Balance_PS_JAK_Maggie.Balance_PS_JAK_Maggie",
+        "/Game/PatchDLC/Alisma/Gear/Weapon/_Unique/Convergence/Balance/Balance_SG_HYP_Convergence.Balance_SG_HYP_Convergence",
+    },
+    MiscSource("Tyrant of Instinct (True Trial)"): {
+        "/Game/PatchDLC/Ixora/Gear/Weapons/_Unique/Tizzy/Balance/Balance_PS_COV_Tizzy.Balance_PS_COV_Tizzy",
+        "/Game/PatchDLC/Mayhem2/Gear/Weapon/_Shared/_Unique/Backburner/Balance/Balance_HW_VLA_ETech_BackBurner.Balance_HW_VLA_ETech_BackBurner",
     },
 }

@@ -31,23 +31,11 @@ HOTFIX_BALANCEDITEMS_REMOVE: dict[str, BalancedItemsEntry] = {
     "/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Boss.ItemPool_TD2_Boss": BalancedItemsEntry(pools={
         "/Game/PatchDLC/Raid1/Re-Engagement/ItemPool/ItemPool_Mayhem4_Legendaries.ItemPool_Mayhem4_Legendaries",
     }),
-    # This is technically redundant, since a secondary hotfix reverts this, but I like keeping it
-    #  accurate to what the game's doing
-    "/Game/PatchDLC/Raid1/GameData/Loot/ItemPools/ItemPool_AureliaBoss.ItemPool_AureliaBoss": BalancedItemsEntry({
-        "/Game/PatchDLC/Raid1/Re-Engagement/Weapons/Juliet/Balance/Balance_AR_TOR_Juliet_WorldDrop.Balance_AR_TOR_Juliet_WorldDrop",
-    }),
     "/Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_SMGs_Mayhem.ItemPool_SMGs_Mayhem": BalancedItemsEntry({
         "/Game/PatchDLC/Raid1/Gear/Weapons/Link/Balance/Balance_SM_MAL_Link.Balance_SM_MAL_Link",
     }),
     "/Game/PatchDLC/DiamondLootChest/Loot/ItemPools/ItemPool_Shields_AllAndDLC.ItemPool_Shields_AllAndDLC": BalancedItemsEntry(pools={
         "/Game/PatchDLC/Raid1/GameData/Loot/ItemPool_RaidMiniBosses_Pool.ItemPool_RaidMiniBosses_Pool",
-    }),
-    # These two are technically redundant for the same reason again
-    "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Lunacy.ItemPool_Hibiscus_Lunacy": BalancedItemsEntry({
-        "/Game/PatchDLC/Hibiscus/Gear/Artifacts/_Design/_Unique/Lunacy/Balance/InvBalD_Artifact_Lunacy.InvBalD_Artifact_Lunacy",
-    }),
-    "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Soulrender.ItemPool_Hibiscus_Soulrender": BalancedItemsEntry({
-        "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Soulrender/Balance/Balance_DAL_AR_Soulrender.Balance_DAL_AR_Soulrender",
     }),
 }
 
@@ -63,11 +51,6 @@ HOTFIX_BALANCEDITEMS_ADD: dict[str, BalancedItemsEntry] = {
     }),
     "/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Boss.ItemPool_TD2_Boss": BalancedItemsEntry(pools={
         "/Game/PatchDLC/Mayhem2/Gear/ItemPoolExpansion_Mayhem2/ItemPool_Mayhem2_Legendaries.ItemPool_Mayhem2_Legendaries",
-    }),
-    "/Game/PatchDLC/Raid1/GameData/Loot/ItemPools/ItemPool_AureliaBoss.ItemPool_AureliaBoss": BalancedItemsEntry({
-        "/Game/Gear/GrenadeMods/_Design/_Unique/FireStorm/Balance/InvBalD_GM_VLA_FireStorm.InvBalD_GM_VLA_FireStorm",
-        # This is technically from a different hotfix
-        "/Game/PatchDLC/Raid1/Re-Engagement/Weapons/Juliet/Balance/Balance_AR_TOR_Juliet_WorldDrop.Balance_AR_TOR_Juliet_WorldDrop",
     }),
     "/Game/PatchDLC/Raid1/GameData/Loot/ItemPools/ItemPool_Loot_Enemies.ItemPool_Loot_Enemies": BalancedItemsEntry({
         "/Game/Gear/Weapons/HeavyWeapons/Torgue/_Shared/_Design/_Unique/RYNO/Balance/Balance_HW_TOR_RYNO.Balance_HW_TOR_RYNO",
@@ -100,16 +83,6 @@ HOTFIX_BALANCEDITEMS_ADD: dict[str, BalancedItemsEntry] = {
     }),
     "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Hydrafrost.ItemPool_Hibiscus_Hydrafrost": BalancedItemsEntry({
         "/Game/PatchDLC/Hibiscus/Gear/ClassMods/_Design/BSM/InvBalD_CM_Beastmaster_Hib.InvBalD_CM_Beastmaster_Hib",
-    }),
-    "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Soulrender.ItemPool_Hibiscus_Soulrender": BalancedItemsEntry({
-        "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Insider/Balance/Balance_SG_MAL_ETech_Insider.Balance_SG_MAL_ETech_Insider",
-        # This is technically from a different hotfix
-        "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Soulrender/Balance/Balance_DAL_AR_Soulrender.Balance_DAL_AR_Soulrender"
-    }),
-    "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Lunacy.ItemPool_Hibiscus_Lunacy": BalancedItemsEntry({
-        "/Game/PatchDLC/Hibiscus/Gear/ClassMods/_Design/GUN/InvBalD_CM_Gunner_Hib.InvBalD_CM_Gunner_Hib",
-        # This is technically from a different hotfix
-        "/Game/PatchDLC/Hibiscus/Gear/Artifacts/_Design/_Unique/Lunacy/Balance/InvBalD_Artifact_Lunacy.InvBalD_Artifact_Lunacy",
     }),
 }
 

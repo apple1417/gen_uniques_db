@@ -101,6 +101,54 @@ all_items["/Game/PatchDLC/Steam/Gear/Weapons/SteamGun/Balance/Balance_SM_HYP_Sho
     ],
     "RequiredClass": None
 }
+all_items["/Game/PatchDLC/BloodyHarvest/Gear/Weapons/Shotguns/Hyperion/_Shared/_Design/_Unique/Fearmonger/Balance/Balance_SG_HYP_ETech_Fearmonger.Balance_SG_HYP_ETech_Fearmonger"] = {
+    "RarityData": "/Game/GameData/Loot/RarityData/RarityData_05_Legendary.RarityData_05_Legendary",
+    "GearBuilderCategory": "/Game/Gear/_Shared/_Design/GearBuilder/Category_Shotguns.Category_Shotguns",
+    "DlcInventorySetData": None,
+    "Manufacturers": [
+        "/Game/Gear/Manufacturers/_Design/Hyperion.Hyperion"
+    ],
+    "Names": [
+        "Fearmonger"
+    ],
+    "RequiredClass": None
+}
+all_items["/Game/PatchDLC/BloodyHarvest/Gear/Weapons/SniperRifles/Dahl/_Design/_Unique/Frostbolt/Balance/Balance_SR_DAL_ETech_Frostbolt.Balance_SR_DAL_ETech_Frostbolt"] = {
+    "RarityData": "/Game/GameData/Loot/RarityData/RarityData_05_Legendary.RarityData_05_Legendary",
+    "GearBuilderCategory": "/Game/Gear/_Shared/_Design/GearBuilder/Category_SniperRifles.Category_SniperRifles",
+    "DlcInventorySetData": None,
+    "Manufacturers": [
+        "/Game/Gear/Manufacturers/_Design/Dahl.Dahl"
+    ],
+    "Names": [
+        "Stalker"
+    ],
+    "RequiredClass": None
+}
+all_items["/Game/PatchDLC/BloodyHarvest/Gear/Shields/_Design/_Unique/ScreamOfPain/Balance/InvBalD_Shield_ScreamOfTerror.InvBalD_Shield_ScreamOfTerror"] = {
+    "RarityData": "/Game/GameData/Loot/RarityData/RarityData_05_Legendary.RarityData_05_Legendary",
+    "GearBuilderCategory": "/Game/Gear/_Shared/_Design/GearBuilder/Category_Shields.Category_Shields",
+    "DlcInventorySetData": None,
+    "Manufacturers": [
+        "/Game/Gear/Manufacturers/_Design/Anshin.Anshin"
+    ],
+    "Names": [
+        "Scream of Terror"
+    ],
+    "RequiredClass": None
+}
+all_items["/Game/PatchDLC/BloodyHarvest/Gear/GrenadeMods/_Design/_Unique/FontOfDarkness/Balance/InvBalD_GM_TOR_FontOfDarkness.InvBalD_GM_TOR_FontOfDarkness"] = {
+    "RarityData": "/Game/GameData/Loot/RarityData/RarityData_05_Legendary.RarityData_05_Legendary",
+    "GearBuilderCategory": "/Game/Gear/_Shared/_Design/GearBuilder/Category_GrenadeMods.Category_GrenadeMods",
+    "DlcInventorySetData": None,
+    "Manufacturers": [
+        "/Game/Gear/Manufacturers/_Design/Torgue.Torgue"
+    ],
+    "Names": [
+        "Ghast Call"
+    ],
+    "RequiredClass": None
+}
 
 with open("item_dump.json", "w") as file:
     json.dump(all_items, file, indent=4)

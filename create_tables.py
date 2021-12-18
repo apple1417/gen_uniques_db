@@ -19,7 +19,7 @@ def create_tables(con: sqlite3.Connection) -> None:
     cur.execute(
         """
         INSERT INTO MetaData (Key, Value) VALUES
-            ("Version", "10"),
+            ("Version", "11"),
             ("GeneratedTime", ?);
         """,
         (datetime.utcnow().strftime("%Y%m%d%H%M%S"),)

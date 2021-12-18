@@ -148,6 +148,7 @@ NAME_OVERRIDES: dict[str, set[str]] = {
     "/Game/PatchDLC/Ixora2/Gear/GrenadeMods/_Unique/Ringer/Balance/InvBalD_GM_Ringer.InvBalD_GM_Ringer": {"Ringer", "The Big Ringer", "Dead Ringer"},
     "/Game/PatchDLC/VaultCard/Gear/Weapons/Unique/Mechanic/Balance/Balance_HW_COV_Mechanic.Balance_HW_COV_Mechanic": {"Mechanic", "Double-Axle Mechanic"},
     "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/Troubleshooter/Balance/Balance_SM_HYP_ETech_Troubleshooter.Balance_SM_HYP_ETech_Troubleshooter": {"Troubleshooter", "Overclocked Troubleshooter"},
+    "/Game/PatchDLC/VaultCard3/Gear/Weapons/Unique/TinyTinaGun/Balance/Balance_PS_TOR_TinyTinaGun.Balance_PS_TOR_TinyTinaGun": {"Fo'Shizzle TNTina", "TNTina", "Poppin' TNTina"},
 }
 
 
@@ -309,6 +310,11 @@ BALANCE_BLACKLIST: set[str] = {
     "/Game/PatchDLC/VaultCard2/Gear/GrenadeMods/Unique/Pyroburst/Balance/InvBalD_GM_Pyroburst_FixedParts.InvBalD_GM_Pyroburst_FixedParts",
     "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/GoldRush/Balance/Balance_SM_HYP_GoldRush_FixedParts.Balance_SM_HYP_GoldRush_FixedParts",
     "/Game/PatchDLC/VaultCard2/Gear/Weapons/Unique/Troubleshooter/Balance/Balance_SM_HYP_ETech_Troubleshooter_FixedParts.Balance_SM_HYP_ETech_Troubleshooter_FixedParts",
+    "/Game/PatchDLC/VaultCard3/Gear/Weapons/Unique/TinyTinaGun/Balance/Balance_PS_TOR_TinyTinaGun_FixedParts.Balance_PS_TOR_TinyTinaGun_FixedParts",
+    "/Game/PatchDLC/VaultCard3/Gear/Weapons/Unique/Corruption/Balance/Balance_DAL_AR_Corruption_FixedParts.Balance_DAL_AR_Corruption_FixedParts",
+    "/Game/PatchDLC/VaultCard3/Gear/Weapons/Unique/BladeFury/Balance/Balance_AR_JAK_BladeFury_FixedParts.Balance_AR_JAK_BladeFury_FixedParts",
+    "/Game/PatchDLC/VaultCard3/Gear/Shields/Unique/Manawell/Balance/InvBalD_Shield_Pangolin_Manawell_FixedParts.InvBalD_Shield_Pangolin_Manawell_FixedParts",
+    "/Game/PatchDLC/VaultCard3/Gear/GrenadeMods/Unique/Bloodsucker/Balance/InvBalD_GM_Bloodsucker_FixedParts.InvBalD_GM_Bloodsucker_FixedParts",
 
     # Unused
     "/Game/Gear/Weapons/SMGs/Dahl/_Shared/_Design/_Unique/RockNRoll_Intro/Balance_SM_DAL_PlayableIntroOnly.Balance_SM_DAL_PlayableIntroOnly",
@@ -386,6 +392,8 @@ BALANCE_BLACKLIST: set[str] = {
 
     # Non-Items
     # Money
+    "/Game/Gear/GrenadeMods/_Design/PartSets/Part_Behavior/Money/InvBal_GrenadeBehavior_Money_1.InvBal_GrenadeBehavior_Money_1",
+    "/Game/Gear/GrenadeMods/_Design/PartSets/Part_Behavior/Money/InvBal_GrenadeBehavior_Money_3.InvBal_GrenadeBehavior_Money_3",
     "/Game/Gear/GrenadeMods/_Design/PartSets/Part_Behavior/Money/InvBal_GrenadeBehavior_Money.InvBal_GrenadeBehavior_Money",
     "/Game/PatchDLC/Ixora2/InteractiveObjects/DiscoveryIO/InventoryBalanceDef_Eridium500.InventoryBalanceDef_Eridium500",
     "/Game/PatchDLC/VaultCard/Data/Currency/InvBal_VaultCardChest_Eridium_Stack.InvBal_VaultCardChest_Eridium_Stack",
@@ -422,6 +430,12 @@ BALANCE_BLACKLIST: set[str] = {
     "/Game/PatchDLC/VaultCard/Data/Currency/InventoryBalance_DiamondKey.InventoryBalance_DiamondKey",
     "/Game/PatchDLC/VaultCard/Data/Currency/InventoryBalance_VaultCard01Key.InventoryBalance_VaultCard01Key",
     "/Game/PatchDLC/VaultCard2/Data/Currency/InventoryBalance_VaultCard2Key.InventoryBalance_VaultCard2Key",
+    "/Game/PatchDLC/VaultCard/Data/Currency/InventoryBalance_VaultCard01Key_1.InventoryBalance_VaultCard01Key_1",
+    "/Game/PatchDLC/VaultCard/Data/Currency/InventoryBalance_VaultCard01Key_3.InventoryBalance_VaultCard01Key_3",
+    "/Game/PatchDLC/VaultCard2/Data/Currency/InventoryBalance_VaultCard2Key_1.InventoryBalance_VaultCard2Key_1",
+    "/Game/PatchDLC/VaultCard2/Data/Currency/InventoryBalance_VaultCard2Key_3.InventoryBalance_VaultCard2Key_3",
+    "/Game/PatchDLC/VaultCard3/Data/Currency/InventoryBalance_VaultCard3Key_3.InventoryBalance_VaultCard3Key_3",
+    "/Game/PatchDLC/VaultCard3/Data/Currency/InventoryBalance_VaultCard3Key_1.InventoryBalance_VaultCard3Key_1",
 
     # Ammo
     "/Game/Pickups/Ammo/DA_InventoryBalance_Ammo_AllAmmo.DA_InventoryBalance_Ammo_AllAmmo",
