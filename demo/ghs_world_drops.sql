@@ -28,11 +28,11 @@ where
             and i2.ID = o2.ItemID
             and o2.SourceID = s2.ID
 
-            and s2.SourceType != "World Drop"
             and s2.SourceType != "Mission"
+            and s2.SourceType != "Vendor"
+            and s2.SourceType != "World Drop"
 
             and s2.Description != "Diamond Chest"
-            and s2.Description != "Earl's Vendor"
             and s2.Description != "Eridian Fabricator"
     ) = 0
 order by

@@ -7,12 +7,14 @@ class MiscSource:
     description: str
     map_name: Optional[str] = None
     include_world_drops: bool = False
+    source_type: str = "Misc"
 
 
 WORLD_DROP_MAP_OVERRIDE: dict[str, str] = {
     "Arms Race": "Stormblind Complex"
 }
 
+MAURICE_VENDOR_EXPANSION_DATA: str = "/Game/PatchDLC/VaultCard3/Data/ExpansionData_VaultCard3.ExpansionData_VaultCard3"
 
 MISC_NOTABLE_POOLS: dict[MiscSource, set[str]] = {
     MiscSource("All Salvaged Claptraps"): {
@@ -53,7 +55,7 @@ MISC_NOTABLE_POOLS: dict[MiscSource, set[str]] = {
     MiscSource("Tipping Moxxi", "Sanctuary"): {
         "/Game/InteractiveObjects/TipJar/ItemPool_MoxxiTip_GunRewards.ItemPool_MoxxiTip_GunRewards",
     },
-    MiscSource("Earl's Vendor", "Sanctuary", True): {
+    MiscSource("Earl's Vendor", "Sanctuary", True, "Vendor"): {
         "/Game/GameData/Loot/ItemPools/VendingMachines/DA_ItemPool_VendingMachine_CrazyEarl.DA_ItemPool_VendingMachine_CrazyEarl",
         "/Game/GameData/Loot/ItemPools/VendingMachines/DA_ItemPool_VendingMachine_CrazyEarl_OfTheDay.DA_ItemPool_VendingMachine_CrazyEarl_OfTheDay",
     },
@@ -106,27 +108,27 @@ MISC_NOTABLE_BALANCES: dict[MiscSource, set[str]] = {
         "/Game/Gear/Weapons/Pistols/Maliwan/_Shared/_Design/_Unique/HyperHydrator/Balance/Balance_PS_MAL_HyperHydrator.Balance_PS_MAL_HyperHydrator",
         "/Game/Gear/Weapons/Pistols/Torgue/_Shared/_Design/_Unique/Nurf/Balance/Balance_PS_TOR_Nurf.Balance_PS_TOR_Nurf",
     },
-    MiscSource("Tink of Cunning (True Trial)"): {
+    MiscSource("Tink of Cunning (True Trial)", "Ghostlight Beacon (Cunning)", source_type="Enemy"): {
         "/Game/Gear/Weapons/AssaultRifles/Vladof/_Shared/_Design/_Unique/Sickle/Balance/Balance_AR_VLA_Sickle.Balance_AR_VLA_Sickle",
         "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/Skullmasher/Balance/Balance_SR_JAK_Skullmasher.Balance_SR_JAK_Skullmasher",
     },
-    MiscSource("Skag of Survival (True Trial)"): {
+    MiscSource("Skag of Survival (True Trial)", "Gradient of Dawn (Survival)", source_type="Enemy"): {
         "/Game/Gear/Weapons/Shotguns/Torgue/_Shared/_Design/_Unique/TheLob/Balance/Balance_SG_Torgue_ETech_TheLob.Balance_SG_Torgue_ETech_TheLob",
         "/Game/PatchDLC/Dandelion/Gear/Weapon/_Unique/Lucky7/Balance/Balance_PS_JAK_Lucky7.Balance_PS_JAK_Lucky7",
     },
-    MiscSource("Arbalest of Discipline (True Trial)"): {
+    MiscSource("Arbalest of Discipline (True Trial)", "Precipice Anchor (Discipline)", source_type="Enemy"): {
         "/Game/PatchDLC/Geranium/Gear/Weapon/_Unique/Flipper/Balance/Balance_SM_MAL_Flipper.Balance_SM_MAL_Flipper",
         "/Game/PatchDLC/Mayhem2/Gear/Weapon/_Shared/_Unique/Kaoson/Balance/Balance_SM_DAHL_Kaoson.Balance_SM_DAHL_Kaoson",
     },
-    MiscSource("Sera of Supremacy (True Trial)"): {
+    MiscSource("Sera of Supremacy (True Trial)", "Hall Obsidian (Supremacy)", source_type="Enemy"): {
         "/Game/PatchDLC/Ixora2/Gear/Weapons/_Unique/Replay/Balance/Balance_PS_ATL_Replay.Balance_PS_ATL_Replay",
         "/Game/PatchDLC/Mayhem2/Gear/Weapon/_Shared/_Unique/Monarch/Balance/Balance_AR_VLA_Monarch.Balance_AR_VLA_Monarch",
     },
-    MiscSource("Hag of Fervor (True Trial)"): {
+    MiscSource("Hag of Fervor (True Trial)", "Skydrowned Pulpit (Fervor)", source_type="Enemy"): {
         "/Game/Gear/Weapons/Pistols/Jakobs/_Shared/_Design/_Unique/Maggie/Balance/Balance_PS_JAK_Maggie.Balance_PS_JAK_Maggie",
         "/Game/PatchDLC/Alisma/Gear/Weapon/_Unique/Convergence/Balance/Balance_SG_HYP_Convergence.Balance_SG_HYP_Convergence",
     },
-    MiscSource("Tyrant of Instinct (True Trial)"): {
+    MiscSource("Tyrant of Instinct (True Trial)", "Wayward Tether (Instinct)", source_type="Enemy"): {
         "/Game/PatchDLC/Ixora/Gear/Weapons/_Unique/Tizzy/Balance/Balance_PS_COV_Tizzy.Balance_PS_COV_Tizzy",
         "/Game/PatchDLC/Mayhem2/Gear/Weapon/_Shared/_Unique/Backburner/Balance/Balance_HW_VLA_ETech_BackBurner.Balance_HW_VLA_ETech_BackBurner",
     },

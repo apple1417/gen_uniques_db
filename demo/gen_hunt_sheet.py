@@ -130,6 +130,8 @@ ROW_MARKER_OVERRIDES: dict[str, str] = {
     "Wedding Invitation": "L53",
 }
 
+TRUE_TRIAL_SUFFIX: str = " (True Trial)"
+
 
 @dataclass
 class RowData:
@@ -196,11 +198,16 @@ with open(OUTPUT_SHEET, "w", newline="", encoding="utf8") as file:
 
         # We want the final list to be sorted by enemy first and item name second
         drops.sort(key=lambda x: x.item_names)
-        drops.sort(key=lambda x: x.source)
+        # Ignore true trials, we'll strip that out into a marker in the next step
+        drops.sort(key=lambda x: x.source.removesuffix(TRUE_TRIAL_SUFFIX))
 
         for row in drops:
             marker = ""
-            if row.item_names in ROW_MARKER_OVERRIDES:
+            if row.source.endswith(TRUE_TRIAL_SUFFIX):
+                row.source = row.source.removesuffix(TRUE_TRIAL_SUFFIX)
+                marker = "TT"
+            # Want true trial to overwrite mayhem markers
+            elif row.item_names in ROW_MARKER_OVERRIDES:
                 marker = ROW_MARKER_OVERRIDES[row.item_names]
             elif row.world_drops:
                 marker = "WD"

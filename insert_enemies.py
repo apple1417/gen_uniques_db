@@ -8,8 +8,8 @@ import bl3dump
 from data.constants import MAPS
 from data.enemies import (BPCHAR_GLOBS, BPCHAR_INHERITANCE_OVERRIDES, BPCHAR_NAMES, DROP_OVERRIDES,
                           ENEMY_DROP_EXPANSIONS, IGNORED_BPCHARS, MAP_OVERRIDES, PROJ_NAMES)
-from data.hotfixes import HOTFIX_DOD_POOLS_REMOVE_ALL, HOTFIX_JUDGE_HIGHTOWER_PT_OVERRIDE
-from itempool_handling import load_itempool_contents, load_itempool_list
+from data.hotfixes import HOTFIX_JUDGE_HIGHTOWER_PT_OVERRIDE
+from itempool_handling import expand_drop_on_death, load_itempool_contents, load_itempool_list
 from util import fix_dotted_object_name, iter_refs_from, iter_refs_to
 
 MAP_PREFIX_TO_NAME: dict[str, str] = {
@@ -50,28 +50,6 @@ def get_enemy_map(bpchar: str) -> Optional[str]:
     if output_map_name is None:
         logging.error(f"Couldn't find map for enemy: {bpchar}")
     return output_map_name
-
-
-def expand_drop_on_death(dod_data: bl3dump.JSON, obj_name: Optional[str] = None) -> set[str]:
-    hf_empty_itempools = False
-    hf_empty_itempool_lists = False
-    if obj_name is not None and obj_name in HOTFIX_DOD_POOLS_REMOVE_ALL:
-        hf_empty_itempools, hf_empty_itempool_lists = HOTFIX_DOD_POOLS_REMOVE_ALL[obj_name]
-
-    output = set()
-    if not hf_empty_itempools:
-        for pool in dod_data.get("ItemPools", []):
-            if isinstance(pool["ItemPool"], dict):
-                continue
-            output.update(load_itempool_contents(pool["ItemPool"][1]))
-
-    if not hf_empty_itempool_lists:
-        for pool_list in dod_data.get("ItemPoolLists", []):
-            if isinstance(pool_list, dict):
-                continue
-            output.update(load_itempool_list(pool_list[1]))
-
-    return output
 
 
 def iter_enemy_drop_expansions() -> Iterator[bl3dump.JSON]:

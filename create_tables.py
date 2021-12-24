@@ -2,7 +2,7 @@ import sqlite3
 from datetime import datetime
 
 from data.constants import (GEAR_CATEGORIES, ITEM_GROUPS, MANUFACTURERS, MAPS, PLAYER_CLASSES,
-                            RARITIES)
+                            RARITIES, SOURCE_TYPES)
 
 
 def create_tables(con: sqlite3.Connection) -> None:
@@ -95,15 +95,11 @@ def create_tables(con: sqlite3.Connection) -> None:
         );
         """
     )
-    cur.execute(
-        """
-        INSERT INTO SourceTypes (Name) VALUES
-            ("Enemy"),
-            ("Mission"),
-            ("World Drop"),
-            ("Misc");
-        """
-    )
+    for name in SOURCE_TYPES:
+        cur.execute(
+            "INSERT INTO SourceTypes (Name) VALUES (?);",
+            (name,)
+        )
 
     cur.execute(
         """

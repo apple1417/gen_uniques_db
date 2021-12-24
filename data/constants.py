@@ -27,6 +27,14 @@ MANUFACTURERS: tuple[tuple[str, str], ...] = (
     ("Vladof", "/Game/Gear/Manufacturers/_Design/Vladof.Vladof"),
 )
 
+SOURCE_TYPES: tuple[str, ...] = (
+    "Enemy",
+    "Mission",
+    "Vendor",
+    "World Drop",
+    "Misc",
+)
+
 # Coverted from map_to_eng from bl3-cli-saveedit
 MAPS: tuple[tuple[str, str], ...] = (
     ("Ambermire", "MarshFields_P"),

@@ -27,6 +27,7 @@ Script | Usage
 `enemy_maps.sql` | Lists the map each enemy is associated with.
 `list_all_items.sql` | Lists all items in the database.
 `list_all_sources.sql` | Lists all items alongside the sources you can get them from.
+`list_maurices_vendor.sql` | Lists what items you can get from Maurice's vendor. Note that entries are not picked randomly, it's not in sequence.
 `list_variants.sql` | Lists all items names alongside their variant names.
 `no_sources.sql` | Lists all items which don't have any sources.
 `not_diamond_chest.sql` | Lists all items which cannot be obtained from the diamond chest.

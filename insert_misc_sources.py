@@ -1,8 +1,10 @@
 import sqlite3
 
+from bl3dump import AssetFile
 from data.itempools import WORLD_DROP_POOLS
-from data.misc_sources import MISC_NOTABLE_BALANCES, MISC_NOTABLE_POOLS, WORLD_DROP_MAP_OVERRIDE
-from itempool_handling import _ALL_DLCS, load_itempool_contents
+from data.misc_sources import (MAURICE_VENDOR_EXPANSION_DATA, MISC_NOTABLE_BALANCES,
+                               MISC_NOTABLE_POOLS, WORLD_DROP_MAP_OVERRIDE)
+from itempool_handling import _ALL_DLCS, expand_drop_on_death, load_itempool_contents
 
 
 def insert_world_drops(con: sqlite3.Connection) -> None:
@@ -77,12 +79,12 @@ def insert_misc_notable_pools(con: sqlite3.Connection) -> None:
         cur.execute(
             """
             INSERT INTO Sources (SourceType, Map, Description) VALUES (
-                "Misc",
+                ?,
                 ?,
                 ?
             )
             """,
-            (source.map_name, source.description)
+            (source.source_type, source.map_name, source.description)
         )
         row_id = cur.lastrowid
 
@@ -107,12 +109,12 @@ def insert_misc_notable_pools(con: sqlite3.Connection) -> None:
         cur.execute(
             """
             INSERT INTO Sources (SourceType, Map, Description) VALUES (
-                "Misc",
+                ?,
                 ?,
                 ?
             )
             """,
-            (source.map_name, source.description)
+            (source.source_type, source.map_name, source.description)
         )
         row_id = cur.lastrowid
 
@@ -127,4 +129,34 @@ def insert_misc_notable_pools(con: sqlite3.Connection) -> None:
                 (balance, row_id)
             )
 
+    con.commit()
+
+
+def insert_maurice_vendor_pools(con: sqlite3.Connection) -> None:
+    cur = con.cursor()
+
+    expansion_data = AssetFile(MAURICE_VENDOR_EXPANSION_DATA).get_single_export("DownloadableExpansionData")
+    for idx, week in enumerate(expansion_data["RandomDateBasedItemPools"]):
+        cur.execute(
+            """
+            INSERT INTO Sources (SourceType, Description, ObjectName) VALUES (
+                "Vendor",
+                ?,
+                ?
+            )
+            """,
+            (f"Maurice's Vendor (idx {idx})", MAURICE_VENDOR_EXPANSION_DATA)
+        )
+        row_id = cur.lastrowid
+
+        for balance in expand_drop_on_death(week):
+            cur.execute(
+                """
+                INSERT INTO ObtainedFrom (ItemID, SourceID) VALUES (
+                    (SELECT ID FROM Items WHERE ObjectName = ?),
+                    ?
+                )
+                """,
+                (balance, row_id)
+            )
     con.commit()

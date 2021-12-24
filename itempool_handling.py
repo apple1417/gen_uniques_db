@@ -1,10 +1,12 @@
 import logging
 import sqlite3
 from collections.abc import Collection
+from typing import Optional
 
 import bl3dump
 from data.hotfixes import (HOTFIX_BALANCEDITEMS_ADD, HOTFIX_BALANCEDITEMS_REMOVE,
-                           HOTFIX_ITEMPOOLLISTS_ADD, BalancedItemsEntry)
+                           HOTFIX_DOD_POOLS_REMOVE_ALL, HOTFIX_ITEMPOOLLISTS_ADD,
+                           BalancedItemsEntry)
 from data.itempools import (ITEMPOOL_EXPANSIONS, ITEMPOOL_OVERRIDES, KNOWN_EMPTY_POOLS,
                             WORLD_DROP_POOLS)
 from data.items import EXPANDABLE_BALANCES
@@ -75,11 +77,34 @@ def load_itempool_list(
     return output
 
 
+# TODO: what's this struct actually called
+def expand_drop_on_death(dod_data: bl3dump.JSON, obj_name: Optional[str] = None) -> set[str]:
+    hf_empty_itempools = False
+    hf_empty_itempool_lists = False
+    if obj_name is not None and obj_name in HOTFIX_DOD_POOLS_REMOVE_ALL:
+        hf_empty_itempools, hf_empty_itempool_lists = HOTFIX_DOD_POOLS_REMOVE_ALL[obj_name]
+
+    output = set()
+    if not hf_empty_itempools:
+        for pool in dod_data.get("ItemPools", []):
+            if isinstance(pool["ItemPool"], dict):
+                continue
+            output.update(load_itempool_contents(pool["ItemPool"][1]))
+
+    if not hf_empty_itempool_lists:
+        for pool_list in dod_data.get("ItemPoolLists", []):
+            if isinstance(pool_list, dict):
+                continue
+            output.update(load_itempool_list(pool_list[1]))
+
+    return output
+
+
 # Need to be here to avoid circular references
 from insert_enemies import (insert_enemies, insert_projectile_enemies,  # noqa: E402
                             iter_enemy_drop_expansions)
-from insert_misc_sources import (insert_arms_race_chests, insert_misc_notable_pools,  # noqa: E402
-                                 insert_world_drops)
+from insert_misc_sources import (insert_arms_race_chests, insert_maurice_vendor_pools,  # noqa: E402
+                                 insert_misc_notable_pools, insert_world_drops)
 from insert_missions import insert_missions  # noqa: E402
 
 
@@ -171,3 +196,4 @@ def insert_all_sources(con: sqlite3.Connection) -> None:
     insert_arms_race_chests(con)
     insert_missions(con)
     insert_world_drops(con)
+    insert_maurice_vendor_pools(con)
