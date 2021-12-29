@@ -2,6 +2,7 @@
 GEAR_CATEGORY_OVERRIDES: dict[str, str] = {
     "/Game/Gear/Weapons/HeavyWeapons/ATL/_Shared/_Design/_Unique/Freeman/Balance/Balance_HW_ATL_Freeman.Balance_HW_ATL_Freeman": "/Game/Gear/_Shared/_Design/GearBuilder/Category_HeavyWeapons.Category_HeavyWeapons",
     "/Game/Gear/Weapons/HeavyWeapons/ATL/_Shared/_Design/_Unique/RubysWrath/Balance/Balance_HW_ATL_RubysWrath.Balance_HW_ATL_RubysWrath": "/Game/Gear/_Shared/_Design/GearBuilder/Category_HeavyWeapons.Category_HeavyWeapons",
+    "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/OperativeSkillSCreen/Balance_DAL_PS_OperativeSkillScreen.Balance_DAL_PS_OperativeSkillScreen": "/Game/Gear/_Shared/_Design/GearBuilder/Category_Pistols.Category_Pistols",
     "/Game/PatchDLC/Geranium/Gear/Weapon/_Unique/Plumage/Balance/Balance_HW_ATL_Plumage.Balance_HW_ATL_Plumage": "/Game/Gear/_Shared/_Design/GearBuilder/Category_HeavyWeapons.Category_HeavyWeapons",
 }
 
@@ -107,6 +108,7 @@ NAME_OVERRIDES: dict[str, set[str]] = {
 
     # Clarifications, where two different items otherwise have the same name
     "/Game/Gear/GrenadeMods/_Design/_Unique/FireStorm/Balance/InvBalD_GM_VLA_FireStorm.InvBalD_GM_VLA_FireStorm": {"Firestorm (Grenade)"},
+    "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/OperativeSkillSCreen/Balance_DAL_PS_OperativeSkillScreen.Balance_DAL_PS_OperativeSkillScreen": {"Shrike (Zane Skill Screen)"},
     "/Game/Gear/Weapons/SMGs/Hyperion/_Shared/_Design/_Unique/Fork/Balance/Balance_SM_HYP_Fork.Balance_SM_HYP_Fork": {"Redistributor (Blue)"},
     "/Game/PatchDLC/Alisma/Gear/Weapon/_Unique/Voice/Balance/Balance_PS_TOR_Voice_Epic.Balance_PS_TOR_Voice_Epic": {"Critical Mass (Pistol)"},
     "/Game/PatchDLC/Geranium/Gear/Weapon/_Unique/BioBetsy/Balance/Balance_AR_COV_BioBetsy_Rad.Balance_AR_COV_BioBetsy_Rad": {"The Beast (Rad)"},
@@ -345,7 +347,6 @@ BALANCE_BLACKLIST: set[str] = {
     "/Game/PatchDLC/Hibiscus/Gear/Weapon/_Unique/SeventhSense/Balance/Balance_PS_JAK_SS_L.Balance_PS_JAK_SS_L",
 
     # Pet Weapons
-    "/Game/Gear/Weapons/Pistols/Dahl/_Shared/_Design/_Unique/OperativeSkillSCreen/Balance_DAL_PS_OperativeSkillScreen.Balance_DAL_PS_OperativeSkillScreen",
     "/Game/PlayerCharacters/Beastmaster/_DLC/Ixora/Pet/Loader/_Design/Weapons/Balance_SG_HYP_PetLoaderWeapon_Fire.Balance_SG_HYP_PetLoaderWeapon_Fire",
     "/Game/PlayerCharacters/Beastmaster/_DLC/Ixora/Pet/Loader/_Design/Weapons/Balance_SG_HYP_PetLoaderWeapon.Balance_SG_HYP_PetLoaderWeapon",
     "/Game/PlayerCharacters/Beastmaster/_DLC/Ixora/Pet/Loader/_Design/Weapons/Balance_SR_HYP_PetLoaderWeapon.Balance_SR_HYP_PetLoaderWeapon",
