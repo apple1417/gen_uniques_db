@@ -114,6 +114,11 @@ Line 3947
     BalancedItems add
     /Game/PatchDLC/Hibiscus/Gear/ClassMods/_Design/BSM/InvBalD_CM_Beastmaster_Hib.InvBalD_CM_Beastmaster_Hib
 
+SparkCharacterLoadedEntry1477 (not in sheet yet)
+/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Miniboss.ItemPool_TD2_Miniboss
+    BalancedItems add
+    /Game/PatchDLC/VaultCard3/Gear/Weapons/Unique/TinyTinaGun/Balance/Balance_PS_TOR_TinyTinaGun.Balance_PS_TOR_TinyTinaGun
+
 Fixups Line 85 (Liable to change)
 /Game/PatchDLC/Raid1/GameData/Loot/ItemPools/ItemPool_TrialBossGuardian.ItemPool_TrialBossGuardian
     BalancedItems removeall (True Trial)

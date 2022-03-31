@@ -46,7 +46,10 @@ HOTFIX_BALANCEDITEMS_ADD: dict[str, BalancedItemsEntry] = {
     "/Game/GameData/Loot/ItemPools/Unique/ItemPool_Piss_ThunkandSloth.ItemPool_Piss_ThunkandSloth": BalancedItemsEntry({
         "/Game/Gear/Weapons/HeavyWeapons/Vladof/_Shared/_Design/_Unique/Mongol/Balance/Balance_HW_VLA_Mongol.Balance_HW_VLA_Mongol",
     }),
-    "/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Miniboss.ItemPool_TD2_Miniboss": BalancedItemsEntry(pools={
+    # Technically this is two seperate hotfixes, but this'll work the same
+    "/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Miniboss.ItemPool_TD2_Miniboss": BalancedItemsEntry({
+        "/Game/PatchDLC/VaultCard3/Gear/Weapons/Unique/TinyTinaGun/Balance/Balance_PS_TOR_TinyTinaGun.Balance_PS_TOR_TinyTinaGun"
+    }, {
         "/Game/PatchDLC/Mayhem2/Gear/ItemPoolExpansion_Mayhem2/ItemPool_Mayhem2_Legendaries.ItemPool_Mayhem2_Legendaries",
     }),
     "/Game/PatchDLC/Takedown2/GameData/Loot/ItemPool_TD2_Boss.ItemPool_TD2_Boss": BalancedItemsEntry(pools={
