@@ -34,7 +34,7 @@ WORLD_DROP_POOLS: dict[str, set[str]] = {
     "Arms Race": {
         "/Game/PatchDLC/Ixora/GameData/Loot/ItemPools/ItemPool_Ixora_All_Legendary.ItemPool_Ixora_All_Legendary",
     },
-    "Dirctor's Cut": {
+    "Director's Cut": {
         "/Game/PatchDLC/Ixora2/GameData/Loot/ItemPool_Artifacts_All_Ixora2.ItemPool_Artifacts_All_Ixora2",
         "/Game/PatchDLC/Ixora2/GameData/Loot/Legendary/ItemPool_Ixora2_ClassMods_Legendary.ItemPool_Ixora2_ClassMods_Legendary",
         "/Game/PatchDLC/Ixora2/GameData/Loot/Legendary/ItemPool_Ixora2_GrenadeMods_Legendary.ItemPool_Ixora2_GrenadeMods_Legendary",

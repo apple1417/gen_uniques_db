@@ -52,7 +52,7 @@ MISC_NOTABLE_POOLS: dict[MiscSource, set[str]] = {
         "/Game/PatchDLC/VaultCard3/Gear/Weapons/Unique/BladeFury/Balance/Itempool_VaultCard3_BladeFury",
         "/Game/PatchDLC/VaultCard3/Gear/Weapons/Unique/Corruption/Balance/Itempool_VaultCard3_Corruption",
     },
-    MiscSource("Tipping Moxxi", "Sanctuary"): {
+    MiscSource("Tipping Moxxi >10k", "Sanctuary"): {
         "/Game/InteractiveObjects/TipJar/ItemPool_MoxxiTip_GunRewards.ItemPool_MoxxiTip_GunRewards",
     },
     MiscSource("Earl's Vendor", "Sanctuary", True, "Vendor"): {
@@ -89,7 +89,7 @@ MISC_NOTABLE_POOLS: dict[MiscSource, set[str]] = {
     MiscSource("All Torgue Hot Sauce"): {
         "/Game/PatchDLC/Dandelion/Missions/ItemPool_Reward/ItemPool_Mission_Crew_TorguesMarketingMistake.ItemPool_Mission_Crew_TorguesMarketingMistake",
     },
-    MiscSource("Petting Mancubite 50+ times", "Lodge"): {
+    MiscSource("Petting Mancubite 69 times consecutively", "Lodge"): {
         "/Game/PatchDLC/Hibiscus/GameData/Loot/UniqueEnemyDrops/ItemPool_Hibiscus_Kaleidoscope.ItemPool_Hibiscus_Kaleidoscope",
     },
 }
